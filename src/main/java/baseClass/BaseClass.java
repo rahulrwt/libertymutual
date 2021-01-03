@@ -51,6 +51,7 @@ public class BaseClass {
 
 	public Home openUrl(String URL) {
 		driver.get(URL);
+		//driver.manage().window().maximize();
 		return PageFactory.initElements(driver, Home.class);
 	}
 	// Title validation

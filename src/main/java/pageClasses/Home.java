@@ -14,7 +14,7 @@ public class Home extends BaseClass {
 		BaseClass.driver=driver;
 	}
 	
-	@FindBy(xpath="//*[@id=\"alphaNumericInput1594-input\"]")
+	@FindBy(xpath="//*[@id=\"alphaNumericInput12-input\"]")
 	WebElement zipcodeElement;
 	
 	@FindBy(xpath="//*[@id='quoteModuleForm']/div/div/div[1]/div[3]/div/div/div/div/div/div[3]/button")

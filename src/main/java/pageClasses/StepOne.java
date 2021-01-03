@@ -15,7 +15,7 @@ import baseClass.BaseClass;
 public class StepOne extends BaseClass {
 
 	@FindBy(xpath = "//*[@id=\"lms-online-purchase-rate-cut-modal\"]/footer/button")
-	WebElement closeElement;
+	WebElement okThanks;
 
 	@FindBy(xpath = "//*[@id=\"nameAndBirthDate-firstName-input\"]")
 	WebElement firstNameElement;
@@ -39,8 +39,8 @@ public class StepOne extends BaseClass {
 		BaseClass.driver=driver;
 	}
 	
-	public void closePopUp() {
-		closeElement.click();
+	public void okThanksPopUp() {
+		okThanks.click();
 	}
 
 	public void setFirstName(String name) {
