@@ -1,5 +1,6 @@
 package pageClasses;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.internal.SingleKeyAction;
@@ -44,8 +45,13 @@ public class StepThree extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"ageLicensed-input-select\"]")
 	WebElement age;
 
-	public void licenseIssuedAtAge(String age) {
-		this.age.sendKeys(age);
+	public void licenseIssuedAtAge(int age) {
+		
+		
+		for (int i = 0; i < 16 - age; i++) {
+			this.age.sendKeys(Keys.ARROW_DOWN);
+		}
+		
 	}
 
 	@FindBy(xpath = "//*[@id=\"goodStudent-radio\"]/div/div/label[1]/span")

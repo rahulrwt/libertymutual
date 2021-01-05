@@ -25,8 +25,9 @@ public class StepTwo extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"year-select-select\"]")
 	WebElement vehicleYear;
 
-	public void setVehicleYear(String year) {
-		vehicleYear.sendKeys(year);
+	public void setVehicleYear(int year) {
+		for (int i = 0; i <= 2022 - year; i++)
+			vehicleYear.sendKeys(Keys.ARROW_DOWN);
 	}
 
 	@FindBy(xpath = "//*[@id=\"make-visualRadioGroup\"]/div/div/div/div[1]/label")
@@ -45,14 +46,18 @@ public class StepTwo extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"vehicleSpecs-bodyStyle-select\"]")
 	WebElement vehicleStyle;
 
+	// have write code for selecting specific model,trim and style
 	public void setVehicleSpecs(String vehicleModel, String vehicleTrim, String vehicleStyle) {
-		this.vehicleModel.sendKeys(vehicleModel);
+		this.vehicleModel.click();
+		this.vehicleModel.sendKeys(Keys.DOWN);
 		this.vehicleModel.sendKeys(Keys.ENTER);
 
-		this.vehicleTrim.sendKeys(vehicleTrim);
+		this.vehicleTrim.click();
+		this.vehicleTrim.sendKeys(Keys.DOWN);
 		this.vehicleTrim.sendKeys(Keys.ENTER);
 
-		this.vehicleStyle.sendKeys(vehicleStyle);
+		this.vehicleStyle.click();
+		this.vehicleStyle.sendKeys(Keys.DOWN);
 		this.vehicleStyle.sendKeys(Keys.ENTER);
 	}
 
@@ -73,8 +78,8 @@ public class StepTwo extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"ownership-radio\"]/div/div/label[3]/span")
 	WebElement lease;
 
-	public void owenerShip(String type) {
-		if (type.toLowerCase().equals("fullPaid")) {
+	public void ownerShip(String type) {
+		if (type.toLowerCase().equals("full paid")) {
 			fullPaid.click();
 		} else if (type.toLowerCase().equals("finance")) {
 			finance.click();
@@ -90,6 +95,7 @@ public class StepTwo extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"garagingAddressIndicator-radio\"]/div/div/label[2]/span")
 	WebElement no;
 
+	// ************************have create branch for no option********
 	public void CarKeptAtGivenAddress(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			yes.click();
@@ -101,9 +107,11 @@ public class StepTwo extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"purchaseYear-input-input\"]")
 	WebElement purchaseYear;
 
-	public void purchaseYear(String year) {
-		purchaseYear.sendKeys(year);
+	public void purchaseYear(int year) {
 
+		for (int i = 0; i <= 2021 - year; i++) {
+			purchaseYear.sendKeys(Keys.ARROW_DOWN);
+		}
 	}
 
 	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
@@ -113,7 +121,5 @@ public class StepTwo extends BaseClass {
 		saveAndContinue.click();
 		return PageFactory.initElements(driver, StepThree.class);
 	}
-
-
 
 }

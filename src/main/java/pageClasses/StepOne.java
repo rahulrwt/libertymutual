@@ -9,12 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.beust.jcommander.ResourceBundle;
 
-
 import baseClass.BaseClass;
 
 public class StepOne extends BaseClass {
+//***************************dynamic xpath*****************
+	@FindBy(xpath = "//*[@id=\"discount-marketing-modal\"]/footer/button")
 
-	@FindBy(xpath = "//*[@id=\"lms-online-purchase-rate-cut-modal\"]/footer/button")
 	WebElement okThanks;
 
 	@FindBy(xpath = "//*[@id=\"nameAndBirthDate-firstName-input\"]")
@@ -28,17 +28,15 @@ public class StepOne extends BaseClass {
 
 	@FindBy(xpath = "//*[@id=\"nameAndBirthDate\"]/button")
 	WebElement nextPersonalDetails;
-				
-	
-	public WebDriver getDriver()
-	{
+
+	public WebDriver getDriver() {
 		return driver;
 	}
-	
-	public StepOne(WebDriver driver){
-		BaseClass.driver=driver;
+
+	public StepOne(WebDriver driver) {
+		BaseClass.driver = driver;
 	}
-	
+
 	public void okThanksPopUp() {
 		okThanks.click();
 	}
@@ -73,6 +71,7 @@ public class StepOne extends BaseClass {
 
 	@FindBy(xpath = "//*[@id=\"residentialAddress\"]/button")
 	WebElement nextAddressDetails;
+
 	public void setAddress1(String address) {
 		address1.sendKeys(address);
 	}
@@ -84,48 +83,43 @@ public class StepOne extends BaseClass {
 	public void setZipCode(String zip) {
 		zipCode.sendKeys(zip);
 	}
-	
+
 	public void setCity(String city) {
 		this.city.sendKeys(city);
 	}
-	
+
 	public void clickNextAddressDetails() {
 		nextAddressDetails.click();
 	}
-	
-	@FindBy(xpath ="//*[@id=\"priorAddressIndicator-radio\"]/div/div/label[1]/span")
+
+	@FindBy(xpath = "//*[@id=\"priorAddressIndicator-radio\"]/div/div/label[1]/span")
 	WebElement yesElement;
-	
+
 	@FindBy(xpath = "//*[@id=\"priorAddressIndicator-radio\"]/div/div/label[2]/span")
 	WebElement noElement;
-	
+
 	public void lastThreeMonths(String ans) {
-		if(ans.toLowerCase().equals("yes"))
-		{
+		if (ans.toLowerCase().equals("yes")) {
 			yesElement.click();
-		}
-		else
-		{
+		} else {
 			noElement.click();
 		}
 	}
 
 	@FindBy(xpath = "//*[@id=\"emailAddress-input-input\"]")
 	WebElement emailElement;
-		
-	public void setEmail(String email)
-	{
+
+	public void setEmail(String email) {
 		emailElement.sendKeys(email);
 	}
-	
+
 	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
 	WebElement saveAndContinue;
-	
-	public StepTwo clickContinue()
-	{
+
+	public StepTwo clickContinue() {
 		saveAndContinue.click();
-		
+
 		return PageFactory.initElements(driver, StepTwo.class);
-		
+
 	}
-	}
+}

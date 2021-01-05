@@ -6,7 +6,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import baseClass.BaseClass;
 import pageClasses.Home;
+import pageClasses.StepFive;
+import pageClasses.StepFour;
 import pageClasses.StepOne;
+import pageClasses.StepThree;
 import pageClasses.StepTwo;
 
 /**
@@ -22,7 +25,7 @@ public class App
 		bClass.invokebrowser("chrome");
 		Home home=bClass.openUrl("https://buy.libertymutual.com/");
 		try {
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,7 +36,8 @@ public class App
 //		
 		home.setZipCode("03820");
 		StepOne stepOne=home.getPrice();
-		
+		//*******************STEP StepOne*******************
+	
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
@@ -73,6 +77,10 @@ public class App
 		}
 		stepOne.setEmail("rahulrawat.rrc@gmail.com");
 		StepTwo stepTwo=stepOne.clickContinue();
+	
+		//*******************StepTwo*******************
+
+		
 		try {
 			Thread.sleep(7000);
 		} catch (InterruptedException e) {
@@ -88,14 +96,56 @@ public class App
 			// TODO Auto-generated catch block
 		}
 		
-		stepTwo.setVehicleYear("2015");
+		stepTwo.setVehicleYear(2015);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//*********************************Have to change*****************
 		stepTwo.selectChevrolet();
-		stepTwo.setVehicleSpecs("CAMARO", "LS", "2 DOOR COUPE");
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//stepTwo.setVehicleSpecs("CAMARO", "LS", "2 DOOR COUPE");
+
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		stepTwo.clickNext();
+		
+		stepTwo.ownerShip("full paid");
+		stepTwo.CarKeptAtGivenAddress("yes");
+		stepTwo.purchaseYear(2020);
+		stepTwo.saveAndContinue();
+		
+		StepThree stepThree=stepTwo.saveAndContinue();
+		
+		//*******************STEP THREE*******************
+		stepThree.marriedOrCivilUnion("yes");
+		stepThree.gender("male");
+		stepThree.licenseIssuedAtAge(18);
+		stepThree.contactNo("9501612028");
+		stepThree.saveAndContinue();
+		StepFour stepFour=stepThree.saveAndContinue();
+		
+		//*******************STEP FOUR*******************
+			stepFour.employmentStatus("student");
+			stepFour.highestEducation("vocational");
+			stepFour.ownHome("single");
+			stepFour.saveAndContinue();
+			StepFive stepFive=stepFour.saveAndContinue();
+			//*******************STEP FIVE*******************
+			
 }
 }

@@ -9,30 +9,30 @@ import org.openqa.selenium.support.PageFactory;
 import baseClass.BaseClass;
 
 public class Home extends BaseClass {
-	
-	public Home(WebDriver driver){
-		BaseClass.driver=driver;
+
+	public Home(WebDriver driver) {
+		BaseClass.driver = driver;
 	}
-	
-	@FindBy(xpath="//*[@id=\"alphaNumericInput12-input\"]")
+	// ***************************dynamic xpath*****************
+
+	@FindBy(xpath = "//*[@id=\"alphaNumericInput229-input\"]")
+
 	WebElement zipcodeElement;
-	
-	@FindBy(xpath="//*[@id='quoteModuleForm']/div/div/div[1]/div[3]/div/div/div/div/div/div[3]/button")
+
+	@FindBy(xpath = "//*[@id='quoteModuleForm']/div/div/div[1]/div[3]/div/div/div/div/div/div[3]/button")
 	WebElement getPricElement;
-	
-	public void setZipCode(String zipCode)
-	{
+
+	public void setZipCode(String zipCode) {
 		zipcodeElement.sendKeys(zipCode);
 	}
-	
-	public StepOne getPrice()
-	{
+
+	public StepOne getPrice() {
 		getPricElement.click();
 		return PageFactory.initElements(driver, StepOne.class);
-	
+
 	}
-	public WebDriver getDriver()
-	{
+
+	public WebDriver getDriver() {
 		return driver;
 	}
 
