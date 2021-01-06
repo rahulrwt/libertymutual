@@ -9,13 +9,11 @@ import pageClasses.Home;
 import pageClasses.StepFive;
 import pageClasses.StepFour;
 import pageClasses.StepOne;
+import pageClasses.StepSix;
 import pageClasses.StepThree;
 import pageClasses.StepTwo;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
 	public static void main(String[] args) {
@@ -33,7 +31,7 @@ public class App
 //		WebDriver driver=home.getDriver();
 //		WebDriverWait wait = new WebDriverWait(driver, 15);
 //		wait.until(ExpectedConditions.elementToBeClickable(home.getZipCodeElement()));
-//		
+		
 		home.setZipCode("03820");
 		StepOne stepOne=home.getPrice();
 		//*******************STEP StepOne*******************
@@ -82,19 +80,19 @@ public class App
 
 		
 		try {
-			Thread.sleep(7000);
+			Thread.sleep(15000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		
-		try {
-			stepTwo.dontHavePlate();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-		}
+//		
+//		
+//		try {
+//			stepTwo.dontHavePlate();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//		}
 		
 		stepTwo.setVehicleYear(2015);
 		try {
@@ -117,35 +115,219 @@ public class App
 		//stepTwo.setVehicleSpecs("CAMARO", "LS", "2 DOOR COUPE");
 
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		stepTwo.clickNext();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		stepTwo.ownerShip("full paid");
-		stepTwo.CarKeptAtGivenAddress("yes");
-		stepTwo.purchaseYear(2020);
-		stepTwo.saveAndContinue();
 		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		stepTwo.CarKeptAtGivenAddress("yes");
+		
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		stepTwo.purchaseYear("2017");
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		stepTwo.saveAndContinue();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		StepThree stepThree=stepTwo.saveAndContinue();
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//*******************STEP THREE*******************
 		stepThree.marriedOrCivilUnion("yes");
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		stepThree.gender("male");
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		stepThree.licenseIssuedAtAge(18);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		stepThree.contactNo("9501612028");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		stepThree.saveAndContinue();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		StepFour stepFour=stepThree.saveAndContinue();
 		
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		//*******************STEP FOUR*******************
-			stepFour.employmentStatus("student");
-			stepFour.highestEducation("vocational");
+			//stepFour.employmentStatus("student");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			stepFour.haveAnotherPolicyWithLiberty("no");
+			
+			try {
+				Thread.sleep(8000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			stepFour.highestEducation("bachelor");
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			stepFour.ownHome("single");
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			//stepFour.saveAndContinue();
+
+//			try {
+//				Thread.sleep(2000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			
 			stepFour.saveAndContinue();
-			StepFive stepFive=stepFour.saveAndContinue();
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			stepFour.wantToSave30percent("no");
+			stepFour.saveAndContinue();
+			StepFive stepFive=stepFour.continueWithoutOffer();
 			//*******************STEP FIVE*******************
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			stepFive.currentlyHaveInsurance("no");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			stepFive.reasonForNotHavingInsurance("newly licensed");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			stepFive.policyStartDate("January 22,2021");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			StepSix stepSix=stepFive.getEstimate();
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				Thread.sleep(20000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 }
 }

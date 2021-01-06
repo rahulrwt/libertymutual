@@ -28,10 +28,10 @@ public class StepThree extends BaseClass {
 		}
 	}
 
-	@FindBy(xpath = "//*[@id=\"gender-radio\"]/div/div/label[1]/span")
+	@FindBy(xpath = "//span[text()='Male']")
 	WebElement male;
 
-	@FindBy(xpath = "//*[@id=\"gender-radio\"]/div/div/label[2]/span")
+	@FindBy(xpath = "//span[text()='Female']")
 	WebElement female;
 
 	public void gender(String ans) {
@@ -48,7 +48,7 @@ public class StepThree extends BaseClass {
 	public void licenseIssuedAtAge(int age) {
 		
 		
-		for (int i = 0; i < 16 - age; i++) {
+		for (int i = 0; i < 14 - age; i++) {
 			this.age.sendKeys(Keys.ARROW_DOWN);
 		}
 		

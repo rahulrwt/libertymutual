@@ -1,5 +1,7 @@
 package pageClasses;
 
+import java.security.DrbgParameters.NextBytes;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,14 +16,20 @@ public class StepTwo extends BaseClass {
 		BaseClass.driver = driver;
 	}
 
-	@FindBy(xpath = "//*[@id=\"licensePlateLookup\"]/div[4]/button")
-	WebElement dontHavePlate;
+	
+	
+	
+	
+	@FindBy(xpath = "//*[@id=\"vin-input-input\"]")
+	WebElement VIN;
 
-	public void dontHavePlate() {
-		dontHavePlate.click();
-		// return PageFactory.initElements(driver,stepThree.class);
+	public void setVIN(String VIN) {
+		this.VIN.sendKeys(VIN);
+		
 	}
 
+	
+	//********************************functions for Without VIN*******************************
 	@FindBy(xpath = "//*[@id=\"year-select-select\"]")
 	WebElement vehicleYear;
 
@@ -62,13 +70,16 @@ public class StepTwo extends BaseClass {
 	}
 
 	@FindBy(xpath = "//*[@id=\"vehicleSpecs\"]/button")
-	WebElement next;
+	WebElement next1;
 
 	public void clickNext() {
-		next.click();
+		next1.click();
 
 	}
 
+	
+	//***************************************Common functions for both branch**********************
+	
 	@FindBy(xpath = "//*[@id=\"ownership-radio\"]/div/div/label[1]/span")
 	WebElement fullPaid;
 
@@ -95,7 +106,6 @@ public class StepTwo extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"garagingAddressIndicator-radio\"]/div/div/label[2]/span")
 	WebElement no;
 
-	// ************************have create branch for no option********
 	public void CarKeptAtGivenAddress(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			yes.click();
@@ -103,17 +113,43 @@ public class StepTwo extends BaseClass {
 			no.click();
 		}
 	}
+	// ********************************Yes Branch*******************
 
-	@FindBy(xpath = "//*[@id=\"purchaseYear-input-input\"]")
+	@FindBy(xpath = "//*[@name='purchase-year']")
 	WebElement purchaseYear;
+	
+	public void purchaseYear(String year) {
 
-	public void purchaseYear(int year) {
-
-		for (int i = 0; i <= 2021 - year; i++) {
-			purchaseYear.sendKeys(Keys.ARROW_DOWN);
-		}
+		
+			purchaseYear.sendKeys(year);
+		
 	}
 
+	// ********************************No Branch*******************
+	@FindBy(xpath = "//*[@id=\"garagingAddress-streetAddress-input\"]")
+	WebElement address11;
+	
+	@FindBy(xpath = "//*[@id=\"garagingAddress-additionalStreetAddress-input\"]")
+	WebElement address22;
+
+	@FindBy(xpath = "//*[@id=\"garagingAddress-zipCode-input\"]")
+	WebElement zipcode;
+
+	public void whereDoYouKeepIt(String address1, String address2, String zipcode) {
+		address11.sendKeys(address1);
+		address22.sendKeys(address2);
+		this.zipcode.sendKeys(zipcode);
+	}
+	@FindBy(xpath = "//*[@id=\"garagingAddress\"]/button")
+	WebElement next;
+	
+	
+	public void next()
+	{
+		next.click();
+		
+	}
+	
 	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
 	WebElement saveAndContinue;
 

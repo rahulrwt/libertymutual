@@ -1,5 +1,6 @@
 package pageClasses;
 
+import java.security.DrbgParameters.NextBytes;
 import java.security.PublicKey;
 
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,7 @@ import baseClass.BaseClass;
 
 public class StepOne extends BaseClass {
 //***************************dynamic xpath*****************
-	@FindBy(xpath = "//*[@id=\"discount-marketing-modal\"]/footer/button")
+	@FindBy(xpath = "//button[@class='lm-Button--icon lms-ButtonClose']")
 
 	WebElement okThanks;
 
@@ -66,8 +67,8 @@ public class StepOne extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"residentialAddress-zipCode-input\"]")
 	WebElement zipCode;
 
-	@FindBy(xpath = "//*[@id=\"residentialAddress-city-input\"]")
-	WebElement city;
+//	@FindBy(xpath = "//*[@id=\"residentialAddress-city-input\"]")
+//	WebElement city;
 
 	@FindBy(xpath = "//*[@id=\"residentialAddress\"]/button")
 	WebElement nextAddressDetails;
@@ -84,9 +85,9 @@ public class StepOne extends BaseClass {
 		zipCode.sendKeys(zip);
 	}
 
-	public void setCity(String city) {
-		this.city.sendKeys(city);
-	}
+//	public void setCity(String city) {
+//		this.city.sendKeys(city);
+//	}
 
 	public void clickNextAddressDetails() {
 		nextAddressDetails.click();
@@ -106,6 +107,37 @@ public class StepOne extends BaseClass {
 		}
 	}
 
+//*********************************functions for no option********************
+	@FindBy(xpath = "//*[@id=\"priorAddress-streetAddress-input\"]")
+	WebElement address11;
+
+	@FindBy(xpath = "//*[@id=\"priorAddress-additionalStreetAddress-input\"]")
+	WebElement address22;
+
+	@FindBy(xpath = "//*[@id=\"priorAddress-zipCode-input\"]")
+	WebElement zipcode;
+
+	
+	
+	
+	public void whereDidYouLiveBefore(String address1,String address2,String zipcode)
+	{
+		address11.sendKeys(address1);
+		address22.sendKeys(address2);
+		this.zipcode.sendKeys(zipcode);
+	}
+	
+	@FindBy(xpath = "//*[@id=\"priorAddress\"]/button")
+	WebElement next;
+	
+	public void next()
+	{
+		next.click();
+	}
+	
+	
+	
+	
 	@FindBy(xpath = "//*[@id=\"emailAddress-input-input\"]")
 	WebElement emailElement;
 

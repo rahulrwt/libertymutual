@@ -1,5 +1,7 @@
 package pageClasses;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.internal.SingleKeyAction;
@@ -13,10 +15,10 @@ public class StepFour extends BaseClass {
 		BaseClass.driver = driver;
 	}
 
-	@FindBy(xpath = "//*[@id=\"lmPolicyIndicator-radio\"]/div/div/label[1]/span")
+	@FindBy(xpath = "//span[text()='Yes']")
 	WebElement yes;
 
-	@FindBy(xpath = "//*[@id=\"lmPolicyIndicator-radio\"]/div/div/label[2]/span")
+	@FindBy(xpath = "//span[text()='No']")
 	WebElement no;
 
 	public void haveAnotherPolicyWithLiberty(String ans) {
@@ -27,6 +29,55 @@ public class StepFour extends BaseClass {
 		}
 	}
 
+	//*************************************yes branch*******************
+	
+	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[1]/label")
+	WebElement home;
+
+	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[2]/label")
+	WebElement life;
+	
+	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[3]/label")
+	WebElement auto;
+
+	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[4]/label")
+	WebElement peronalInsurance;
+	
+	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[5]/label")
+	WebElement landLord;
+
+	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[6]/label")
+	WebElement motorcycle;
+	
+	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[7]/label")
+	WebElement other11;
+	
+	
+	
+	//arraylist of policies
+	
+	public void policiesYouHave(ArrayList<String> policies) {
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@FindBy(xpath = "//*[@id=\"employmentStatus-radio\"]/div/div/label[1]/span")
 	WebElement employed;
 
@@ -62,7 +113,8 @@ public class StepFour extends BaseClass {
 
 	}
 
-	@FindBy(xpath = "//*[@id=\"highestEducationLevel-radio\"]/div/div/label[1]/span")
+	
+	@FindBy(xpath = "//span[text()='High school diploma/equivalent']")
 	WebElement highschool;
 
 	@FindBy(xpath = "//*[@id=\"highestEducationLevel-radio\"]/div/div/label[2]/span")
@@ -71,7 +123,7 @@ public class StepFour extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"highestEducationLevel-radio\"]/div/div/label[3]/span")
 	WebElement associatedegree;
 
-	@FindBy(xpath = "//*[@id=\"highestEducationLevel-radio\"]/div/div/label[4]/span")
+	@FindBy(xpath = "//span[text()='Bachelor’s degree']")
 	WebElement bachelor;
 
 	@FindBy(xpath = "//*[@id=\"highestEducationLevel-radio\"]/div/div/label[5]/span")
@@ -92,12 +144,12 @@ public class StepFour extends BaseClass {
 		} else if (highestLevel.toLowerCase().equals("advanced")) {
 			advanced.click();
 		} else {
-			other.click();
+			other11.click();
 		}
 
 	}
 
-	@FindBy(xpath = "//*[@id=\"residenceType-radio\"]/div/div/label[1]/span")
+	@FindBy(xpath = "//span[text()='Yes, single or multi-family']")
 	WebElement single;
 
 	@FindBy(xpath = "//*[@id=\"residenceType-radio\"]/div/div/label[2]/span")
@@ -131,10 +183,10 @@ public class StepFour extends BaseClass {
 
 	}
 
-	@FindBy(xpath = "//*[@id=\"enrollRightTrack-radio\"]/div/div/label[1]/span")
+	@FindBy(xpath = "//span[text()='Yes, sign me up!']")
 	WebElement yes1;
-
-	@FindBy(xpath = "//*[@id=\"enrollRightTrack-radio\"]/div/div/label[2]/span")
+	
+	@FindBy(xpath = "//span[text()='No, thanks']")
 	WebElement no11;
 
 	@FindBy(xpath = "//*[@id=\"rightTrackSelections\"]/button")
@@ -170,7 +222,7 @@ public class StepFour extends BaseClass {
 		} else if (phone.toLowerCase().equals("android")) {
 			android4.click();
 		} else if (phone.toLowerCase().equals("other")) {
-			other1.click();
+			other11.click();
 		} else {
 			noPhone.click();
 		}

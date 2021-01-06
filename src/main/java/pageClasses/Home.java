@@ -15,7 +15,7 @@ public class Home extends BaseClass {
 	}
 	// ***************************dynamic xpath*****************
 
-	@FindBy(xpath = "//*[@id=\"alphaNumericInput229-input\"]")
+	@FindBy(xpath = "//input[@name='zipCode']")
 
 	WebElement zipcodeElement;
 

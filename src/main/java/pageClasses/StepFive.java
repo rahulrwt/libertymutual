@@ -1,10 +1,12 @@
 package pageClasses;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import baseClass.BaseClass;
 
@@ -13,10 +15,10 @@ public class StepFive extends BaseClass {
 		BaseClass.driver = driver;
 	}
 
-	@FindBy(xpath = "//*[@id=\"autoPolicyIndicator-radio\"]/div/div/label[1]/span")
+	@FindBy(xpath = "//span[text()='Yes']")
 	WebElement yes;
 
-	@FindBy(xpath = "//*[@id=\"autoPolicyIndicator-radio\"]/div/div/label[2]/span")
+	@FindBy(xpath = "//span[text()='No']")
 	WebElement no;
 
 	public void currentlyHaveInsurance(String ans) {
@@ -27,12 +29,12 @@ public class StepFive extends BaseClass {
 		}
 	}
 
-	// ********************************functions for no option*************************
+	// *************************functions for no option*****************
 
 	@FindBy(xpath = "//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[1]/span/span[1]")
 	WebElement expiredOrCanceled;
 
-	@FindBy(xpath = "//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[2]/span/span[1]")
+	@FindBy(xpath = "//span[text() = 'I’m newly licensed']")
 	WebElement newlyLicensed;
 
 	@FindBy(xpath = "//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[3]/span/span[1]")
@@ -65,15 +67,15 @@ public class StepFive extends BaseClass {
 	public void shareReason(String reason) {
 		this.reason.sendKeys(reason);
 	}
-	
+
 	@FindBy(xpath = "//*[@id=\"noPriorInsuranceForm\"]/button")
 	WebElement next;
+
 	public void next() {
 		this.next.click();
 	}
-	
 
-	// ********************************functions for yes option*************************
+	// **************************functions for yes option*************************
 
 	@FindBy(xpath = "//*[@id=\"priorPolicyStartDropdown-input-select\"]")
 	WebElement priorPolicyStart;
@@ -107,21 +109,26 @@ public class StepFive extends BaseClass {
 			bodilyInjury.sendKeys(Keys.ARROW_DOWN);
 		}
 	}
-	//***************************************logic for date!!!!!!!!!!!!!!!!!!!!*****************************************
-	@FindBy(xpath = "//*[@id=\"newPolicyStart-select-select\"]")
+
+	// ******************************logic for date!!!!!!!!!!!!!!!!!!!!***************************
+	@FindBy(xpath = "//select[@class='lm-Field-select']")
 	WebElement date;
-	//*[@id="newPolicyStart-select-select"]
+
 	public void policyStartDate(String date) {
-		
+
+		Select dropdown = new Select(this.date);
+
+		dropdown.selectByIndex(10);
+
 	}
+
 	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
 	WebElement getEstimate;
-	
-	public StepSix getEstimate()
-	{
+
+	public StepSix getEstimate() {
 		getEstimate.click();
 		return PageFactory.initElements(driver, StepSix.class);
 
 	}
-	
+
 }
