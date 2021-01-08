@@ -49,7 +49,7 @@ public class StepTwo extends BaseClass {
 
 	}
 
-	@FindBy(xpath = "//*[@id=\"vin\"]/button[2]")
+	@FindBy(xpath = "//button[text()='Next']")
 	WebElement VINNext;
 
 	public void VINNext() {
@@ -109,7 +109,7 @@ public class StepTwo extends BaseClass {
 	// ***************************************Common functions for both
 	// branch**********************
 
-	@FindBy(xpath = "//*[@id=\"ownership-radio\"]/div/div/label[1]/span")
+	@FindBy(xpath = "//span[text()='Own (fully paid off)']")
 	WebElement fullPaid;
 
 	@FindBy(xpath = "//*[@id=\"ownership-radio\"]/div/div/label[2]/span")
@@ -129,10 +129,9 @@ public class StepTwo extends BaseClass {
 
 	}
 
-	@FindBy(xpath = "//*[@id=\"garagingAddressIndicator-radio\"]/div/div/label[1]/span")
+	@FindBy(xpath = "//span[text() = 'Yes']")
 	WebElement yes;
-
-	@FindBy(xpath = "//*[@id=\"garagingAddressIndicator-radio\"]/div/div/label[2]/span")
+	@FindBy(xpath = "//span[text() = 'No']")
 	WebElement no;
 
 	public void CarKeptAtGivenAddress(String ans) {
@@ -177,7 +176,10 @@ public class StepTwo extends BaseClass {
 
 	}
 
-	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
+
+	
+	
+	@FindBy(xpath = "//button[text() = 'Save and continue']")
 	WebElement saveAndContinue;
 
 	public StepThree saveAndContinue() {

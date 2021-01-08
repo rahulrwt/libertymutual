@@ -1,5 +1,7 @@
 package com.team13.libertymutual;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -97,7 +99,7 @@ public class App {
 			}
 			stepTwo.setVIN1("5NPEB4ACXDH537662");
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -107,7 +109,7 @@ public class App {
 		}
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -115,7 +117,7 @@ public class App {
 		stepTwo.ownerShip("full paid");
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -129,14 +131,8 @@ public class App {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		stepTwo.purchaseYear("2017");
-
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//stepTwo.saveAndContinue();
+		//stepTwo.purchaseYear("2017");
 
 		stepTwo.saveAndContinue();
 		try {
@@ -173,7 +169,7 @@ public class App {
 			e.printStackTrace();
 		}
 
-		stepThree.licenseIssuedAtAge(18);
+	//	stepThree.licenseIssuedAtAge("18");
 
 		try {
 			Thread.sleep(2000);
@@ -210,24 +206,16 @@ public class App {
 
 		// *******************STEP FOUR*******************
 
+		
+		stepFour.haveAnotherPolicyWithLiberty("no");
 		try {
 			stepFour.employmentStatus("student");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
-
+		
 		try {
 			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		stepFour.haveAnotherPolicyWithLiberty("no");
-
-		try {
-			Thread.sleep(8000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -251,19 +239,12 @@ public class App {
 			e.printStackTrace();
 		}
 
-		// stepFour.saveAndContinue();
 
-//			try {
-//				Thread.sleep(2000);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
 
 		stepFour.saveAndContinue();
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -274,7 +255,7 @@ public class App {
 		StepFive stepFive = stepFour.continueWithoutOffer();
 		// *******************STEP FIVE*******************
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -295,7 +276,7 @@ public class App {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		stepFive.policyStartDate("January 22,2021");
+		stepFive.policyStartDate("January 22,2021");       //set by visible text
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -304,8 +285,22 @@ public class App {
 		}
 		StepSix stepSix = stepFive.getEstimate();
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try
+		{
+			stepSix.printConsole();
+		}
+		catch(Exception e) {
+			stepSix.printConsole1();
+		}
+		
+		try {
+			stepSix.saveToXls();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -45,12 +45,10 @@ public class StepThree extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"ageLicensed-input-select\"]")
 	WebElement age;
 
-	public void licenseIssuedAtAge(int age) {
+	public void licenseIssuedAtAge(String age) {
 		
 		
-		for (int i = 0; i < 14 - age; i++) {
-			this.age.sendKeys(Keys.ARROW_DOWN);
-		}
+	this.age.sendKeys(age);
 		
 	}
 
