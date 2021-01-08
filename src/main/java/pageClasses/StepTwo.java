@@ -16,20 +16,49 @@ public class StepTwo extends BaseClass {
 		BaseClass.driver = driver;
 	}
 
+
+	@FindBy(xpath = "//*[@id=\"licensePlateLookup\"]/div[4]/button")
+	WebElement dontHavePlate;
+
+	public void dontHavePlate() {
+		dontHavePlate.click();
+	}
+
 	
-	
-	
-	
-	@FindBy(xpath = "//*[@id=\"vin-input-input\"]")
+	@FindBy(xpath = "//*[@id=\"licensePlateLookup-input-input\"]")
 	WebElement VIN;
 
 	public void setVIN(String VIN) {
 		this.VIN.sendKeys(VIN);
-		
 	}
 
 	
-	//********************************functions for Without VIN*******************************
+	@FindBy(xpath = "//input[@id  = 'vin-input-input']")
+	WebElement VIN1;
+
+	public void setVIN1(String VIN) {
+		this.VIN1.sendKeys(VIN);
+
+	}
+
+	@FindBy(xpath = "//button[text() = 'Use VIN instead']")
+	WebElement VINInstead;
+
+	public void useVINInstead() {
+		VINInstead.click();
+
+	}
+
+	@FindBy(xpath = "//*[@id=\"vin\"]/button[2]")
+	WebElement VINNext;
+
+	public void VINNext() {
+		VINNext.click();
+
+	}
+
+	// ********************************functions for Without
+	// VIN*******************************
 	@FindBy(xpath = "//*[@id=\"year-select-select\"]")
 	WebElement vehicleYear;
 
@@ -77,9 +106,9 @@ public class StepTwo extends BaseClass {
 
 	}
 
-	
-	//***************************************Common functions for both branch**********************
-	
+	// ***************************************Common functions for both
+	// branch**********************
+
 	@FindBy(xpath = "//*[@id=\"ownership-radio\"]/div/div/label[1]/span")
 	WebElement fullPaid;
 
@@ -117,18 +146,17 @@ public class StepTwo extends BaseClass {
 
 	@FindBy(xpath = "//*[@name='purchase-year']")
 	WebElement purchaseYear;
-	
+
 	public void purchaseYear(String year) {
 
-		
-			purchaseYear.sendKeys(year);
-		
+		purchaseYear.sendKeys(year);
+
 	}
 
 	// ********************************No Branch*******************
 	@FindBy(xpath = "//*[@id=\"garagingAddress-streetAddress-input\"]")
 	WebElement address11;
-	
+
 	@FindBy(xpath = "//*[@id=\"garagingAddress-additionalStreetAddress-input\"]")
 	WebElement address22;
 
@@ -140,16 +168,15 @@ public class StepTwo extends BaseClass {
 		address22.sendKeys(address2);
 		this.zipcode.sendKeys(zipcode);
 	}
+
 	@FindBy(xpath = "//*[@id=\"garagingAddress\"]/button")
 	WebElement next;
-	
-	
-	public void next()
-	{
+
+	public void next() {
 		next.click();
-		
+
 	}
-	
+
 	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
 	WebElement saveAndContinue;
 
