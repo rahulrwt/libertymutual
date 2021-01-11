@@ -36,7 +36,7 @@ public class BaseClass {
 	static Properties prop = readProperties();
 	public ExtentReports report = ExtentReportManager.getReportInstance();
 	public ExtentTest logger;
-	//public DesiredCapabilities cap = null;
+	public DesiredCapabilities cap = null;
 	
 	@Parameters("browser")
 	@Test(priority = 0)
@@ -48,31 +48,31 @@ public class BaseClass {
 			logger.log(Status.INFO, "Opening the browser");
 
 			if (browser.equalsIgnoreCase("chrome")) {
-				System.setProperty("webdriver.chrome.driver", prop.getProperty("chrome_path"));
-				driver=new ChromeDriver();
-				//cap = DesiredCapabilities.chrome();
+				//System.setProperty("webdriver.chrome.driver", prop.getProperty("chrome_path"));
+		//		driver=new ChromeDriver();
+				cap = DesiredCapabilities.chrome();
 
 				logger.log(Status.PASS, "Chrome opened");
 			}
 
 			else if (browser.equalsIgnoreCase("firefox")) {
-				System.setProperty("webdriver.gecko.driver", prop.getProperty("firefox_path"));
+				//System.setProperty("webdriver.gecko.driver", prop.getProperty("firefox_path"));
 				
-				//cap = DesiredCapabilities.firefox();
+				cap = DesiredCapabilities.firefox();
 				logger.log(Status.PASS, "firefox opened");
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
-//		try {
-//
-//			logger.log(Status.INFO, "node is connected to hub http://192.168.1.28:4444/wd/hub");
-//			driver = new RemoteWebDriver(new URL("http://192.168.1.28:4444/wd/hub"), cap); // pass address of hub as
-//																							// argument in URL()
-//		} catch (MalformedURLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+
+			logger.log(Status.INFO, "node is connected to hub http://192.168.1.28:4444/wd/hub");
+			driver = new RemoteWebDriver(new URL("http://192.168.0.111:4444/wd/hub"), cap); // pass address of hub as
+																							// argument in URL()
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
