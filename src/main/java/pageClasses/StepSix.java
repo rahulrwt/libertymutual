@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -18,6 +19,7 @@ public class StepSix extends BaseClass {
 
 	public StepSix(WebDriver driver) {
 		BaseClass.driver = driver;
+		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
 	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/div/div[2]/div/div/div/div[2]/div[2]/button")

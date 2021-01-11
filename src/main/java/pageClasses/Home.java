@@ -1,5 +1,7 @@
 package pageClasses;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +14,7 @@ public class Home extends BaseClass {
 
 	public Home(WebDriver driver) {
 		BaseClass.driver = driver;
+		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 	// ***************************dynamic xpath*****************
 
@@ -23,6 +26,7 @@ public class Home extends BaseClass {
 	WebElement getPricElement;
 
 	public void setZipCode(String zipCode) {
+		this.logger = report.createTest("SetZipCode");
 		zipcodeElement.sendKeys(zipCode);
 	}
 

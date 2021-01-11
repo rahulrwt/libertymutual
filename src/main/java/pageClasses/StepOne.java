@@ -1,6 +1,7 @@
 package pageClasses;
 
 import java.security.DrbgParameters.NextBytes;
+import java.util.concurrent.TimeUnit;
 import java.security.PublicKey;
 
 import org.openqa.selenium.WebDriver;
@@ -36,6 +37,7 @@ public class StepOne extends BaseClass {
 
 	public StepOne(WebDriver driver) {
 		BaseClass.driver = driver;
+		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
 	public void okThanksPopUp() {

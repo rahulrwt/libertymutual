@@ -1,6 +1,8 @@
 package pageClasses;
 
 import java.security.DrbgParameters.NextBytes;
+import java.util.concurrent.ForkJoinPool.ManagedBlocker;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +16,9 @@ public class StepTwo extends BaseClass {
 
 	public StepTwo(WebDriver driver) {
 		BaseClass.driver = driver;
+		driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
+		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-
 
 	@FindBy(xpath = "//*[@id=\"licensePlateLookup\"]/div[4]/button")
 	WebElement dontHavePlate;
@@ -24,7 +27,6 @@ public class StepTwo extends BaseClass {
 		dontHavePlate.click();
 	}
 
-	
 	@FindBy(xpath = "//*[@id=\"licensePlateLookup-input-input\"]")
 	WebElement VIN;
 
@@ -32,7 +34,6 @@ public class StepTwo extends BaseClass {
 		this.VIN.sendKeys(VIN);
 	}
 
-	
 	@FindBy(xpath = "//input[@id  = 'vin-input-input']")
 	WebElement VIN1;
 
@@ -53,8 +54,9 @@ public class StepTwo extends BaseClass {
 	WebElement VINNext;
 
 	public void VINNext() {
-		VINNext.click();
 
+		VINNext.click();
+		System.out.println("clicked VINNext");
 	}
 
 	// ********************************functions for Without
@@ -176,9 +178,6 @@ public class StepTwo extends BaseClass {
 
 	}
 
-
-	
-	
 	@FindBy(xpath = "//button[text() = 'Save and continue']")
 	WebElement saveAndContinue;
 

@@ -1,5 +1,7 @@
 package pageClasses;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +14,7 @@ import baseClass.BaseClass;
 public class StepThree extends BaseClass {
 	public StepThree(WebDriver driver) {
 		BaseClass.driver = driver;
+		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
 	@FindBy(xpath = "//*[@id=\"maritalStatus-radio\"]/div/div/label[1]/span")
@@ -19,7 +22,7 @@ public class StepThree extends BaseClass {
 
 	@FindBy(xpath = "//*[@id=\"maritalStatus-radio\"]/div/div/label[2]/span")
 	WebElement no;
-
+	
 	public void marriedOrCivilUnion(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			yes.click();

@@ -1,5 +1,7 @@
 package pageClasses;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +15,7 @@ import baseClass.BaseClass;
 public class StepFive extends BaseClass {
 	public StepFive(WebDriver driver) {
 		BaseClass.driver = driver;
+		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
 	@FindBy(xpath = "//span[text()='Yes']")
