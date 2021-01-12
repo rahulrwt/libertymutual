@@ -17,7 +17,7 @@ public class Home extends BaseClass {
 	HomeRepo homeRepo;
 	public Home(WebDriver driver) {
 		BaseClass.driver = driver;
-		
+		homeRepo=new HomeRepo(driver);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
@@ -27,9 +27,9 @@ public class Home extends BaseClass {
 		homeRepo.getZipcodeElement().sendKeys(zipCode);
 	}
 
-	public StepOne getPrice() {
+	public UserDetails getPrice() {
 		homeRepo.getGetPricElement().click();
-		return PageFactory.initElements(driver, StepOne.class);
+		return PageFactory.initElements(driver, UserDetails.class);
 
 	}
 

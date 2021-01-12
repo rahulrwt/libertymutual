@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import baseClass.BaseClass;
 import repository.VehicleDetailsRepo;
 
-public class StepTwo extends BaseClass {
+public class VehicleDetails extends BaseClass {
 
-	VehicleDetailsRepo vehicleDetailsRepo;
+	VehicleDetailsRepo vehicleDetailsRepo = new VehicleDetailsRepo();
 
-	public StepTwo(WebDriver driver) {
+	public VehicleDetails(WebDriver driver) {
 		BaseClass.driver = driver;
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -84,9 +84,9 @@ public class StepTwo extends BaseClass {
 
 	}
 
-	public StepThree saveAndContinue() {
+	public DriverDetails saveAndContinue() {
 		vehicleDetailsRepo.getSaveAndContinue().click();
-		return PageFactory.initElements(driver, StepThree.class);
+		return PageFactory.initElements(driver, DriverDetails.class);
 	}
 
 }

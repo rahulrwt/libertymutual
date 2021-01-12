@@ -1,36 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-01-12T05:34:15Z" name="Suite" finished-at="2021-01-12T05:36:23Z" duration-ms="127646">
+  <suite started-at="2021-01-12T17:20:11Z" name="Suite" finished-at="2021-01-12T17:20:23Z" duration-ms="12057">
     <groups>
     </groups>
-    <test started-at="2021-01-12T05:34:15Z" name="Test1" finished-at="2021-01-12T05:36:23Z" duration-ms="127646">
+    <test started-at="2021-01-12T17:20:11Z" name="Test1" finished-at="2021-01-12T17:20:23Z" duration-ms="12057">
       <class name="TestClass.App">
-        <test-method signature="invokebrowser()[pri:0, instance:TestClass.App@2f7c2f4f]" started-at="2021-01-12T05:34:15Z" name="invokebrowser" finished-at="2021-01-12T05:34:20Z" duration-ms="4558" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- invokebrowser -->
-        <test-method signature="Test()[pri:1, instance:TestClass.App@2f7c2f4f]" started-at="2021-01-12T05:34:20Z" name="Test" finished-at="2021-01-12T05:36:23Z" duration-ms="123004" status="FAIL">
-          <exception class="java.lang.IndexOutOfBoundsException">
-            <message>
-              <![CDATA[Index 0 out of bounds for length 0]]>
-            </message>
+        <test-method signature="Test()[pri:0, instance:TestClass.App@2f7c2f4f]" started-at="2021-01-12T17:20:11Z" name="Test" finished-at="2021-01-12T17:20:23Z" duration-ms="12021" status="FAIL">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-at java.base/java.util.Objects.checkIndex(Objects.java:373)
-at java.base/java.util.ArrayList.get(ArrayList.java:426)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-at com.sun.proxy.$Proxy9.get(Unknown Source)
-at pageClasses.StepSix.saveToXls(StepSix.java:88)
-at TestClass.App.Test(App.java:222)
+              <![CDATA[java.lang.NullPointerException
+at pageClasses.Home.setZipCode(Home.java:27)
+at TestClass.App.Test(App.java:50)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -53,7 +35,7 @@ at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecut
 at java.base/java.lang.Thread.run(Thread.java:832)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test -->

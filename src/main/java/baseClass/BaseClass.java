@@ -24,6 +24,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import pageClasses.Home;
+import utilities.DateUtil;
 import utilities.ExtentReportManager;
 
 
@@ -38,7 +39,7 @@ public class BaseClass {
 	public DesiredCapabilities cap = null;
 	
 	@Parameters("browser")
-	@Test(priority = 0)
+	//@Test(priority = 0)
 	public void invokebrowser() {
 		String browser = prop.getProperty("browser_name");
 		browser="chrome";

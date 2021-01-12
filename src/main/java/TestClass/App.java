@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 
 import baseClass.BaseClass;
 import pageClasses.Home;
-import pageClasses.StepFive;
-import pageClasses.StepFour;
-import pageClasses.StepOne;
-import pageClasses.StepSix;
-import pageClasses.StepThree;
-import pageClasses.StepTwo;
+import pageClasses.CurrentInsurances;
+import pageClasses.Discount;
+import pageClasses.UserDetails;
+import pageClasses.Quote;
+import pageClasses.DriverDetails;
+import pageClasses.VehicleDetails;
 
 
 
@@ -27,8 +27,11 @@ public class App extends BaseClass{
 		}
 	}
 
-	@Test(priority = 1)
+	@Test
+	
 	public void Test() {
+		
+		invokebrowser();
 		logger=report.createTest("libertymutual");
 		try {
 			home =openUrl("https://buy.libertymutual.com/");
@@ -38,14 +41,14 @@ public class App extends BaseClass{
 			reportFail(e.getMessage());
 		}
 		
-		//sleep(8);
+		sleep(8);
 		
 //		WebDriver driver=home.getDriver();
 //		WebDriverWait wait = new WebDriverWait(driver, 15);
 //		wait.until(ExpectedConditions.elementToBeClickable(home.getZipCodeElement()));
 
 		home.setZipCode("03820");
-		StepOne stepOne = home.getPrice();
+		UserDetails stepOne = home.getPrice();
 		// *******************STEP StepOne*******************
 
 		//sleep(10);
@@ -108,7 +111,7 @@ public class App extends BaseClass{
 
 		//sleep(2);
 		stepOne.setEmail("rahulrawat.rrc@gmail.com");
-		StepTwo stepTwo = stepOne.clickContinue();
+		VehicleDetails stepTwo = stepOne.clickContinue();
 
 		// *******************StepTwo*******************
 
@@ -141,7 +144,7 @@ public class App extends BaseClass{
 		stepTwo.saveAndContinue();
 		//sleep(4);
 
-		StepThree stepThree = stepTwo.saveAndContinue();
+		DriverDetails stepThree = stepTwo.saveAndContinue();
 		sleep(6);
 
 		// *******************STEP THREE*******************
@@ -164,7 +167,7 @@ public class App extends BaseClass{
 
 		sleep(2);
 
-		StepFour stepFour = stepThree.saveAndContinue();
+		Discount stepFour = stepThree.saveAndContinue();
 
 		sleep(6);
 
@@ -197,7 +200,7 @@ public class App extends BaseClass{
 
 		stepFour.wantToSave30percent("no");
 		stepFour.saveAndContinue();
-		StepFive stepFive = stepFour.continueWithoutOffer();
+		CurrentInsurances stepFive = stepFour.continueWithoutOffer();
 		// *******************STEP FIVE*******************
 		sleep(5);
 
@@ -206,9 +209,9 @@ public class App extends BaseClass{
 
 		stepFive.reasonForNotHavingInsurance("newly licensed");
 		sleep(2);
-		stepFive.policyStartDate("January 22,2021");       //set by visible text
+		//stepFive.policyStartDate("January 22,2021");       //set by visible text
 		sleep(2);
-		StepSix stepSix = stepFive.getEstimate();
+		Quote stepSix = stepFive.getEstimate();
 		sleep(10);
 		try
 		{
