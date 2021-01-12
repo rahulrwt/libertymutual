@@ -173,12 +173,14 @@ public class App extends BaseClass{
 		
 		stepFour.haveAnotherPolicyWithLiberty("no");
 		try {
+			sleep(2);
+
 			stepFour.employmentStatus("student");
 		} catch (Exception e) {
 			
 		}
 		
-		//sleep(2);
+		sleep(2);
 		stepFour.highestEducation("bachelor");
 
 		sleep(2);

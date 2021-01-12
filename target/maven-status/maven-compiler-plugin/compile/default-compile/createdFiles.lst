@@ -8,4 +8,5 @@ pageClasses\Home.class
 pageClasses\StepFive.class
 utilities\ExtentReportManager.class
 pageClasses\StepFour.class
+repository\homeRepo.class
 pageClasses\StepOne.class

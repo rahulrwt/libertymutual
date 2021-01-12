@@ -81,11 +81,6 @@
 
 	</dependencies>
 
-
-
-
-
-
 	<build>
 		<pluginManagement>
 			<plugins>
