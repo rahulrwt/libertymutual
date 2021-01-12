@@ -27,9 +27,9 @@ public class Home extends BaseClass {
 		homeRepo.getZipcodeElement().sendKeys(zipCode);
 	}
 
-	public StepOne getPrice() {
+	public UserDetails getPrice() {
 		homeRepo.getGetPricElement().click();
-		return PageFactory.initElements(driver, StepOne.class);
+		return PageFactory.initElements(driver, UserDetails.class);
 
 	}
 

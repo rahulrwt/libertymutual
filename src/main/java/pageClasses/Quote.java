@@ -14,38 +14,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import baseClass.BaseClass;
+import repository.QuoteRepo;
 
-public class StepSix extends BaseClass {
+public class Quote extends BaseClass {
 
-	public StepSix(WebDriver driver) {
+	public Quote(WebDriver driver) {
 		BaseClass.driver = driver;
 		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
-	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/div/div[2]/div/div/div/div[2]/div[2]/button")
-	WebElement finalize;
-
+	QuoteRepo quoteRepo = new QuoteRepo();
 	public void finalizePrice() {
-		finalize.click();
+		quoteRepo.getFinalize().click();
+		
 	}
-
-	@FindBy(xpath = "//*[@id=\"alphaNumericInput0-input\"]")
-	WebElement VIN;
 
 	public void setVIN(String vin) {
-		VIN.sendKeys(vin);
+		quoteRepo.getVIN().click();
+		
 	}
-
-	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/div/div[2]/div/form/button")
-	WebElement drivers;
 
 	public void continueToDrivers() {
-		drivers.click();
+		quoteRepo.getDrivers().click();
+		
 	}
 
-	@FindBy(xpath = "//div[@class='lm-Body lms-Header--price']")
-
-	List<WebElement> pricesElements;
+	List<WebElement> pricesElements = quoteRepo.getPricesElements();
 
 	public void printConsole() {
 
@@ -57,9 +51,7 @@ public class StepSix extends BaseClass {
 		}
 	}
 
-	@FindBy(xpath = "//h1/b")
-
-	List<WebElement> pricesElements1;
+	List<WebElement> pricesElements1 = quoteRepo.getPricesElements1();
 
 	public void printConsole1() {
 

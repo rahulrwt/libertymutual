@@ -9,16 +9,16 @@ import org.openqa.selenium.support.PageFactory;
 import baseClass.BaseClass;
 import repository.UserDetailsRepo;
 
-public class StepOne extends BaseClass {
+public class UserDetails extends BaseClass {
 //***************************dynamic xpath*****************
 
-	UserDetailsRepo userDetailsRepo;
+	UserDetailsRepo userDetailsRepo = new UserDetailsRepo() ;
 
 	public WebDriver getDriver() {
 		return driver;
 	}
 
-	public StepOne(WebDriver driver) {
+	public UserDetails(WebDriver driver) {
 		BaseClass.driver = driver;
 		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
@@ -90,10 +90,10 @@ public class StepOne extends BaseClass {
 		userDetailsRepo.getEmailElement().sendKeys(email);
 	}
 
-	public StepTwo clickContinue() {
+	public VehicleDetails clickContinue() {
 		userDetailsRepo.getSaveAndContinue().click();
 
-		return PageFactory.initElements(driver, StepTwo.class);
+		return PageFactory.initElements(driver, VehicleDetails.class);
 
 	}
 }

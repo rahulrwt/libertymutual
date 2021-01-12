@@ -1,37 +1,15 @@
-package pageClasses;
+package repository;
 
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.internal.SingleKeyAction;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import baseClass.BaseClass;
-
-public class StepFour extends BaseClass {
-	public StepFour(WebDriver driver) {
-		BaseClass.driver = driver;
-		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-	}
-
+public class DiscountRepo {
 	@FindBy(xpath = "//span[text()='Yes']")
 	WebElement yes;
 
 	@FindBy(xpath = "//span[text()='No']")
 	WebElement no;
-
-	public void haveAnotherPolicyWithLiberty(String ans) {
-		if (ans.toLowerCase().equals("yes")) {
-			yes.click();
-		} else {
-			no.click();
-		}
-	}
-
-	//*************************************yes branch*******************
+	
 	
 	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[1]/label")
 	WebElement home;
@@ -54,32 +32,6 @@ public class StepFour extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"visualCheckboxGroupV2-2\"]/fieldset/div/div/div[7]/label")
 	WebElement other11;
 	
-	
-	
-	//arraylist of policies
-	
-	public void policiesYouHave(ArrayList<String> policies) {
-		
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@FindBy(xpath = "//*[@id=\"employmentStatus-radio\"]/div/div/label[1]/span")
 	WebElement employed;
 
@@ -98,24 +50,7 @@ public class StepFour extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"employmentStatus-radio\"]/div/div/label[6]/span")
 	WebElement unemployed;
 
-	public void employmentStatus(String status) {
-		if (status.toLowerCase().equals("employed")) {
-			employed.click();
-		} else if (status.toLowerCase().equals("student")) {
-			student.click();
-		} else if (status.toLowerCase().equals("retired")) {
-			retired.click();
-		} else if (status.toLowerCase().equals("military")) {
-			military.click();
-		} else if (status.toLowerCase().equals("notseekingemployment")) {
-			notseekingemployment.click();
-		} else {
-			unemployed.click();
-		}
 
-	}
-
-	
 	@FindBy(xpath = "//span[text()='High school diploma/equivalent']")
 	WebElement highschool;
 
@@ -134,23 +69,6 @@ public class StepFour extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"highestEducationLevel-radio\"]/div/div/label[6]/span")
 	WebElement other;
 
-	public void highestEducation(String highestLevel) {
-		if (highestLevel.toLowerCase().equals("highschool")) {
-			highschool.click();
-		} else if (highestLevel.toLowerCase().equals("vocational")) {
-			vocational.click();
-		} else if (highestLevel.toLowerCase().equals("associatedegree")) {
-			associatedegree.click();
-		} else if (highestLevel.toLowerCase().equals("bachelor")) {
-			bachelor.click();
-		} else if (highestLevel.toLowerCase().equals("advanced")) {
-			advanced.click();
-		} else {
-			other11.click();
-		}
-
-	}
-
 	@FindBy(xpath = "//span[text()='Yes, single or multi-family']")
 	WebElement single;
 
@@ -163,27 +81,8 @@ public class StepFour extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"residenceType-radio\"]/div/div/label[4]/span")
 	WebElement no1;
 
-	public void ownHome(String ans) {
-		if (ans.toLowerCase().equals("single")) {
-			single.click();
-		} else if (ans.toLowerCase().equals("condo")) {
-			condo.click();
-		} else if (ans.toLowerCase().equals("mobile")) {
-			mobile.click();
-		} else {
-			no1.click();
-		}
-
-	}
-
 	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
 	WebElement saveAndContinue;
-
-	public StepFive saveAndContinue() {
-		saveAndContinue.click();
-		return PageFactory.initElements(driver, StepFive.class);
-
-	}
 
 	@FindBy(xpath = "//span[text()='Yes, sign me up!']")
 	WebElement yes1;
@@ -193,19 +92,6 @@ public class StepFour extends BaseClass {
 
 	@FindBy(xpath = "//*[@id=\"rightTrackSelections\"]/button")
 	WebElement next;
-
-	public void wantToSave30percent(String ans) {
-		if (ans.toLowerCase().equals("yes")) {
-			yes1.click();
-			next.click();
-
-		} else {
-			no11.click();
-		}
-
-	}
-
-	// *********************functions for yes option branch *******************
 	@FindBy(xpath = "//*[@id=\"phoneType-radio\"]/div/div/label[1]/span")
 	WebElement iphone5;
 
@@ -218,40 +104,121 @@ public class StepFour extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"phoneType-radio\"]/div/div/label[4]/span")
 	WebElement noPhone;
 
-	public void smartPhoneSelection(String phone) {
-		if (phone.toLowerCase().equals("iphone")) {
-			iphone5.click();
-		} else if (phone.toLowerCase().equals("android")) {
-			android4.click();
-		} else if (phone.toLowerCase().equals("other")) {
-			other11.click();
-		} else {
-			noPhone.click();
-		}
-	}
-
 	@FindBy(xpath = "//*[@id=\"textMessages-radio\"]/div/div/label[1]/span")
 	WebElement yes11;
 
 	@FindBy(xpath = "//*[@id=\"textMessages-radio\"]/div/div/label[2]/span")
 	WebElement no111;
-
-	public void wantToRecieveText(String ans) {
-		if (ans.toLowerCase().equals("yes")) {
-			yes11.click();
-		} else {
-			no111.click();
-		}
-	}
-	// *********************functions for no option branch *******************
-
 	@FindBy(xpath = "//*[@id=\"lms-Modal-4\"]/footer/button[2]")
 	WebElement withoutOffer;
+	
 
-	public StepFive continueWithoutOffer() {
-		withoutOffer.click();
-		return PageFactory.initElements(driver, StepFive.class);
-
+	public WebElement getYes() {
+		return yes;
 	}
-
+	public WebElement getNo() {
+		return no;
+	}
+	public WebElement getHome() {
+		return home;
+	}
+	public WebElement getLife() {
+		return life;
+	}
+	public WebElement getAuto() {
+		return auto;
+	}
+	public WebElement getPeronalInsurance() {
+		return peronalInsurance;
+	}
+	public WebElement getLandLord() {
+		return landLord;
+	}
+	public WebElement getMotorcycle() {
+		return motorcycle;
+	}
+	public WebElement getOther11() {
+		return other11;
+	}
+	public WebElement getEmployed() {
+		return employed;
+	}
+	public WebElement getStudent() {
+		return student;
+	}
+	public WebElement getRetired() {
+		return retired;
+	}
+	public WebElement getMilitary() {
+		return military;
+	}
+	public WebElement getNotseekingemployment() {
+		return notseekingemployment;
+	}
+	public WebElement getUnemployed() {
+		return unemployed;
+	}
+	public WebElement getHighschool() {
+		return highschool;
+	}
+	public WebElement getVocational() {
+		return vocational;
+	}
+	public WebElement getAssociatedegree() {
+		return associatedegree;
+	}
+	public WebElement getBachelor() {
+		return bachelor;
+	}
+	public WebElement getAdvanced() {
+		return advanced;
+	}
+	public WebElement getOther() {
+		return other;
+	}
+	public WebElement getSingle() {
+		return single;
+	}
+	public WebElement getCondo() {
+		return condo;
+	}
+	public WebElement getMobile() {
+		return mobile;
+	}
+	public WebElement getNo1() {
+		return no1;
+	}
+	public WebElement getSaveAndContinue() {
+		return saveAndContinue;
+	}
+	public WebElement getYes1() {
+		return yes1;
+	}
+	public WebElement getNo11() {
+		return no11;
+	}
+	public WebElement getNext() {
+		return next;
+	}
+	public WebElement getIphone5() {
+		return iphone5;
+	}
+	public WebElement getAndroid4() {
+		return android4;
+	}
+	public WebElement getOther1() {
+		return other1;
+	}
+	public WebElement getNoPhone() {
+		return noPhone;
+	}
+	public WebElement getYes11() {
+		return yes11;
+	}
+	public WebElement getNo111() {
+		return no111;
+	}
+	public WebElement getWithoutOffer() {
+		return withoutOffer;
+	}
 }
