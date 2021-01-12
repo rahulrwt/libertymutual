@@ -1,188 +1,91 @@
 package pageClasses;
 
-import java.security.DrbgParameters.NextBytes;
-import java.util.concurrent.ForkJoinPool.ManagedBlocker;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+
 import org.openqa.selenium.support.PageFactory;
 
 import baseClass.BaseClass;
+import repository.VehicleDetailsRepo;
 
 public class StepTwo extends BaseClass {
 
+	VehicleDetailsRepo vehicleDetailsRepo;
+
 	public StepTwo(WebDriver driver) {
 		BaseClass.driver = driver;
-		driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
-	@FindBy(xpath = "//*[@id=\"licensePlateLookup\"]/div[4]/button")
-	WebElement dontHavePlate;
-
 	public void dontHavePlate() {
-		dontHavePlate.click();
+		vehicleDetailsRepo.getDontHavePlate().click();
 	}
-
-	@FindBy(xpath = "//*[@id=\"licensePlateLookup-input-input\"]")
-	WebElement VIN;
 
 	public void setVIN(String VIN) {
-		this.VIN.sendKeys(VIN);
+		vehicleDetailsRepo.getVIN().sendKeys(VIN);
 	}
-
-	@FindBy(xpath = "//input[@id  = 'vin-input-input']")
-	WebElement VIN1;
 
 	public void setVIN1(String VIN) {
-		this.VIN1.sendKeys(VIN);
+		vehicleDetailsRepo.getVIN1().sendKeys(VIN);
 
 	}
-
-	@FindBy(xpath = "//button[text() = 'Use VIN instead']")
-	WebElement VINInstead;
 
 	public void useVINInstead() {
-		VINInstead.click();
+		vehicleDetailsRepo.getVINInstead().click();
 
 	}
-
-	@FindBy(xpath = "//button[text()='Next']")
-	WebElement VINNext;
 
 	public void VINNext() {
 
-		VINNext.click();
+		vehicleDetailsRepo.getVINNext().click();
 		System.out.println("clicked VINNext");
 	}
 
-	// ********************************functions for Without
-	// VIN*******************************
-	@FindBy(xpath = "//*[@id=\"year-select-select\"]")
-	WebElement vehicleYear;
-
-	public void setVehicleYear(int year) {
-		for (int i = 0; i <= 2022 - year; i++)
-			vehicleYear.sendKeys(Keys.ARROW_DOWN);
-	}
-
-	@FindBy(xpath = "//*[@id=\"make-visualRadioGroup\"]/div/div/div/div[1]/label")
-	WebElement chevrolet;
-
-	public void selectChevrolet() {
-		chevrolet.click();
-	}
-
-	@FindBy(xpath = "//*[@id=\"vehicleSpecs-model-select\"]")
-	WebElement vehicleModel;
-
-	@FindBy(xpath = "//*[@id=\"vehicleSpecs-trim-select\"]")
-	WebElement vehicleTrim;
-
-	@FindBy(xpath = "//*[@id=\"vehicleSpecs-bodyStyle-select\"]")
-	WebElement vehicleStyle;
-
-	// have write code for selecting specific model,trim and style
-	public void setVehicleSpecs(String vehicleModel, String vehicleTrim, String vehicleStyle) {
-		this.vehicleModel.click();
-		this.vehicleModel.sendKeys(Keys.DOWN);
-		this.vehicleModel.sendKeys(Keys.ENTER);
-
-		this.vehicleTrim.click();
-		this.vehicleTrim.sendKeys(Keys.DOWN);
-		this.vehicleTrim.sendKeys(Keys.ENTER);
-
-		this.vehicleStyle.click();
-		this.vehicleStyle.sendKeys(Keys.DOWN);
-		this.vehicleStyle.sendKeys(Keys.ENTER);
-	}
-
-	@FindBy(xpath = "//*[@id=\"vehicleSpecs\"]/button")
-	WebElement next1;
-
-	public void clickNext() {
-		next1.click();
-
-	}
-
-	// ***************************************Common functions for both
-	// branch**********************
-
-	@FindBy(xpath = "//span[text()='Own (fully paid off)']")
-	WebElement fullPaid;
-
-	@FindBy(xpath = "//*[@id=\"ownership-radio\"]/div/div/label[2]/span")
-	WebElement finance;
-
-	@FindBy(xpath = "//*[@id=\"ownership-radio\"]/div/div/label[3]/span")
-	WebElement lease;
+	// ****************Common functions for both branch******************
 
 	public void ownerShip(String type) {
 		if (type.toLowerCase().equals("full paid")) {
-			fullPaid.click();
+			vehicleDetailsRepo.getFullPaid().click();
 		} else if (type.toLowerCase().equals("finance")) {
-			finance.click();
+			vehicleDetailsRepo.getFinance().click();
 		} else {
-			lease.click();
+			vehicleDetailsRepo.getLease().click();
 		}
 
 	}
-
-	@FindBy(xpath = "//span[text() = 'Yes']")
-	WebElement yes;
-	@FindBy(xpath = "//span[text() = 'No']")
-	WebElement no;
 
 	public void CarKeptAtGivenAddress(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
-			yes.click();
+			vehicleDetailsRepo.getYes().click();
 		} else {
-			no.click();
+			vehicleDetailsRepo.getNo().click();
 		}
 	}
-	// ********************************Yes Branch*******************
-
-	@FindBy(xpath = "//*[@name='purchase-year']")
-	WebElement purchaseYear;
+	// ***********************Yes Branch*******************
 
 	public void purchaseYear(String year) {
 
-		purchaseYear.sendKeys(year);
+		vehicleDetailsRepo.getPurchaseYear().sendKeys(year);
 
 	}
 
-	// ********************************No Branch*******************
-	@FindBy(xpath = "//*[@id=\"garagingAddress-streetAddress-input\"]")
-	WebElement address11;
-
-	@FindBy(xpath = "//*[@id=\"garagingAddress-additionalStreetAddress-input\"]")
-	WebElement address22;
-
-	@FindBy(xpath = "//*[@id=\"garagingAddress-zipCode-input\"]")
-	WebElement zipcode;
+	// **********************No Branch*******************
 
 	public void whereDoYouKeepIt(String address1, String address2, String zipcode) {
-		address11.sendKeys(address1);
-		address22.sendKeys(address2);
-		this.zipcode.sendKeys(zipcode);
+		vehicleDetailsRepo.getAddress11().sendKeys(address1);
+		vehicleDetailsRepo.getAddress22().sendKeys(address2);
+		vehicleDetailsRepo.getZipcode().sendKeys(zipcode);
 	}
-
-	@FindBy(xpath = "//*[@id=\"garagingAddress\"]/button")
-	WebElement next;
 
 	public void next() {
-		next.click();
+		vehicleDetailsRepo.getNext().click();
 
 	}
 
-	@FindBy(xpath = "//button[text() = 'Save and continue']")
-	WebElement saveAndContinue;
-
 	public StepThree saveAndContinue() {
-		saveAndContinue.click();
+		vehicleDetailsRepo.getSaveAndContinue().click();
 		return PageFactory.initElements(driver, StepThree.class);
 	}
 
