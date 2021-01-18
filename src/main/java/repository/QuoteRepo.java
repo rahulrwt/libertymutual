@@ -2,51 +2,50 @@ package repository;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class QuoteRepo {
 
+	WebDriver driver;
 
+	public QuoteRepo(WebDriver driver) {
+		this.driver = driver;
+	}
 
 	public WebElement getFinalize() {
+		WebElement finalize = driver
+				.findElement(By.xpath("//*[@id=\"app\"]/main/div/div/div/div[2]/div/div/div/div[2]/div[2]/button"));
+
 		return finalize;
 	}
 
 	public WebElement getVIN() {
+		WebElement VIN = driver
+				.findElement(By.xpath("//*[@id=\"app\"]/main/div/div/div/div[2]/div/div/div/div[2]/div[2]/button"));
+
 		return VIN;
 	}
 
 	public WebElement getDrivers() {
+		WebElement drivers = driver
+				.findElement(By.xpath("//*[@id=\"app\"]/main/div/div/div/div[2]/div/div/div/div[2]/div[2]/button"));
+
 		return drivers;
 	}
 
 	public List<WebElement> getPricesElements() {
+		List<WebElement> pricesElements = driver.findElements(By.xpath("//div[@class='lm-Body lms-Header--price']"));
+
 		return pricesElements;
 	}
 
 	public List<WebElement> getPricesElements1() {
+		List<WebElement> pricesElements1 = driver.findElements(By.xpath("//h1/b"));
+
 		return pricesElements1;
 	}
-
-
-	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/div/div[2]/div/div/div/div[2]/div[2]/button")
-	WebElement finalize;
-
-	@FindBy(xpath = "//*[@id=\"alphaNumericInput0-input\"]")
-	WebElement VIN;
-
-
-	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/div/div[2]/div/form/button")
-	WebElement drivers;
-
-
-	@FindBy(xpath = "//div[@class='lm-Body lms-Header--price']")
-
-	List<WebElement> pricesElements;
-
-	@FindBy(xpath = "//h1/b")
-
-	List<WebElement> pricesElements1;
 
 }

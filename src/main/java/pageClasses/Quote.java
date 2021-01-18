@@ -18,12 +18,14 @@ import repository.QuoteRepo;
 
 public class Quote extends BaseClass {
 
+	QuoteRepo quoteRepo ;
 	public Quote(WebDriver driver) {
 		BaseClass.driver = driver;
+		quoteRepo= new QuoteRepo(driver);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
-	QuoteRepo quoteRepo = new QuoteRepo();
+	
 	public void finalizePrice() {
 		quoteRepo.getFinalize().click();
 		
@@ -41,9 +43,9 @@ public class Quote extends BaseClass {
 
 	List<WebElement> pricesElements = quoteRepo.getPricesElements();
 
+	//------------------ move to base class and call 
 	public void printConsole() {
 
-//		 ArrayList<WebElement> pricesElement=driver.findElement("xpath='");
 
 		for (int i = 0; i < pricesElements.size(); i++) {
 			System.out.println(i + 1 + ". " + pricesElements.get(i).getText());
@@ -53,6 +55,10 @@ public class Quote extends BaseClass {
 
 	List<WebElement> pricesElements1 = quoteRepo.getPricesElements1();
 
+	
+	//------------------ move to base class and call 
+
+	
 	public void printConsole1() {
 
 //	 ArrayList<WebElement> pricesElement=driver.findElement("xpath='");

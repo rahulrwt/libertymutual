@@ -11,11 +11,11 @@ import repository.VehicleDetailsRepo;
 
 public class VehicleDetails extends BaseClass {
 
-	VehicleDetailsRepo vehicleDetailsRepo = new VehicleDetailsRepo();
-
+	VehicleDetailsRepo vehicleDetailsRepo;
 	public VehicleDetails(WebDriver driver) {
 		BaseClass.driver = driver;
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		this.driver=driver;
+		this.vehicleDetailsRepo = new VehicleDetailsRepo(driver);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
@@ -40,7 +40,7 @@ public class VehicleDetails extends BaseClass {
 	public void VINNext() {
 
 		vehicleDetailsRepo.getVINNext().click();
-		System.out.println("clicked VINNext");
+
 	}
 
 	// ****************Common functions for both branch******************
@@ -85,8 +85,15 @@ public class VehicleDetails extends BaseClass {
 	}
 
 	public DriverDetails saveAndContinue() {
+
 		vehicleDetailsRepo.getSaveAndContinue().click();
+
 		return PageFactory.initElements(driver, DriverDetails.class);
+	}
+
+	public String getTitle() {
+		return driver.getTitle();
+		
 	}
 
 }

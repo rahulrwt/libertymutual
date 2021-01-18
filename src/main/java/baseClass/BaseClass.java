@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +19,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -27,8 +28,6 @@ import pageClasses.Home;
 import utilities.DateUtil;
 import utilities.ExtentReportManager;
 
-
-
 public class BaseClass {
 
 	public static WebDriver driver;
@@ -37,27 +36,27 @@ public class BaseClass {
 	public ExtentReports report = ExtentReportManager.getReportInstance();
 	public ExtentTest logger;
 	public DesiredCapabilities cap = null;
-	
+
 	@Parameters("browser")
-	//@Test(priority = 0)
+	
 	public void invokebrowser() {
 		String browser = prop.getProperty("browser_name");
-		browser="chrome";
+		browser = "chrome";
 		this.logger = report.createTest("invokeBrowser");
 		try {
 			logger.log(Status.INFO, "Opening the browser");
 
 			if (browser.equalsIgnoreCase("chrome")) {
-				//System.setProperty("webdriver.chrome.driver", prop.getProperty("chrome_path"));
-		//		driver=new ChromeDriver();
+
 				cap = DesiredCapabilities.chrome();
 
 				logger.log(Status.PASS, "Chrome opened");
 			}
 
 			else if (browser.equalsIgnoreCase("firefox")) {
-				//System.setProperty("webdriver.gecko.driver", prop.getProperty("firefox_path"));
-				
+				// System.setProperty("webdriver.gecko.driver",
+				// prop.getProperty("firefox_path"));
+
 				cap = DesiredCapabilities.firefox();
 				logger.log(Status.PASS, "firefox opened");
 			}
@@ -76,13 +75,10 @@ public class BaseClass {
 
 	}
 
-	// URL
-
 	public Home openUrl(String URL) {
 		this.logger = report.createTest("OpenUrl");
 		// driver.manage().window().maximize();
 		driver.get(URL);
-
 		return PageFactory.initElements(driver, Home.class);
 	}
 
@@ -113,8 +109,7 @@ public class BaseClass {
 		report.flush();
 		driver.close();
 	}
-	
-	
+
 	public void reportPass(String reportString) {
 		logger.log(Status.PASS, reportString);
 	}
@@ -130,6 +125,34 @@ public class BaseClass {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public String[][] getExcelData(String fileName, String sheetName, int totalNoOfRows, int totalNoOfCols) {
+		String[][] arrayExcelData = null;
+		try {
+			FileInputStream fs = new FileInputStream(fileName);
+			@SuppressWarnings("resource")
+			XSSFWorkbook wb = new XSSFWorkbook(fs);
+			XSSFSheet sh = wb.getSheet(sheetName);
+
+			arrayExcelData = new String[totalNoOfRows - 1][totalNoOfCols - 1];
+
+			for (int i = 1; i < totalNoOfRows; i++) {
+
+				for (int j = 1; j < totalNoOfCols; j++) {
+					arrayExcelData[i - 1][j - 1] = String.valueOf(sh.getRow(i).getCell(j));
+				}
+
+			}
+			fs.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+			e.printStackTrace();
+		}
+
+		return arrayExcelData;
 	}
 
 	public void reportFail(String reportString) {

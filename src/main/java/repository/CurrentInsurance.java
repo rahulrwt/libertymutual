@@ -1,120 +1,100 @@
 package repository;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CurrentInsurance {
 
-	@FindBy(xpath = "//span[text()='Yes']")
-	WebElement yes;
+	WebDriver driver;
+
+	public CurrentInsurance(WebDriver driver) {
+		this.driver = driver;
+	}
 
 	public WebElement getYes() {
+		WebElement yes = driver.findElement(By.xpath("//span[text()='Yes']"));
 		return yes;
 	}
 
-
 	public WebElement getNo() {
+		WebElement no = driver.findElement(By.xpath("//span[text()='No']"));
 		return no;
 	}
 
-
 	public WebElement getExpiredOrCanceled() {
+		WebElement expiredOrCanceled = driver
+				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[1]/span/span[1]"));
+
 		return expiredOrCanceled;
 	}
 
-
 	public WebElement getNewlyLicensed() {
+		WebElement newlyLicensed = driver.findElement(By.xpath("//span[text() = 'I’m newly licensed']"));
+
 		return newlyLicensed;
 	}
 
-
 	public WebElement getCompanyCar() {
+		WebElement CompanyCar = driver
+				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[3]/span/span[1]"));
+
 		return CompanyCar;
 	}
 
-
 	public WebElement getMilitary() {
+		WebElement military = driver
+				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[4]/span/span[1]"));
+
 		return military;
 	}
 
-
 	public WebElement getOther() {
+
+		WebElement other = driver
+				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[5]/span/span[1]"));
+
 		return other;
 	}
 
-
 	public WebElement getReason() {
+		WebElement reason = driver.findElement(By.xpath("//*[@id=\"noPriorInsuranceForm-input-input\"]"));
+
 		return reason;
 	}
 
-
 	public WebElement getNext() {
+		WebElement next = driver.findElement(By.xpath("//*[@id=\"noPriorInsuranceForm\"]/button"));
+
 		return next;
 	}
 
-
 	public WebElement getPriorPolicyStart() {
+		WebElement priorPolicyStart = driver
+				.findElement(By.xpath("//*[@id=\"priorPolicyStartDropdown-input-select\"]"));
+
 		return priorPolicyStart;
 	}
 
-
 	public WebElement getBodilyInjury() {
+		WebElement bodilyInjury = driver.findElement(By.xpath("//*[@id=\"bodilyInjury-select-select\"]"));
+
 		return bodilyInjury;
 	}
 
-
 	public WebElement getDate() {
+
+		WebElement date = driver.findElement(By.xpath("//select[@class='lm-Field-select']"));
+
 		return date;
 	}
 
-
 	public WebElement getGetEstimate() {
+
+		WebElement getEstimate = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/div/form/button"));
+
 		return getEstimate;
 	}
-
-
-
-	@FindBy(xpath = "//span[text()='No']")
-	WebElement no;
-	
-
-	@FindBy(xpath = "//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[1]/span/span[1]")
-	WebElement expiredOrCanceled;
-
-	@FindBy(xpath = "//span[text() = 'I’m newly licensed']")
-	WebElement newlyLicensed;
-
-	@FindBy(xpath = "//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[3]/span/span[1]")
-	WebElement CompanyCar;
-
-	@FindBy(xpath = "//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[4]/span/span[1]")
-	WebElement military;
-
-	@FindBy(xpath = "//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[5]/span/span[1]")
-	WebElement other;
-	
-
-	// if selected other
-	@FindBy(xpath = "//*[@id=\"noPriorInsuranceForm-input-input\"]")
-	WebElement reason;
-	
-
-	@FindBy(xpath = "//*[@id=\"noPriorInsuranceForm\"]/button")
-	WebElement next;
-	
-
-	@FindBy(xpath = "//*[@id=\"priorPolicyStartDropdown-input-select\"]")
-	WebElement priorPolicyStart;
-
-
-	@FindBy(xpath = "//*[@id=\"bodilyInjury-select-select\"]")
-	WebElement bodilyInjury;
-	
-	@FindBy(xpath = "//select[@class='lm-Field-select']")
-	WebElement date;
-	
-
-	@FindBy(xpath = "//*[@id=\"app\"]/main/div/div/form/button")
-	WebElement getEstimate;
 
 }

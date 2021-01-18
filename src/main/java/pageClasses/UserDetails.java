@@ -10,9 +10,8 @@ import baseClass.BaseClass;
 import repository.UserDetailsRepo;
 
 public class UserDetails extends BaseClass {
-//***************************dynamic xpath*****************
 
-	UserDetailsRepo userDetailsRepo = new UserDetailsRepo() ;
+	UserDetailsRepo userDetailsRepo;
 
 	public WebDriver getDriver() {
 		return driver;
@@ -20,6 +19,7 @@ public class UserDetails extends BaseClass {
 
 	public UserDetails(WebDriver driver) {
 		BaseClass.driver = driver;
+		userDetailsRepo = new UserDetailsRepo(driver);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 

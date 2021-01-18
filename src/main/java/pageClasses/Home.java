@@ -17,8 +17,8 @@ public class Home extends BaseClass {
 	HomeRepo homeRepo;
 	public Home(WebDriver driver) {
 		BaseClass.driver = driver;
-		homeRepo=new HomeRepo(driver);
-		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		this.homeRepo=new HomeRepo(driver);
+		//BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
 	

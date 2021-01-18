@@ -7,16 +7,17 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.support.ui.Select;
 
 import baseClass.BaseClass;
 import repository.CurrentInsurance;
 
 
 public class CurrentInsurances extends BaseClass {
-	CurrentInsurance currentInsurance = new CurrentInsurance();
+	CurrentInsurance currentInsurance ;
 	public CurrentInsurances(WebDriver driver) {
 		BaseClass.driver = driver;
+		currentInsurance= new CurrentInsurance(driver);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
@@ -56,10 +57,9 @@ public class CurrentInsurances extends BaseClass {
 		currentInsurance.getNext().click();
 	}
 
-	public void timeWithCurrentInsurer(int time) {
-		for (int i = 0; i <= time; i++) {
-			currentInsurance.getPriorPolicyStart().sendKeys(Keys.ARROW_DOWN);
-		}
+	public void timeWithCurrentInsurer(String time) {
+		currentInsurance.getPriorPolicyStart().sendKeys(time);
+	
 	}
 
 	public void currentBodilyInjuryLimit(int amount) {
@@ -85,15 +85,15 @@ public class CurrentInsurances extends BaseClass {
 
 	// ******************************logic for date!!!!!!!!!!!!!!!!!!!!***************************
 
-//	public void policyStartDate(String date) {
-//
-//		
-//		
-//		Select dropdown = new Select(this.date);
-//
-//		dropdown.selectByIndex(10);
-//
-//	}
+	public void policyStartDate(String date) {
+
+		
+		
+		//Select dropdown = new Select(this.date);
+
+		//dropdown.selectByIndex(10);
+
+	}
 
 	public Quote getEstimate() {
 		currentInsurance.getGetEstimate().click();
