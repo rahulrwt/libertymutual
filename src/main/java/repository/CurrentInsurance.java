@@ -8,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 public class CurrentInsurance {
 
 	WebDriver driver;
-
 	public CurrentInsurance(WebDriver driver) {
 		this.driver = driver;
 	}

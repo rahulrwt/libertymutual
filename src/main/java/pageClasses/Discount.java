@@ -14,6 +14,7 @@ public class Discount extends BaseClass {
 
 	DiscountRepo discountRepo;
 
+
 	public Discount(WebDriver driver) {
 		BaseClass.driver = driver;
 		discountRepo = new DiscountRepo(driver);
@@ -21,6 +22,7 @@ public class Discount extends BaseClass {
 	}
 
 	public void haveAnotherPolicyWithLiberty(String ans) {
+		//String ans = xlsread.Excelread(sheetname,columnname , rowvalue);
 		if (ans.toLowerCase().equals("yes")) {
 			discountRepo.getYes().click();
 		} else {

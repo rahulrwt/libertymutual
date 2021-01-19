@@ -17,7 +17,7 @@ import pageClasses.Quote;
 import pageClasses.UserDetails;
 import pageClasses.VehicleDetails;
 
-public class Dhanam extends BaseClass {
+public class Test2 extends BaseClass {
 	Home home;
 	VehicleDetails stepTwo;
 	DriverDetails stepThree;
@@ -217,58 +217,58 @@ public class Dhanam extends BaseClass {
 
 		  sleep(5);
 
-//		stepFour.wantToSave30percent(wantDiscount);
-//		if (wantDiscount.toLowerCase().equals("yes")) {
-//			if (!stepFour.checkBoxActive()) {
-//				stepFour.selectCheckBox();
-//
-//			}
-//			stepFour.saveAndContinue();
-//			stepFour.smartPhoneSelection(smartPhone);
-//			stepFour.wantToRecieveText(wantToRecieveMsg);
-//			if (wantToRecieveMsg.toLowerCase().equals("yes")) {
-//				stepFour.whatNumberShouldWeSendTextTo(phoneNo);
-//
-//			}
-//		}
-//		stepFive = stepFour.saveAndContinue();
-//		if (wantDiscount.toLowerCase().equals("no"))
-//			stepFive = stepFour.continueWithoutOffer();
-//
-//		sleep(5);
-//
-//		stepFive.currentlyHaveInsurance(currentlyHaveInsurance);
-//		sleep(2);
-//		if (currentlyHaveInsurance.toLowerCase().equals("yes")) {
-//			stepFive.timeWithCurrentInsurer(firstInsurance);
-//			stepFive.next();
-//			stepFive.currentBodilyInjuryLimit(Integer.parseInt(injuryLimit));
-//
-//		} else {
-//			stepFive.reasonForNotHavingInsurance(reason);
-//			if (reason.toLowerCase().equals("other"))
-//				stepFive.shareReason(shareReason);
-//		}
-//		// ****************************logic***************************
-//		stepFive.policyStartDate(startDate);
-//		
-//		Quote stepSix = stepFive.getEstimate();
-//		sleep(10);
-//		try {
-//			stepSix.printConsole();
-//		} catch (Exception e) {
-//			stepSix.printConsole1();
-//		}
-//
-//		try {
-//			stepSix.saveToXls();
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//		// sleep(10);
-//		stepSix.closeAndFlushReport();
-		driver.get("https://www.libertymutual.com/get-a-quote");
+		stepFour.wantToSave30percent(wantDiscount);
+		if (wantDiscount.toLowerCase().equals("yes")) {
+			if (!stepFour.checkBoxActive()) {
+				stepFour.selectCheckBox();
+
+			}
+			stepFour.saveAndContinue();
+			stepFour.smartPhoneSelection(smartPhone);
+			stepFour.wantToRecieveText(wantToRecieveMsg);
+			if (wantToRecieveMsg.toLowerCase().equals("yes")) {
+				stepFour.whatNumberShouldWeSendTextTo(phoneNo);
+
+			}
+		}
+		stepFive = stepFour.saveAndContinue();
+		if (wantDiscount.toLowerCase().equals("no"))
+			stepFive = stepFour.continueWithoutOffer();
+
+		sleep(5);
+
+		stepFive.currentlyHaveInsurance(currentlyHaveInsurance);
+		sleep(2);
+		if (currentlyHaveInsurance.toLowerCase().equals("yes")) {
+			stepFive.timeWithCurrentInsurer(firstInsurance);
+			stepFive.next();
+			stepFive.currentBodilyInjuryLimit(Integer.parseInt(injuryLimit));
+
+		} else {
+			stepFive.reasonForNotHavingInsurance(reason);
+			if (reason.toLowerCase().equals("other"))
+				stepFive.shareReason(shareReason);
+		}
+		// ****************************logic***************************
+		stepFive.policyStartDate(startDate);
+		
+		Quote stepSix = stepFive.getEstimate();
+		sleep(10);
+		try {
+			stepSix.printConsole();
+		} catch (Exception e) {
+			stepSix.printConsole1();
+		}
+
+		try {
+			stepSix.saveToXls();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		 sleep(10);
+		stepSix.closeAndFlushReport();
+		//driver.get("https://www.libertymutual.com/get-a-quote");
 		sleep(5);
 //	}
 }
