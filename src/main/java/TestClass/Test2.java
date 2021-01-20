@@ -45,7 +45,7 @@ public class Test2 extends BaseClass {
 
 		Object[][] arrayObject = getExcelData(
 				"C:\\Users\\91950\\eclipse-workspace\\libertymutual\\resources\\repository\\Test1.xlsx", "UserDetail",
-				3, 36);
+				4, 36);
 
 		return arrayObject;
 	}
@@ -53,10 +53,12 @@ public class Test2 extends BaseClass {
 	@Test(dataProvider = "Test1", priority = 1)
 
 	public void Test1(String zipCode, String firstName, String lastName, String DOB, String address1, String address2,
-			String livedHere, String email,String VIN, String ownerShip, String keptAtGivenAddress, String address11, String address21,
-			String zipcode, String city,String maritalStatus, String gender, String age, String fullTimeBGrade, String phoneNo,String havingPolicyWithLiberty, String otherPolicy, String employmentStatus, String education,
-			String home, String wantDiscount, String smartPhone, String wantToRecieveMsg, String phoneNo1,String currentlyHaveInsurance, String firstInsurance, String injuryLimit, String reason,
-			String shareReason, String startDate) {
+			String livedHere, String email, String VIN, String ownerShip, String keptAtGivenAddress, String address11,
+			String address21, String zipcode, String city, String maritalStatus, String gender, String age,
+			String fullTimeBGrade, String phoneNo, String havingPolicyWithLiberty, String otherPolicy,
+			String employmentStatus, String education, String home, String wantDiscount, String smartPhone,
+			String wantToRecieveMsg, String phoneNo1, String currentlyHaveInsurance, String firstInsurance,
+			String injuryLimit, String reason, String shareReason, String startDate) {
 
 		reportPass("Site opened Successfuly");
 
@@ -67,34 +69,36 @@ public class Test2 extends BaseClass {
 		sleep(3);
 
 		UserDetails stepOne = this.home.getPrice();
+
 		// *******************STEP StepOne*******************
 
 		try {
 			stepOne.okThanksPopUp();
 			reportPass("Closed Pop-Up");
 
-		} catch (Exception e) {
-			reportFail(e.getMessage());
+		} catch (Exception e1) {
+
 		}
 
 		try {
-
 			stepOne.setFirstName(firstName);
-			reportPass("First Name set to" + firstName);
+
+			reportPass("FirstName set to" + firstName);
 
 		} catch (Exception e) {
+
+			try {
+				this.home.printErrors();
+				openUrl("https://buy.libertymutual.com/");
+			} catch (Exception E) {
+				// TODO Auto-generated catch block
+				E.printStackTrace();
+			}
+
 			reportFail(e.getMessage());
+			return;
 		}
-
-		try {
-
-			stepOne.setLastName(lastName);
-			reportPass("LastName set to" + lastName);
-
-		} catch (Exception e) {
-			reportFail(e.getMessage());
-		}
-
+		stepOne.setLastName(lastName);
 		try {
 
 			stepOne.setDOB("01/01/1996");
@@ -105,6 +109,7 @@ public class Test2 extends BaseClass {
 		}
 
 		stepOne.clickNextPersonalDetails();
+
 		sleep(4);
 
 		try {
@@ -112,31 +117,69 @@ public class Test2 extends BaseClass {
 			reportPass("UserDetails Address1 set to" + address1);
 
 		} catch (Exception e) {
+
+			try {
+				stepOne.printErrors();
+				openUrl("https://buy.libertymutual.com/");
+			} catch (Exception E) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 			reportFail(e.getMessage());
+			return;
+
 		}
 
 		stepOne.setAddress2(address2);
 		stepOne.clickNextAddressDetails();
 
 		sleep(2);
+		try {
+			stepOne.lastThreeMonths(livedHere);
+		} catch (Exception e) {
+			try {
+				stepOne.printErrors();
+				openUrl("https://buy.libertymutual.com/");
+			} catch (Exception E) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		stepOne.lastThreeMonths(livedHere);
+			reportFail(e.getMessage());
+			return;
+		}
 
 		// sleep(2);
 		stepOne.setEmail(email);
 		stepTwo = stepOne.clickContinue();
-
 		try {
-			sleep(2);
-			stepTwo.setVIN(VIN);
+			try {
 
+				sleep(2);
+				stepTwo.setVIN(VIN);
+
+			} catch (Exception e) {
+				sleep(2);
+				stepTwo.useVINInstead();
+				sleep(3);
+				stepTwo.setVIN1(VIN);
+				sleep(4);
+				stepTwo.VINNext();
+			}
 		} catch (Exception e) {
-			sleep(2);
-			stepTwo.useVINInstead();
-			sleep(3);
-			stepTwo.setVIN1(VIN);
-			sleep(4);
-			stepTwo.VINNext();
+
+			try {
+				stepOne.printErrors();
+				openUrl("https://buy.libertymutual.com/");
+			} catch (Exception E) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			reportFail(e.getMessage());
+			return;
+
 		}
 
 		sleep(3);
@@ -150,7 +193,7 @@ public class Test2 extends BaseClass {
 			stepTwo.whereDoYouKeepIt(address1, address2, zipcode);
 		}
 		sleep(4);
-		System.out.println("Title of stepTwo:" + stepTwo.getTitle());
+
 		try {
 			stepThree = stepTwo.saveAndContinue();
 		} catch (Exception e) {
@@ -159,7 +202,6 @@ public class Test2 extends BaseClass {
 		}
 
 		sleep(4);
-		System.out.println("Title of stepTwo:" + stepThree.getTitle());
 
 		try {
 			stepThree = stepTwo.saveAndContinue();
@@ -186,11 +228,22 @@ public class Test2 extends BaseClass {
 		stepThree.saveAndContinue();
 
 		sleep(2);
-
 		stepFour = stepThree.saveAndContinue();
 
+		try {
+			stepFour.haveAnotherPolicyWithLiberty(havingPolicyWithLiberty);
+		} catch (Exception e) {
+			try {
+				stepOne.printErrors();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			reportFail(e.getMessage());
+		}
+
 		sleep(6);
-		stepFour.haveAnotherPolicyWithLiberty(havingPolicyWithLiberty);
+
 		if (havingPolicyWithLiberty.toLowerCase().equals("yes")) {
 			List<String> policies = Arrays.asList(otherPolicy.split(","));
 			System.out.println(policies);
@@ -215,7 +268,7 @@ public class Test2 extends BaseClass {
 
 		stepFour.saveAndContinue();
 
-		  sleep(5);
+		sleep(5);
 
 		stepFour.wantToSave30percent(wantDiscount);
 		if (wantDiscount.toLowerCase().equals("yes")) {
@@ -228,7 +281,6 @@ public class Test2 extends BaseClass {
 			stepFour.wantToRecieveText(wantToRecieveMsg);
 			if (wantToRecieveMsg.toLowerCase().equals("yes")) {
 				stepFour.whatNumberShouldWeSendTextTo(phoneNo);
-
 			}
 		}
 		stepFive = stepFour.saveAndContinue();
@@ -251,13 +303,13 @@ public class Test2 extends BaseClass {
 		}
 		// ****************************logic***************************
 		stepFive.policyStartDate(startDate);
-		
+
 		Quote stepSix = stepFive.getEstimate();
 		sleep(10);
 		try {
 			stepSix.printConsole();
 		} catch (Exception e) {
-			stepSix.printConsole1();
+			// stepSix.printConsole1();
 		}
 
 		try {
@@ -266,10 +318,9 @@ public class Test2 extends BaseClass {
 
 			e.printStackTrace();
 		}
-		 sleep(10);
+		// sleep(10);
 		stepSix.closeAndFlushReport();
-		//driver.get("https://www.libertymutual.com/get-a-quote");
 		sleep(5);
-//	}
-}
+	}
+
 }

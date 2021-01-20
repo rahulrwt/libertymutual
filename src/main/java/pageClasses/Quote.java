@@ -59,15 +59,7 @@ public class Quote extends BaseClass {
 	//------------------ move to base class and call 
 
 	
-	public void printConsole1() {
 
-//	 ArrayList<WebElement> pricesElement=driver.findElement("xpath='");
-
-		for (int i = 0; i < pricesElements1.size(); i++) {
-			System.out.println(i + 1 + ". " + pricesElements1.get(i).getText());
-
-		}
-	}
 
 	public void saveToXls() throws IOException {
 

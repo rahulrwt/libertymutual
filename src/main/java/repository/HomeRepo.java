@@ -1,15 +1,31 @@
 package repository;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HomeRepo {
+public class HomeRepo extends MainRepository {
 
 	WebDriver driver;
 
+	String excelSheetName;
+	String excelFileName;
 	public HomeRepo(WebDriver driver) {
 		this.driver = driver;
+	}
+
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public void setExcelSheetName(String excelSheetName) {
+		this.excelSheetName = excelSheetName;
+	}
+
+	public void setExcelFileName(String excelFileName) {
+		this.excelFileName = excelFileName;
 	}
 
 	public WebElement getZipcodeElement() {
@@ -23,4 +39,15 @@ public class HomeRepo {
 
 		return getPricElement;
 	}
+
+		public ArrayList<WebElement> getErrorList() throws Exception {
+		ArrayList<WebElement> errors = (ArrayList<WebElement>) driver.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li"));
+		return errors;
+	}
+
+
+//	public String  getZipcode() {
+		//String zipCode=MainRepository.Exceldata(excelFileName, SheetName, 1, RowId);
+//		return zipCode;
+//	}
 }

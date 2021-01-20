@@ -7,7 +7,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import baseClass.BaseClass;
 import repository.CurrentInsurance;
@@ -95,6 +94,11 @@ public class CurrentInsurances extends BaseClass {
 
 	}
 
+	public void printErrors() throws Exception
+	{
+		printErrors(currentInsurance.getErrorList());
+	}
+	
 	public Quote getEstimate() {
 		currentInsurance.getGetEstimate().click();
 		

@@ -1,6 +1,6 @@
 package pageClasses;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +13,6 @@ import repository.DiscountRepo;
 public class Discount extends BaseClass {
 
 	DiscountRepo discountRepo;
-
 
 	public Discount(WebDriver driver) {
 		BaseClass.driver = driver;
@@ -189,6 +188,11 @@ public class Discount extends BaseClass {
 		discountRepo.getCheckBox().click();
 	}
 
+	public void printErrors() throws Exception
+	{
+		printErrors(discountRepo.getErrorList());
+	}
+	
 	public void next() {
 		discountRepo.getNext().click();
 		

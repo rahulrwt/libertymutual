@@ -43,6 +43,11 @@ public class UserDetails extends BaseClass {
 		userDetailsRepo.getNextPersonalDetails().click();
 	}
 
+	public void printErrors() throws Exception
+	{
+		printErrors(userDetailsRepo.getErrorList());
+	}
+	
 //	@FindBy(xpath = "//*[@id=\"residentialAddress-city-input\"]")
 //	WebElement city;
 
@@ -90,6 +95,8 @@ public class UserDetails extends BaseClass {
 		userDetailsRepo.getEmailElement().sendKeys(email);
 	}
 
+ 
+	
 	public VehicleDetails clickContinue() {
 		userDetailsRepo.getSaveAndContinue().click();
 

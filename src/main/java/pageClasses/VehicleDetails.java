@@ -14,7 +14,6 @@ public class VehicleDetails extends BaseClass {
 	VehicleDetailsRepo vehicleDetailsRepo;
 	public VehicleDetails(WebDriver driver) {
 		BaseClass.driver = driver;
-		this.driver=driver;
 		this.vehicleDetailsRepo = new VehicleDetailsRepo(driver);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
@@ -95,5 +94,8 @@ public class VehicleDetails extends BaseClass {
 		return driver.getTitle();
 		
 	}
-
+	public void printErrors() throws Exception
+	{
+		printErrors(vehicleDetailsRepo.getErrorList());
+	}
 }

@@ -1,9 +1,10 @@
 package repository;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class UserDetailsRepo {
 
@@ -121,6 +122,12 @@ public class UserDetailsRepo {
 		WebElement saveAndContinue = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/div/form/button"));
 
 		return saveAndContinue;
+	}
+
+	public ArrayList<WebElement> getErrorList() throws Exception {
+		ArrayList<WebElement> errors = (ArrayList<WebElement>) driver
+				.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li/span"));
+		return errors;
 	}
 
 }

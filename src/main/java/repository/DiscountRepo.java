@@ -1,9 +1,11 @@
 package repository;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+
 
 public class DiscountRepo {
 
@@ -276,6 +278,11 @@ public class DiscountRepo {
 		WebElement checkBox = driver
 				.findElement(By.xpath("//*[@id=\"visualCheckboxGroupV2-6\"]/fieldset/div/div/div/label/span[2]/span"));
 		return checkBox;
+	}
+
+	public ArrayList<WebElement> getErrorList() throws Exception {
+		ArrayList<WebElement> errors = (ArrayList<WebElement>) driver.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li/span"));
+		return errors;
 	}
 
 }

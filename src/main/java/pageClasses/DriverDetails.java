@@ -1,6 +1,5 @@
 package pageClasses;
 
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -55,6 +54,11 @@ public class DriverDetails extends BaseClass {
 		driverDetailsRepo.getContactNo().sendKeys(phone);
 	}
 
+	public void printErrors() throws Exception
+	{
+		printErrors(driverDetailsRepo.getErrorList());
+	}
+	
 	public Discount saveAndContinue() {
 		driverDetailsRepo.getSaveAndContinue().click();
 		return PageFactory.initElements(driver, Discount.class);

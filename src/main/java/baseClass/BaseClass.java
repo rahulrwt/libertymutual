@@ -1,11 +1,13 @@
 package baseClass;
 
+import java.awt.List;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -14,6 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -155,9 +158,16 @@ public class BaseClass {
 		return arrayExcelData;
 	}
 
+	public void printErrors(ArrayList<WebElement> errors) {
+			for (int i = 0; i < errors.size(); i++) {
+				System.out.println(i + 1 + ". " + errors.get(i).getText());
+
+			}
+		}
+
 	public void reportFail(String reportString) {
-		logger.log(Status.FAIL, reportString);
-		takeScreenShot();
-		Assert.fail();
+//		logger.log(Status.FAIL, reportString);
+//		takeScreenShot();
+//		Assert.fail();
 	}
 }
