@@ -37,7 +37,7 @@ public class QuoteRepo {
 	}
 
 	public List<WebElement> getPricesElements() {
-		List<WebElement> pricesElements = driver.findElements(By.xpath("//div[@class='lm-Body lms-Header--price']"));
+		List<WebElement> pricesElements = driver.findElements(By.xpath("//span[@class='lms-ContentArea--price']"));
 
 		return pricesElements;
 	}

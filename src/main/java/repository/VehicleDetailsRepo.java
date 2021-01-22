@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
- 
 
 import baseClass.BaseClass;
 
@@ -121,9 +120,9 @@ public class VehicleDetailsRepo extends BaseClass {
 	}
 
 	public WebElement getSaveAndContinue() {
-		System.out.println("Before  xpath");
+
 		WebElement saveAndContinue = driver.findElement(By.xpath("//button[text() = 'Save and continue']"));
-		System.out.println("After  xpath");
+
 		return saveAndContinue;
 	}
 

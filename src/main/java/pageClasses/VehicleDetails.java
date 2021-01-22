@@ -12,6 +12,7 @@ import repository.VehicleDetailsRepo;
 public class VehicleDetails extends BaseClass {
 
 	VehicleDetailsRepo vehicleDetailsRepo;
+
 	public VehicleDetails(WebDriver driver) {
 		BaseClass.driver = driver;
 		this.vehicleDetailsRepo = new VehicleDetailsRepo(driver);
@@ -45,7 +46,7 @@ public class VehicleDetails extends BaseClass {
 	// ****************Common functions for both branch******************
 
 	public void ownerShip(String type) {
-		if (type.toLowerCase().equals("full paid")) {
+		if (type.toLowerCase().equals("own")) {
 			vehicleDetailsRepo.getFullPaid().click();
 		} else if (type.toLowerCase().equals("finance")) {
 			vehicleDetailsRepo.getFinance().click();
@@ -92,10 +93,9 @@ public class VehicleDetails extends BaseClass {
 
 	public String getTitle() {
 		return driver.getTitle();
-		
 	}
-	public void printErrors() throws Exception
-	{
+
+	public void printErrors() throws Exception {
 		printErrors(vehicleDetailsRepo.getErrorList());
 	}
 }

@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CurrentInsurance {
+public class CurrentInsuranceRepo {
 
 	WebDriver driver;
-	public CurrentInsurance(WebDriver driver) {
+	public CurrentInsuranceRepo(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -92,7 +92,7 @@ public class CurrentInsurance {
 
 	public WebElement getGetEstimate() {
 
-		WebElement getEstimate = driver.findElement(By.xpath("//*[@id=\"app\"]/main/div/div/form/button"));
+		WebElement getEstimate = driver.findElement(By.xpath("//button[text()='Get my estimate']"));
 
 		return getEstimate;
 	}

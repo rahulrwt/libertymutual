@@ -1,6 +1,5 @@
 package pageClasses;
 
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +13,7 @@ public class Discount extends BaseClass {
 
 	DiscountRepo discountRepo;
 
+	// parameterized constructor
 	public Discount(WebDriver driver) {
 		BaseClass.driver = driver;
 		discountRepo = new DiscountRepo(driver);
@@ -21,7 +21,7 @@ public class Discount extends BaseClass {
 	}
 
 	public void haveAnotherPolicyWithLiberty(String ans) {
-		//String ans = xlsread.Excelread(sheetname,columnname , rowvalue);
+
 		if (ans.toLowerCase().equals("yes")) {
 			discountRepo.getYes().click();
 		} else {
@@ -29,7 +29,9 @@ public class Discount extends BaseClass {
 		}
 	}
 
+	// iterating through the list and selecting policies accordingly
 	public void policiesYouHave(List<String> policies) {
+
 		for (int i = 0; i < policies.size(); i++) {
 			if (policies.get(i).toLowerCase().equals("renters") || policies.get(i).toLowerCase().equals("home")
 					|| policies.get(i).toLowerCase().equals("condo")) {
@@ -49,8 +51,8 @@ public class Discount extends BaseClass {
 			}
 			if (policies.get(i).toLowerCase().equals("motorcycle")) {
 				discountRepo.getMotorcycle().click();
-			} if(policies.get(i).toLowerCase().equals("other"))
-			{
+			}
+			if (policies.get(i).toLowerCase().equals("other")) {
 				discountRepo.getOther11().click();
 
 			}
@@ -59,16 +61,17 @@ public class Discount extends BaseClass {
 
 	}
 
+	// Radio button selection of employment status
 	public void employmentStatus(String status) {
-		if (status.toLowerCase().equals("employed")) {
+		if (status.toLowerCase().contains("employed")) {
 			discountRepo.getEmployed().click();
-		} else if (status.toLowerCase().equals("student")) {
+		} else if (status.toLowerCase().contains("student")) {
 			discountRepo.getStudent().click();
 
-		} else if (status.toLowerCase().equals("retired")) {
+		} else if (status.toLowerCase().contains("retired")) {
 			discountRepo.getRetired().click();
 
-		} else if (status.toLowerCase().equals("military")) {
+		} else if (status.toLowerCase().contains("military")) {
 			discountRepo.getMilitary().click();
 
 		} else if (status.toLowerCase().equals("notseekingemployment")) {
@@ -81,20 +84,22 @@ public class Discount extends BaseClass {
 
 	}
 
+	// Radio button selection of Education status
+
 	public void highestEducation(String highestLevel) {
-		if (highestLevel.toLowerCase().equals("highschool")) {
+		if (highestLevel.toLowerCase().contains("highschool")) {
 			discountRepo.getHighschool().click();
 
-		} else if (highestLevel.toLowerCase().equals("vocational")) {
+		} else if (highestLevel.toLowerCase().contains("vocational")) {
 			discountRepo.getVocational().click();
 
-		} else if (highestLevel.toLowerCase().equals("associatedegree")) {
+		} else if (highestLevel.toLowerCase().contains("associatedegree")) {
 			discountRepo.getAssociatedegree().click();
 
-		} else if (highestLevel.toLowerCase().equals("bachelor")) {
+		} else if (highestLevel.toLowerCase().contains("bachelor")) {
 			discountRepo.getBachelor().click();
 
-		} else if (highestLevel.toLowerCase().equals("advanced")) {
+		} else if (highestLevel.toLowerCase().contains("masters")) {
 			discountRepo.getAdvanced().click();
 
 		} else {
@@ -104,14 +109,16 @@ public class Discount extends BaseClass {
 
 	}
 
+	// Radio button selection of type of home
+
 	public void ownHome(String ans) {
-		if (ans.toLowerCase().equals("single")) {
+		if (ans.toLowerCase().contains("single")) {
 			discountRepo.getSingle().click();
 
-		} else if (ans.toLowerCase().equals("condo")) {
+		} else if (ans.toLowerCase().contains("condo")) {
 			discountRepo.getCondo().click();
 
-		} else if (ans.toLowerCase().equals("mobile")) {
+		} else if (ans.toLowerCase().contains("mobile")) {
 			discountRepo.getMobile().click();
 
 		} else {
@@ -121,6 +128,7 @@ public class Discount extends BaseClass {
 
 	}
 
+//clicks save and continue button and returns CurrentInsurances object
 	public CurrentInsurances saveAndContinue() {
 		discountRepo.getSaveAndContinue().click();
 
@@ -128,6 +136,7 @@ public class Discount extends BaseClass {
 
 	}
 
+	// checks discount
 	public void wantToSave30percent(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			discountRepo.getYes1().click();
@@ -141,14 +150,15 @@ public class Discount extends BaseClass {
 
 	}
 
+	// selects type of phone
 	public void smartPhoneSelection(String phone) {
-		if (phone.toLowerCase().equals("iphone")) {
+		if (phone.toLowerCase().contains("iphone")) {
 			discountRepo.getIphone5().click();
 
-		} else if (phone.toLowerCase().equals("android")) {
+		} else if (phone.toLowerCase().contains("android")) {
 			discountRepo.getAndroid4().click();
 
-		} else if (phone.toLowerCase().equals("other")) {
+		} else if (phone.toLowerCase().contains("other")) {
 			discountRepo.getOther1().click();
 
 		} else {
@@ -157,6 +167,7 @@ public class Discount extends BaseClass {
 		}
 	}
 
+	// asks whether user wants to receive text
 	public void wantToRecieveText(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			discountRepo.getYes11().click();
@@ -167,35 +178,37 @@ public class Discount extends BaseClass {
 		}
 	}
 
+	// sets user's phone number
 	public void whatNumberShouldWeSendTextTo(String number) {
 		discountRepo.getWhatNumber().sendKeys(number);
 	}
 
-	public CurrentInsurances continueWithoutOffer() {
-		discountRepo.getWithoutOffer().click();
-
-		return PageFactory.initElements(driver, CurrentInsurances.class);
-
-	}
-
+	// checks status of checkBox
 	public boolean checkBoxActive() {
 
 		return discountRepo.getCheckBoxStatus();
 	}
 
+	//
 	public void selectCheckBox() {
 
 		discountRepo.getCheckBox().click();
 	}
 
-	public void printErrors() throws Exception
-	{
+	// prints invalid data errors
+	public void printErrors() throws Exception {
 		printErrors(discountRepo.getErrorList());
 	}
-	
+
+	// clicks next button
 	public void next() {
 		discountRepo.getNext().click();
-		
-	}
 
+	}
+	
+	// redirects to currentInsurance page and returns currentInsurance object
+	public CurrentInsurances continueWithoutOffer() {
+		discountRepo.getWithoutOffer().click();
+		return PageFactory.initElements(driver, CurrentInsurances.class);
+	}
 }

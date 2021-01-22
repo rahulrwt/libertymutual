@@ -5,8 +5,9 @@
     <classes>
       <class name="TestClass.Test2">
         <methods>
+          <include name="afterSuit"/>
           <include name="Initial"/>
-          <include name="Test1" invocation-numbers="2"/>
+          <include name="Test1"/>
         </methods>
       </class> <!-- TestClass.Test2 -->
     </classes>

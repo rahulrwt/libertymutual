@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -44,8 +45,8 @@ public class Test2 extends BaseClass {
 	public Object[][] testEventData() {
 
 		Object[][] arrayObject = getExcelData(
-				"C:\\Users\\91950\\eclipse-workspace\\libertymutual\\resources\\repository\\Test1.xlsx", "UserDetail",
-				4, 36);
+				"C:\\Users\\91950\\eclipse-workspace\\libertymutual\\resources\\repository\\LibertyMutual.xlsx", "LibertyMutual",
+				2, 36);
 
 		return arrayObject;
 	}
@@ -94,7 +95,6 @@ public class Test2 extends BaseClass {
 				// TODO Auto-generated catch block
 				E.printStackTrace();
 			}
-
 			reportFail(e.getMessage());
 			return;
 		}
@@ -245,6 +245,7 @@ public class Test2 extends BaseClass {
 		sleep(6);
 
 		if (havingPolicyWithLiberty.toLowerCase().equals("yes")) {
+			// splitting policy names and storing into List
 			List<String> policies = Arrays.asList(otherPolicy.split(","));
 			System.out.println(policies);
 			stepFour.policiesYouHave(policies);
@@ -276,6 +277,10 @@ public class Test2 extends BaseClass {
 				stepFour.selectCheckBox();
 
 			}
+			else
+			{
+				stepFour.continueWithoutOffer();
+			}
 			stepFour.saveAndContinue();
 			stepFour.smartPhoneSelection(smartPhone);
 			stepFour.wantToRecieveText(wantToRecieveMsg);
@@ -302,9 +307,14 @@ public class Test2 extends BaseClass {
 				stepFive.shareReason(shareReason);
 		}
 		// ****************************logic***************************
-		stepFive.policyStartDate(startDate);
+		try {
+			stepFive.policyStartDate(startDate);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
-		Quote stepSix = stepFive.getEstimate();
+		stepSix = stepFive.getEstimate();
 		sleep(10);
 		try {
 			stepSix.printConsole();
@@ -318,9 +328,11 @@ public class Test2 extends BaseClass {
 
 			e.printStackTrace();
 		}
-		// sleep(10);
-		stepSix.closeAndFlushReport();
-		sleep(5);
+		openUrl("https://buy.libertymutual.com/");
 	}
-
+@AfterSuite
+public void afterSuit()
+{
+	stepSix.closeAndFlushReport();
+}
 }

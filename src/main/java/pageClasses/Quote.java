@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -21,8 +20,8 @@ public class Quote extends BaseClass {
 	QuoteRepo quoteRepo ;
 	public Quote(WebDriver driver) {
 		BaseClass.driver = driver;
-		quoteRepo= new QuoteRepo(driver);
-		BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		this.quoteRepo= new QuoteRepo(driver);
+	
 	}
 
 	
@@ -41,11 +40,11 @@ public class Quote extends BaseClass {
 		
 	}
 
-	List<WebElement> pricesElements = quoteRepo.getPricesElements();
-
+	
+	List<WebElement> pricesElements ;
 	//------------------ move to base class and call 
 	public void printConsole() {
-
+		this.pricesElements = quoteRepo.getPricesElements();
 
 		for (int i = 0; i < pricesElements.size(); i++) {
 			System.out.println(i + 1 + ". " + pricesElements.get(i).getText());
@@ -53,8 +52,7 @@ public class Quote extends BaseClass {
 		}
 	}
 
-	List<WebElement> pricesElements1 = quoteRepo.getPricesElements1();
-
+ 
 	
 	//------------------ move to base class and call 
 

@@ -41,10 +41,10 @@ public class BaseClass {
 	public DesiredCapabilities cap = null;
 
 	@Parameters("browser")
-	
+	//function for invoking browsers
 	public void invokebrowser() {
 		String browser = prop.getProperty("browser_name");
-		browser = "chrome";
+		browser = "internetExplorer";
 		this.logger = report.createTest("invokeBrowser");
 		try {
 			logger.log(Status.INFO, "Opening the browser");
@@ -63,10 +63,15 @@ public class BaseClass {
 				cap = DesiredCapabilities.firefox();
 				logger.log(Status.PASS, "firefox opened");
 			}
+			else {
+				cap=DesiredCapabilities.internetExplorer();
+				
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
+		//grid configuration
 		try {
 
 			logger.log(Status.INFO, "node is connected to hub http://192.168.1.28:4444/wd/hub");
@@ -77,7 +82,7 @@ public class BaseClass {
 		}
 
 	}
-
+//function for opening website
 	public Home openUrl(String URL) {
 		this.logger = report.createTest("OpenUrl");
 		// driver.manage().window().maximize();
@@ -117,6 +122,8 @@ public class BaseClass {
 		logger.log(Status.PASS, reportString);
 	}
 
+	
+	
 	public void takeScreenShot() {
 		TakesScreenshot ss = (TakesScreenshot) driver;
 		File src = ss.getScreenshotAs(OutputType.FILE);
@@ -130,6 +137,8 @@ public class BaseClass {
 		}
 	}
 
+	
+	//*************************function for reading data from excel
 	public String[][] getExcelData(String fileName, String sheetName, int totalNoOfRows, int totalNoOfCols) {
 		String[][] arrayExcelData = null;
 		try {
@@ -158,6 +167,7 @@ public class BaseClass {
 		return arrayExcelData;
 	}
 
+	//function for printing invalid data error
 	public void printErrors(ArrayList<WebElement> errors) {
 			for (int i = 0; i < errors.size(); i++) {
 				System.out.println(i + 1 + ". " + errors.get(i).getText());
