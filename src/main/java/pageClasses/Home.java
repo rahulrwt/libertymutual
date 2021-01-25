@@ -10,40 +10,37 @@ import repository.HomeRepo;
 public class Home extends BaseClass {
 
 	HomeRepo homeRepo;
-
-	public Home(WebDriver driver) {
-		BaseClass.driver = driver;
-		this.homeRepo = new HomeRepo(driver);
-		// BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-	}
-
 	String excelSheetName;
 	String sheetLocation;
 	int rowId;
 
-	public void setSheetDetails(String excelSheetName, String sheetLocation) {
-		this.excelSheetName = excelSheetName;
-		this.sheetLocation = sheetLocation;
+	// Parameterized constructor
+	public Home(WebDriver driver) {
+		BaseClass.driver = driver;
+		this.homeRepo = new HomeRepo(driver);
 	}
 
-	public void setZipCode(String zipCode) {
+//	public void setSheetDetails(String excelSheetName, String sheetLocation) {
+//		this.excelSheetName = excelSheetName;
+//		this.sheetLocation = sheetLocation;
+//	}
 
+	//Sets zipcode of city where car is purchased
+	public void setZipCode(String zipCode) {
 		this.logger = report.createTest("SetZipCode");
 		homeRepo.getZipcodeElement().sendKeys(zipCode);
 	}
 
+	// redirects to UserDetails page and returns UserDetails object
+	
 	public UserDetails getPrice() {
 		homeRepo.getGetPricElement().click();
 		return PageFactory.initElements(driver, UserDetails.class);
 
 	}
 
-	public WebDriver getDriver() {
-		return driver;
-	}
-
-	public void printErrors() throws Exception
-	{
+	//Print errors, if any on page
+	public void printErrors() throws Exception {
 		printErrors(homeRepo.getErrorList());
 	}
 

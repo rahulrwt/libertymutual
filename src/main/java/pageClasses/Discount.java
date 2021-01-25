@@ -13,13 +13,14 @@ public class Discount extends BaseClass {
 
 	DiscountRepo discountRepo;
 
-	// parameterized constructor
+	// Parameterized constructor
 	public Discount(WebDriver driver) {
 		BaseClass.driver = driver;
 		discountRepo = new DiscountRepo(driver);
 		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
+	// Selects radio button for having policy with liberty mutual
 	public void haveAnotherPolicyWithLiberty(String ans) {
 
 		if (ans.toLowerCase().equals("yes")) {
@@ -29,7 +30,7 @@ public class Discount extends BaseClass {
 		}
 	}
 
-	// iterating through the list and selecting policies accordingly
+	// Iterating through the list and selecting policies accordingly
 	public void policiesYouHave(List<String> policies) {
 
 		for (int i = 0; i < policies.size(); i++) {
@@ -128,7 +129,7 @@ public class Discount extends BaseClass {
 
 	}
 
-//clicks save and continue button and returns CurrentInsurances object
+//Clicks save and continue button and returns CurrentInsurances object
 	public CurrentInsurances saveAndContinue() {
 		discountRepo.getSaveAndContinue().click();
 
@@ -136,11 +137,16 @@ public class Discount extends BaseClass {
 
 	}
 
-	// checks discount
+	//Checks discount
 	public void wantToSave30percent(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			discountRepo.getYes1().click();
-
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			discountRepo.getNext().click();
 
 		} else {
@@ -150,7 +156,7 @@ public class Discount extends BaseClass {
 
 	}
 
-	// selects type of phone
+	// Selects type of phone
 	public void smartPhoneSelection(String phone) {
 		if (phone.toLowerCase().contains("iphone")) {
 			discountRepo.getIphone5().click();
@@ -167,7 +173,7 @@ public class Discount extends BaseClass {
 		}
 	}
 
-	// asks whether user wants to receive text
+	// Asks whether user wants to receive text
 	public void wantToRecieveText(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			discountRepo.getYes11().click();
@@ -178,18 +184,18 @@ public class Discount extends BaseClass {
 		}
 	}
 
-	// sets user's phone number
+	// Sets user's phone number
 	public void whatNumberShouldWeSendTextTo(String number) {
 		discountRepo.getWhatNumber().sendKeys(number);
 	}
 
-	// checks status of checkBox
+	// Checks status of checkBox
 	public boolean checkBoxActive() {
 
 		return discountRepo.getCheckBoxStatus();
 	}
 
-	//
+	//Clicks on checkbox of 30% discount
 	public void selectCheckBox() {
 
 		discountRepo.getCheckBox().click();
@@ -205,7 +211,7 @@ public class Discount extends BaseClass {
 		discountRepo.getNext().click();
 
 	}
-	
+
 	// redirects to currentInsurance page and returns currentInsurance object
 	public CurrentInsurances continueWithoutOffer() {
 		discountRepo.getWithoutOffer().click();

@@ -65,14 +65,14 @@ public class CurrentInsuranceRepo {
 	}
 
 	public WebElement getNext() {
-		WebElement next = driver.findElement(By.xpath("//*[@id=\"noPriorInsuranceForm\"]/button"));
+		WebElement next = driver.findElement(By.xpath("//button[text()='Next']"));
 
 		return next;
 	}
 
 	public WebElement getPriorPolicyStart() {
 		WebElement priorPolicyStart = driver
-				.findElement(By.xpath("//*[@id=\"priorPolicyStartDropdown-input-select\"]"));
+				.findElement(By.xpath("//*[@id='priorPolicyStart-input-input']"));
 
 		return priorPolicyStart;
 	}

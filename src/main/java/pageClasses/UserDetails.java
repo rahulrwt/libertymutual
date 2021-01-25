@@ -1,7 +1,5 @@
 package pageClasses;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.PageFactory;
@@ -13,64 +11,58 @@ public class UserDetails extends BaseClass {
 
 	UserDetailsRepo userDetailsRepo;
 
-	public WebDriver getDriver() {
-		return driver;
-	}
-
+	// Parameterized constructor
 	public UserDetails(WebDriver driver) {
 		BaseClass.driver = driver;
 		userDetailsRepo = new UserDetailsRepo(driver);
-		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
+	// To close the pop-up
 	public void okThanksPopUp() {
 		userDetailsRepo.getOkThanks().click();
 	}
 
+	// Sets First Name
 	public void setFirstName(String name) {
 		userDetailsRepo.getFirstNameElement().sendKeys(name);
 	}
 
+	// Sets Last Name
 	public void setLastName(String name) {
 		userDetailsRepo.getLastNameElement().sendKeys(name);
 	}
 
+	// Sets DOB
 	public void setDOB(String dob) {
 		userDetailsRepo.getDOB().sendKeys(dob);
 	}
 
+	// Clicks on next
 	public void clickNextPersonalDetails() {
 		userDetailsRepo.getNextPersonalDetails().click();
 	}
 
-	public void printErrors() throws Exception
-	{
-		printErrors(userDetailsRepo.getErrorList());
-	}
-	
-//	@FindBy(xpath = "//*[@id=\"residentialAddress-city-input\"]")
-//	WebElement city;
-
+	// Sets Address1 details
 	public void setAddress1(String address) {
 		userDetailsRepo.getAddress1().sendKeys(address);
 	}
 
+	// Sets Address2 details
 	public void setAddress2(String address) {
 		userDetailsRepo.getAddress2().sendKeys(address);
 	}
 
+	// Sets Zip code
 	public void setZipCode(String zip) {
 		userDetailsRepo.getZipCode1().sendKeys(zip);
 	}
 
-//	public void setCity(String city) {
-//		this.city.sendKeys(city);
-//	}
-
+	// Clicks on next
 	public void clickNextAddressDetails() {
 		userDetailsRepo.getNextAddressDetails().click();
 	}
 
+	// Selects radio button whether stayed for last three month or not
 	public void lastThreeMonths(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			userDetailsRepo.getYesElement().click();
@@ -79,28 +71,37 @@ public class UserDetails extends BaseClass {
 		}
 	}
 
-//*********************************functions for no option********************
+	// *********************************functions for no option********************
 
+	// Sets address details if user is not staying for 3 months
 	public void whereDidYouLiveBefore(String address1, String address2, String zipcode) {
 		userDetailsRepo.getAddress11().sendKeys(address1);
 		userDetailsRepo.getAddress22().sendKeys(address2);
 		userDetailsRepo.getZipcode2().sendKeys(zipcode);
 	}
 
+	// Clicks on next
 	public void next() {
 		userDetailsRepo.getNext().click();
 	}
 
+	// Sets email address
 	public void setEmail(String email) {
 		userDetailsRepo.getEmailElement().sendKeys(email);
 	}
 
- 
-	
+	// Prints errors
+	public void printErrors() throws Exception {
+		printErrors(userDetailsRepo.getErrorList());
+	}
+
+	// redirects to VehicleDetails page and returns VehicleDetails object
+
 	public VehicleDetails clickContinue() {
 		userDetailsRepo.getSaveAndContinue().click();
 
 		return PageFactory.initElements(driver, VehicleDetails.class);
 
 	}
+
 }

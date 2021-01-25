@@ -12,14 +12,13 @@ import repository.CurrentInsuranceRepo;
 public class CurrentInsurances extends BaseClass {
 	CurrentInsuranceRepo currentInsurance;
 
-	// parameterized Constructor
+	// Parameterized Constructor
 	public CurrentInsurances(WebDriver driver) {
 		BaseClass.driver = driver;
 		currentInsurance = new CurrentInsuranceRepo(driver);
-		
 	}
 
-	//
+	//Selects radio button for history of insurance
 	public void currentlyHaveInsurance(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			currentInsurance.getYes().click();
@@ -28,7 +27,7 @@ public class CurrentInsurances extends BaseClass {
 		}
 	}
 
-	// takes reason as argument and clicks accordingly
+	// Takes reason as argument and clicks accordingly
 	public void reasonForNotHavingInsurance(String reason) {
 		if (reason.toLowerCase().contains("expired")) {
 			currentInsurance.getExpiredOrCanceled().click();
@@ -46,45 +45,46 @@ public class CurrentInsurances extends BaseClass {
 		}
 	}
 
-	// selects reason for not having insurance
+	// Selects reason for not having insurance
 	public void shareReason(String reason) {
 
 		currentInsurance.getReason().sendKeys(reason);
 	}
 
-	// clicks next button
+	// Clicks next button
 	public void next() {
 		currentInsurance.getNext().click();
 	}
 
-	// sets time with c
+	// Sets time with c
 	public void timeWithCurrentInsurer(String time) {
 		currentInsurance.getPriorPolicyStart().sendKeys(time);
 	}
 
+	//Sets bodily injury limit of current insurance
 	public void currentBodilyInjuryLimit(String amount) {
 		int i = 0;
 
-		if (amount.toLowerCase().contains("don't know")) {
+		if (amount.equals("don't know")) {
 			i = 6;
-		} else if (amount.contains("25000")) {
+		} else if (amount.equals("25000")) {
 			i = 1;
-		} else if (amount.contains("50000")) {
+		} else if (amount.equals("50000")) {
 			i = 2;
-		} else if (amount.contains("100000")) {
+		} else if (amount.equals("100000")) {
 			i = 3;
-		} else if (amount.contains("250000")) {
+		} else if (amount.equals("250000")) {
 			i = 4;
-		} else if (amount.contains("300000")) {
+		} else if (amount.equals("300000")) {
 			i = 5;
 		}
 
 		while (i > 0) {
 			currentInsurance.getBodilyInjury().sendKeys(Keys.ARROW_DOWN);
-			i++;
+			i--;
 		}
 	}
-	
+	//sets policy start date
 	public void policyStartDate(String date) throws Exception {
 			Select policyDateSelect=new Select(currentInsurance.getPriorPolicyStart());
 			policyDateSelect.selectByVisibleText(date);

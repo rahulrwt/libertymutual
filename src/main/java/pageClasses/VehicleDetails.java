@@ -1,7 +1,6 @@
 package pageClasses;
 
-import java.util.concurrent.TimeUnit;
-
+ 
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.PageFactory;
@@ -13,30 +12,35 @@ public class VehicleDetails extends BaseClass {
 
 	VehicleDetailsRepo vehicleDetailsRepo;
 
+	// Parameterized constructor
 	public VehicleDetails(WebDriver driver) {
 		BaseClass.driver = driver;
 		this.vehicleDetailsRepo = new VehicleDetailsRepo(driver);
-		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
+	//Click on "don't have plate" if user not having plate info
 	public void dontHavePlate() {
 		vehicleDetailsRepo.getDontHavePlate().click();
 	}
 
+	//Sets VIN
 	public void setVIN(String VIN) {
 		vehicleDetailsRepo.getVIN().sendKeys(VIN);
 	}
 
+	//Sets VIN
 	public void setVIN1(String VIN) {
 		vehicleDetailsRepo.getVIN1().sendKeys(VIN);
 
 	}
 
+	//Clicks "use VIN instead" if user is having VIN info
 	public void useVINInstead() {
 		vehicleDetailsRepo.getVINInstead().click();
 
 	}
 
+	//Clicks on next
 	public void VINNext() {
 
 		vehicleDetailsRepo.getVINNext().click();
@@ -45,6 +49,7 @@ public class VehicleDetails extends BaseClass {
 
 	// ****************Common functions for both branch******************
 
+	//Selects radio button for ownership
 	public void ownerShip(String type) {
 		if (type.toLowerCase().equals("own")) {
 			vehicleDetailsRepo.getFullPaid().click();
@@ -56,6 +61,7 @@ public class VehicleDetails extends BaseClass {
 
 	}
 
+	//Selects radio button whether car is parked at given address or not
 	public void CarKeptAtGivenAddress(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			vehicleDetailsRepo.getYes().click();
@@ -65,6 +71,7 @@ public class VehicleDetails extends BaseClass {
 	}
 	// ***********************Yes Branch*******************
 
+	//If car is kept at given address then user has to set vehicle purchase year
 	public void purchaseYear(String year) {
 
 		vehicleDetailsRepo.getPurchaseYear().sendKeys(year);
@@ -73,16 +80,19 @@ public class VehicleDetails extends BaseClass {
 
 	// **********************No Branch*******************
 
+	//If car is not kept at given address then user has to set current address
 	public void whereDoYouKeepIt(String address1, String address2, String zipcode) {
 		vehicleDetailsRepo.getAddress11().sendKeys(address1);
 		vehicleDetailsRepo.getAddress22().sendKeys(address2);
 		vehicleDetailsRepo.getZipcode().sendKeys(zipcode);
 	}
 
+	// Clicks on next
 	public void next() {
 		vehicleDetailsRepo.getNext().click();
 
 	}
+	// redirects to DriverDetails page and returns DriverDetails object
 
 	public DriverDetails saveAndContinue() {
 
@@ -91,10 +101,7 @@ public class VehicleDetails extends BaseClass {
 		return PageFactory.initElements(driver, DriverDetails.class);
 	}
 
-	public String getTitle() {
-		return driver.getTitle();
-	}
-
+	// Print errors, if any on page
 	public void printErrors() throws Exception {
 		printErrors(vehicleDetailsRepo.getErrorList());
 	}

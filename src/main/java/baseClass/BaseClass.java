@@ -44,7 +44,7 @@ public class BaseClass {
 	//function for invoking browsers
 	public void invokebrowser() {
 		String browser = prop.getProperty("browser_name");
-		browser = "internetExplorer";
+		browser = "chrome";
 		this.logger = report.createTest("invokeBrowser");
 		try {
 			logger.log(Status.INFO, "Opening the browser");

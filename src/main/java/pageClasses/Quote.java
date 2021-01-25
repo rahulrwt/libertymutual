@@ -11,38 +11,22 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-
 import baseClass.BaseClass;
 import repository.QuoteRepo;
 
 public class Quote extends BaseClass {
 
-	QuoteRepo quoteRepo ;
+	QuoteRepo quoteRepo;
+	List<WebElement> pricesElements;
+
+	// Parameterized constructor
 	public Quote(WebDriver driver) {
 		BaseClass.driver = driver;
-		this.quoteRepo= new QuoteRepo(driver);
-	
+		this.quoteRepo = new QuoteRepo(driver);
+
 	}
 
-	
-	public void finalizePrice() {
-		quoteRepo.getFinalize().click();
-		
-	}
-
-	public void setVIN(String vin) {
-		quoteRepo.getVIN().click();
-		
-	}
-
-	public void continueToDrivers() {
-		quoteRepo.getDrivers().click();
-		
-	}
-
-	
-	List<WebElement> pricesElements ;
-	//------------------ move to base class and call 
+	// Prints details of quote on console
 	public void printConsole() {
 		this.pricesElements = quoteRepo.getPricesElements();
 
@@ -52,13 +36,7 @@ public class Quote extends BaseClass {
 		}
 	}
 
- 
-	
-	//------------------ move to base class and call 
-
-	
-
-
+	// Saves details of quote in .XLSX format
 	public void saveToXls() throws IOException {
 
 		// Saving the data retrieved to xlsx file

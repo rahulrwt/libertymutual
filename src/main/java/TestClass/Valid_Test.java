@@ -18,7 +18,7 @@ import pageClasses.Quote;
 import pageClasses.UserDetails;
 import pageClasses.VehicleDetails;
 
-public class Test2 extends BaseClass {
+public class Valid_Test extends BaseClass {
 	Home home;
 	VehicleDetails stepTwo;
 	DriverDetails stepThree;
@@ -45,8 +45,8 @@ public class Test2 extends BaseClass {
 	public Object[][] testEventData() {
 
 		Object[][] arrayObject = getExcelData(
-				"C:\\Users\\91950\\eclipse-workspace\\libertymutual\\resources\\repository\\LibertyMutual.xlsx", "LibertyMutual",
-				2, 36);
+				"C:\\Users\\91950\\eclipse-workspace\\libertymutual\\resources\\repository\\ValidData_LibertyInsurance.xlsx",
+				"ValidData", 3, 39);
 
 		return arrayObject;
 	}
@@ -54,12 +54,13 @@ public class Test2 extends BaseClass {
 	@Test(dataProvider = "Test1", priority = 1)
 
 	public void Test1(String zipCode, String firstName, String lastName, String DOB, String address1, String address2,
-			String livedHere, String email, String VIN, String ownerShip, String keptAtGivenAddress, String address11,
-			String address21, String zipcode, String city, String maritalStatus, String gender, String age,
-			String fullTimeBGrade, String phoneNo, String havingPolicyWithLiberty, String otherPolicy,
-			String employmentStatus, String education, String home, String wantDiscount, String smartPhone,
-			String wantToRecieveMsg, String phoneNo1, String currentlyHaveInsurance, String firstInsurance,
-			String injuryLimit, String reason, String shareReason, String startDate) {
+			String livedHere, String livedBeforeAddress1, String livedBeforeAddress2, String livedBeforeZipcode,
+			String email, String VIN, String ownerShip, String keptAtGivenAddress, String address11, String address21,
+			String zipcode, String city, String maritalStatus, String gender, String age, String fullTimeBGrade,
+			String phoneNo, String havingPolicyWithLiberty, String otherPolicy, String employmentStatus,
+			String education, String home, String wantDiscount, String smartPhone, String wantToRecieveMsg,
+			String phoneNo1, String currentlyHaveInsurance, String firstInsurance, String injuryLimit, String reason,
+			String shareReason, String startDate) {
 
 		reportPass("Site opened Successfuly");
 
@@ -136,6 +137,7 @@ public class Test2 extends BaseClass {
 
 		sleep(2);
 		try {
+
 			stepOne.lastThreeMonths(livedHere);
 		} catch (Exception e) {
 			try {
@@ -149,18 +151,24 @@ public class Test2 extends BaseClass {
 			reportFail(e.getMessage());
 			return;
 		}
-
-		// sleep(2);
+		if (livedHere.toLowerCase().equals("no")) {
+			stepOne.whereDidYouLiveBefore(livedBeforeAddress1, livedBeforeAddress2, livedBeforeZipcode);
+			sleep(2);
+			stepOne.next();
+			
+		}
+		// have to create branch for no
+		
+		sleep(2);
 		stepOne.setEmail(email);
 		stepTwo = stepOne.clickContinue();
 		try {
 			try {
 
-				sleep(2);
+				sleep(4);
 				stepTwo.setVIN(VIN);
-
 			} catch (Exception e) {
-				sleep(2);
+				sleep(4);
 				stepTwo.useVINInstead();
 				sleep(3);
 				stepTwo.setVIN1(VIN);
@@ -168,10 +176,11 @@ public class Test2 extends BaseClass {
 				stepTwo.VINNext();
 			}
 		} catch (Exception e) {
+			System.out.println("EXCEPTION:"+e);
 
 			try {
 				stepOne.printErrors();
-				openUrl("https://buy.libertymutual.com/");
+				openUrl("https://www.libertymutual.com/get-a-quote");
 			} catch (Exception E) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -271,23 +280,33 @@ public class Test2 extends BaseClass {
 
 		sleep(5);
 
-		stepFour.wantToSave30percent(wantDiscount);
-		if (wantDiscount.toLowerCase().equals("yes")) {
-			if (!stepFour.checkBoxActive()) {
-				stepFour.selectCheckBox();
-
-			}
-			else
-			{
-				stepFour.continueWithoutOffer();
-			}
-			stepFour.saveAndContinue();
-			stepFour.smartPhoneSelection(smartPhone);
-			stepFour.wantToRecieveText(wantToRecieveMsg);
-			if (wantToRecieveMsg.toLowerCase().equals("yes")) {
-				stepFour.whatNumberShouldWeSendTextTo(phoneNo);
-			}
+		
+		//stepFour.wantToSave30percent(wantDiscount);
+//		if (wantDiscount.toLowerCase().equals("yes")) {
+//			if (!stepFour.checkBoxActive()) {
+//				stepFour.selectCheckBox();
+//
+//			} else {
+//				stepFour.continueWithoutOffer();
+//			}
+//			stepFour.next();
+//			stepFour.smartPhoneSelection(smartPhone);
+//			stepFour.wantToRecieveText(wantToRecieveMsg);
+//			if (wantToRecieveMsg.toLowerCase().equals("yes")) {
+//				stepFour.whatNumberShouldWeSendTextTo(phoneNo);
+//			}
+//		}
+		
+		
+		
+		stepFour.next();
+		sleep(2);
+		stepFour.smartPhoneSelection(smartPhone);
+		stepFour.wantToRecieveText(wantToRecieveMsg);
+		if (wantToRecieveMsg.toLowerCase().equals("yes")) {
+			stepFour.whatNumberShouldWeSendTextTo(phoneNo);
 		}
+		
 		stepFive = stepFour.saveAndContinue();
 		if (wantDiscount.toLowerCase().equals("no"))
 			stepFive = stepFour.continueWithoutOffer();
@@ -298,8 +317,9 @@ public class Test2 extends BaseClass {
 		sleep(2);
 		if (currentlyHaveInsurance.toLowerCase().equals("yes")) {
 			stepFive.timeWithCurrentInsurer(firstInsurance);
+			sleep(2);
 			stepFive.next();
-			stepFive.currentBodilyInjuryLimit(Integer.parseInt(injuryLimit));
+			stepFive.currentBodilyInjuryLimit(injuryLimit);
 
 		} else {
 			stepFive.reasonForNotHavingInsurance(reason);
@@ -307,6 +327,7 @@ public class Test2 extends BaseClass {
 				stepFive.shareReason(shareReason);
 		}
 		// ****************************logic***************************
+		sleep(2);
 		try {
 			stepFive.policyStartDate(startDate);
 		} catch (Exception e1) {
@@ -328,11 +349,12 @@ public class Test2 extends BaseClass {
 
 			e.printStackTrace();
 		}
-		openUrl("https://buy.libertymutual.com/");
+		openUrl("https://www.libertymutual.com/get-a-quote");
+		sleep(5);
 	}
-@AfterSuite
-public void afterSuit()
-{
-	stepSix.closeAndFlushReport();
-}
+
+	@AfterSuite
+	public void afterSuit() {
+		stepSix.closeAndFlushReport();
+	}
 }
