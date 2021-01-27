@@ -4,11 +4,13 @@
   <test thread-count="5" parallel="tests" name="Test1(failed)" verbose="0">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="TestClass.App">
+      <class name="TestClass.Valid_Test">
         <methods>
-          <include name="Test"/>
+          <include name="Test1" invocation-numbers="0 1"/>
+          <include name="Initial"/>
+          <include name="afterSuit"/>
         </methods>
-      </class> <!-- TestClass.App -->
+      </class> <!-- TestClass.Valid_Test -->
     </classes>
   </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

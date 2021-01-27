@@ -9,17 +9,62 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Suite</th></tr>
-<tr><td><a href="#t0">Test1</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">12,057</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test1</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">104,631</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">TestClass.App</td><td><a href="#m0">Test</a></td><td rowspan="1">1610472011885</td><td rowspan="1">12021</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test1 &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">TestClass.Valid_Test</td><td><a href="#m0">afterSuit</a></td><td rowspan="1">1611725041351</td><td rowspan="1">1</td></tr><tr><th colspan="4">Test1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">TestClass.Valid_Test</td><td><a href="#m1">Test1</a></td><td rowspan="2">1611724937563</td><td rowspan="2">85668</td></tr><tr class="failedeven"><td><a href="#m2">Test1</a></td></tr></tbody>
 </table>
-<h2>Test1</h2><h3 id="m0">TestClass.App#Test</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at pageClasses.Home.setZipCode(Home.java:27)
-	at TestClass.App.Test(App.java:50)
+<h2>Test1</h2><h3 id="m0">TestClass.Valid_Test#afterSuit</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
+	at TestClass.Valid_Test.afterSuit(Valid_Test.java:359)
+... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">TestClass.Valid_Test#Test1</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th><th>Parameter #11</th><th>Parameter #12</th><th>Parameter #13</th><th>Parameter #14</th><th>Parameter #15</th><th>Parameter #16</th><th>Parameter #17</th><th>Parameter #18</th><th>Parameter #19</th><th>Parameter #20</th><th>Parameter #21</th><th>Parameter #22</th><th>Parameter #23</th><th>Parameter #24</th><th>Parameter #25</th><th>Parameter #26</th><th>Parameter #27</th><th>Parameter #28</th><th>Parameter #29</th><th>Parameter #30</th><th>Parameter #31</th><th>Parameter #32</th><th>Parameter #33</th><th>Parameter #34</th><th>Parameter #35</th><th>Parameter #36</th><th>Parameter #37</th><th>Parameter #38</th></tr><tr class="param stripe"><td>03820</td><td>Prashant</td><td>Dhar</td><td>10/11/1997</td><td>House No. 14</td><td>Central Park street</td><td>No</td><td>h.no 2</td><td>1 Street</td><td>03820</td><td>rahul@gmail.com</td><td>5NPEB4ACXDH537662</td><td>lease</td><td>yes</td><td></td><td></td><td></td><td></td><td>yes</td><td>male</td><td>18</td><td>no</td><td>8888876987</td><td>Yes</td><td>landlord</td><td>military</td><td>bachelor</td><td>condo</td><td>yes</td><td>iphone</td><td>No</td><td></td><td>yes</td><td>01/1997</td><td>50000</td><td></td><td></td><td>January 28, 2021</td></tr><tr><th colspan="38">Exception</th></tr><tr><td colspan="38"><div class="stacktrace">org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=88.0.4324.104)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-18OKU31&apos;, ip: &apos;192.168.0.111&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.1&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.104, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\Users\91950\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:63713}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true, webdriver.remote.sessionid: a7a49f3a6ae6a8647adb1707feb...}
+Session ID: a7a49f3a6ae6a8647adb1707feb87481
+*** Element info: {Using=xpath, value=//span[text()=&apos;Landlord&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at repository.DiscountRepo.getLandLord(DiscountRepo.java:53)
+	at pageClasses.Discount.policiesYouHave(Discount.java:51)
+	at TestClass.Valid_Test.Test1(Valid_Test.java:261)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-... Removed 16 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">TestClass.Valid_Test#Test1</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th><th>Parameter #11</th><th>Parameter #12</th><th>Parameter #13</th><th>Parameter #14</th><th>Parameter #15</th><th>Parameter #16</th><th>Parameter #17</th><th>Parameter #18</th><th>Parameter #19</th><th>Parameter #20</th><th>Parameter #21</th><th>Parameter #22</th><th>Parameter #23</th><th>Parameter #24</th><th>Parameter #25</th><th>Parameter #26</th><th>Parameter #27</th><th>Parameter #28</th><th>Parameter #29</th><th>Parameter #30</th><th>Parameter #31</th><th>Parameter #32</th><th>Parameter #33</th><th>Parameter #34</th><th>Parameter #35</th><th>Parameter #36</th><th>Parameter #37</th><th>Parameter #38</th></tr><tr class="param stripe"><td>03820</td><td>Paridhi</td><td>Mittal</td><td>11/01/1998</td><td>House No. 2</td><td>Palk street</td><td>Yes</td><td></td><td></td><td></td><td>abcd@gmail.com</td><td>5TDDK3DC6ES077574</td><td>finance</td><td>no</td><td>h.no 2</td><td>1 Street</td><td>03820</td><td>Dover</td><td>no</td><td>female</td><td>19</td><td>no</td><td>7688889898</td><td>No</td><td></td><td>student</td><td>vocational</td><td>mobile home</td><td>Yes</td><td>android</td><td>Yes</td><td>1231231231</td><td>yes</td><td>02/1998</td><td></td><td></td><td></td><td>January 27, 2021</td></tr><tr><th colspan="38">Exception</th></tr><tr><td colspan="38"><div class="stacktrace">org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=88.0.4324.104)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-18OKU31&apos;, ip: &apos;192.168.0.111&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.1&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.104, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\Users\91950\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:63713}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true, webdriver.remote.sessionid: a7a49f3a6ae6a8647adb1707feb...}
+Session ID: a7a49f3a6ae6a8647adb1707feb87481
+*** Element info: {Using=xpath, value=//input[@name=&apos;zipCode&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at repository.HomeRepo.getZipcodeElement(HomeRepo.java:34)
+	at pageClasses.Home.setZipCode(Home.java:31)
+	at TestClass.Valid_Test.Test1(Valid_Test.java:71)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

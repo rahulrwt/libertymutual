@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">2 methods, 2 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,7 +102,12 @@
                     <div class="method-list-content failed suite-Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="TestClass.App" class="method navigator-link" hash-for-method="Test">Test</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="TestClass.Valid_Test" class="method navigator-link" hash-for-method="Test1(03820, Prashant, Dhar, 10/11/1997, House No. 14, Central Park street, No, h.no 2, 1 Street, 03820, r...)">Test1(03820, Prashant, Dhar, 10/11/1997, House No. 14, Central Park street, No, h.no 2, 1 Street, 03820, r...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="TestClass.Valid_Test" class="method navigator-link" hash-for-method="Test1(03820, Paridhi, Mittal, 11/01/1998, House No. 2, Palk street, Yes, , , , abcd@gmail.com, 5TDDK3DC6ES...)">Test1(03820, Paridhi, Mittal, 11/01/1998, House No. 2, Palk street, Yes, , , , abcd@gmail.com, 5TDDK3DC6ES...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Suite -->
@@ -120,22 +125,74 @@
           <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">TestClass.App</span>
+              <span class="class-name">TestClass.Valid_Test</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Test">
-                  </a> <!-- Test -->
-                  <span class="method-name">Test</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at pageClasses.Home.setZipCode(Home.java:27)
-	at TestClass.App.Test(App.java:50)
+                  <a name="Test1(03820, Prashant, Dhar, 10/11/1997, House No. 14, Central Park street, No, h.no 2, 1 Street, 03820, r...)">
+                  </a> <!-- Test1(03820, Prashant, Dhar, 10/11/1997, House No. 14, Central Park street, No, h.no 2, 1 Street, 03820, r...) -->
+                  <span class="method-name">Test1</span>
+                  <span class="parameters">(03820, Prashant, Dhar, 10/11/1997, House No. 14, Central Park street, No, h.no 2, 1 Street, 03820, rahul@gmail.com, 5NPEB4ACXDH537662, lease, yes, , , , , yes, male, 18, no, 8888876987, Yes, landlord, military, bachelor, condo, yes, iphone, No, , yes, 01/1997, 50000, , , January 28, 2021)</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=88.0.4324.104)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-18OKU31&apos;, ip: &apos;192.168.0.111&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.1&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.104, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\Users\91950\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:63713}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true, webdriver.remote.sessionid: a7a49f3a6ae6a8647adb1707feb...}
+Session ID: a7a49f3a6ae6a8647adb1707feb87481
+*** Element info: {Using=xpath, value=//span[text()=&apos;Landlord&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at repository.DiscountRepo.getLandLord(DiscountRepo.java:53)
+	at pageClasses.Discount.policiesYouHave(Discount.java:51)
+	at TestClass.Valid_Test.Test1(Valid_Test.java:261)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-... Removed 16 stack frames
+... Removed 21 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test1(03820, Paridhi, Mittal, 11/01/1998, House No. 2, Palk street, Yes, , , , abcd@gmail.com, 5TDDK3DC6ES...)">
+                  </a> <!-- Test1(03820, Paridhi, Mittal, 11/01/1998, House No. 2, Palk street, Yes, , , , abcd@gmail.com, 5TDDK3DC6ES...) -->
+                  <span class="method-name">Test1</span>
+                  <span class="parameters">(03820, Paridhi, Mittal, 11/01/1998, House No. 2, Palk street, Yes, , , , abcd@gmail.com, 5TDDK3DC6ES077574, finance, no, h.no 2, 1 Street, 03820, Dover, no, female, 19, no, 7688889898, No, , student, vocational, mobile home, Yes, android, Yes, 1231231231, yes, 02/1998, , , , January 27, 2021)</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=88.0.4324.104)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-18OKU31&apos;, ip: &apos;192.168.0.111&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.1&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.104, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\Users\91950\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:63713}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true, webdriver.remote.sessionid: a7a49f3a6ae6a8647adb1707feb...}
+Session ID: a7a49f3a6ae6a8647adb1707feb87481
+*** Element info: {Using=xpath, value=//input[@name=&apos;zipCode&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at repository.HomeRepo.getZipcodeElement(HomeRepo.java:34)
+	at pageClasses.Home.setZipCode(Home.java:31)
+	at TestClass.Valid_Test.Test1(Valid_Test.java:71)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 21 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -154,7 +211,7 @@
   &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test1&quot; verbose=&quot;0&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;TestClass.App&quot;/&gt;
+      &lt;class name=&quot;TestClass.Valid_Test&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test1 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -194,16 +251,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Test')
-data.setCell(0, 2, 'TestClass.App')
-data.setCell(0, 3, 12021);
+data.setCell(0, 1, 'Test1')
+data.setCell(0, 2, 'TestClass.Valid_Test')
+data.setCell(0, 3, 85668);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'Test1')
+data.setCell(1, 2, 'TestClass.Valid_Test')
+data.setCell(1, 3, 18033);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 12 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -229,13 +290,29 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">TestClass.App</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">TestClass.Valid_Test</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">Initial</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">Test</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-name">Test1(03820, Prashant, Dhar, 10/11/1997, House No. 14, Central Park street, No, h.no 2, 1 Street, 03820, r...)</span>
+                <span class="method-start">11448 ms</span>
               </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Test1(03820, Paridhi, Mittal, 11/01/1998, House No. 2, Palk street, Yes, , , , abcd@gmail.com, 5TDDK3DC6ES...)</span>
+                <span class="method-start">97124 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-suite after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">afterSuit</span>
+                <span class="method-start">115236 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

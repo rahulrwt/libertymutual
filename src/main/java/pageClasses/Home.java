@@ -41,7 +41,12 @@ public class Home extends BaseClass {
 
 	//Print errors, if any on page
 	public void printErrors() throws Exception {
+		if(homeRepo.getErrorList().size()==0)
+		{
+			throw new Exception("Errmessage");
+		}
 		printErrors(homeRepo.getErrorList());
 	}
+
 
 }

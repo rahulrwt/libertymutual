@@ -5,7 +5,7 @@
     <classes>
       <class name="TestClass.Valid_Test">
         <methods>
-          <include name="Test1" invocation-numbers="1"/>
+          <include name="Test1"/>
           <include name="Initial"/>
           <include name="afterSuit"/>
         </methods>

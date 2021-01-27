@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
+
 import baseClass.BaseClass;
 import pageClasses.CurrentInsurances;
 import pageClasses.Discount;
@@ -46,7 +48,7 @@ public class Valid_Test extends BaseClass {
 
 		Object[][] arrayObject = getExcelData(
 				"C:\\Users\\91950\\eclipse-workspace\\libertymutual\\resources\\repository\\ValidData_LibertyInsurance.xlsx",
-				"ValidData", 3, 39);
+				"ValidData", 2, 39);
 
 		return arrayObject;
 	}
@@ -79,27 +81,29 @@ public class Valid_Test extends BaseClass {
 			reportPass("Closed Pop-Up");
 
 		} catch (Exception e1) {
+			reportFail("Pop-up not Closed");
 
 		}
+		this.logger = report.createTest("User Details Page");
 
 		try {
 			stepOne.setFirstName(firstName);
-
 			reportPass("FirstName set to" + firstName);
-
 		} catch (Exception e) {
 
 			try {
 				this.home.printErrors();
 				openUrl("https://buy.libertymutual.com/");
 			} catch (Exception E) {
-				// TODO Auto-generated catch block
-				E.printStackTrace();
+
 			}
 			reportFail(e.getMessage());
 			return;
 		}
 		stepOne.setLastName(lastName);
+		if (lastName.length() != 0) {
+			reportPass("last name set to" + lastName);
+		}
 		try {
 
 			stepOne.setDOB("01/01/1996");
@@ -129,7 +133,6 @@ public class Valid_Test extends BaseClass {
 
 			reportFail(e.getMessage());
 			return;
-
 		}
 
 		stepOne.setAddress2(address2);
@@ -147,7 +150,6 @@ public class Valid_Test extends BaseClass {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 			reportFail(e.getMessage());
 			return;
 		}
@@ -155,13 +157,20 @@ public class Valid_Test extends BaseClass {
 			stepOne.whereDidYouLiveBefore(livedBeforeAddress1, livedBeforeAddress2, livedBeforeZipcode);
 			sleep(2);
 			stepOne.next();
-			
+
 		}
 		// have to create branch for no
-		
+
 		sleep(2);
 		stepOne.setEmail(email);
+		if(email.length()!=0)
+		{
+			reportPass("Email set to"+email);
+		}
 		stepTwo = stepOne.clickContinue();
+		
+		logger=report.createTest("Vehicle Details");
+		
 		try {
 			try {
 
@@ -172,11 +181,12 @@ public class Valid_Test extends BaseClass {
 				stepTwo.useVINInstead();
 				sleep(3);
 				stepTwo.setVIN1(VIN);
-				sleep(4);
+				sleep(2);
 				stepTwo.VINNext();
 			}
+			reportPass("VIN set to:"+VIN);
 		} catch (Exception e) {
-			System.out.println("EXCEPTION:"+e);
+			System.out.println("EXCEPTION:" + e);
 
 			try {
 				stepOne.printErrors();
@@ -192,14 +202,27 @@ public class Valid_Test extends BaseClass {
 		}
 
 		sleep(3);
-		stepTwo.ownerShip(ownerShip);
-
+		try {
+			stepTwo.ownerShip(ownerShip);
+			reportPass(ownerShip+" selected");
+		} catch (Exception e) {
+			try {
+				stepOne.printErrors();
+				openUrl("https://www.libertymutual.com/get-a-quote");
+			} catch (Exception E) {
+				e.printStackTrace();
+			}
+			reportFail(e.getMessage());
+			return;
+		}
+		
+		
 		sleep(4);
-
 		stepTwo.CarKeptAtGivenAddress(keptAtGivenAddress);
 
 		if (keptAtGivenAddress.toLowerCase().equals("no")) {
 			stepTwo.whereDoYouKeepIt(address1, address2, zipcode);
+			reportPass("Car is kept at address1= "+address1+", address2="+address2+", zipcode="+zipCode);
 		}
 		sleep(4);
 
@@ -280,8 +303,7 @@ public class Valid_Test extends BaseClass {
 
 		sleep(5);
 
-		
-		//stepFour.wantToSave30percent(wantDiscount);
+		// stepFour.wantToSave30percent(wantDiscount);
 //		if (wantDiscount.toLowerCase().equals("yes")) {
 //			if (!stepFour.checkBoxActive()) {
 //				stepFour.selectCheckBox();
@@ -296,9 +318,7 @@ public class Valid_Test extends BaseClass {
 //				stepFour.whatNumberShouldWeSendTextTo(phoneNo);
 //			}
 //		}
-		
-		
-		
+
 		stepFour.next();
 		sleep(2);
 		stepFour.smartPhoneSelection(smartPhone);
@@ -306,7 +326,7 @@ public class Valid_Test extends BaseClass {
 		if (wantToRecieveMsg.toLowerCase().equals("yes")) {
 			stepFour.whatNumberShouldWeSendTextTo(phoneNo);
 		}
-		
+		sleep(2);
 		stepFive = stepFour.saveAndContinue();
 		if (wantDiscount.toLowerCase().equals("no"))
 			stepFive = stepFour.continueWithoutOffer();

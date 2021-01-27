@@ -1,6 +1,6 @@
 package baseClass;
 
-import java.awt.List;
+import java.awt.print.Printable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,7 +20,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+
 import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -41,7 +41,7 @@ public class BaseClass {
 	public DesiredCapabilities cap = null;
 
 	@Parameters("browser")
-	//function for invoking browsers
+	// function for invoking browsers
 	public void invokebrowser() {
 		String browser = prop.getProperty("browser_name");
 		browser = "chrome";
@@ -62,30 +62,30 @@ public class BaseClass {
 
 				cap = DesiredCapabilities.firefox();
 				logger.log(Status.PASS, "firefox opened");
-			}
-			else {
-				cap=DesiredCapabilities.internetExplorer();
-				
+			} else {
+				cap = DesiredCapabilities.internetExplorer();
+
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
-		//grid configuration
+		// grid configuration
 		try {
 
 			logger.log(Status.INFO, "node is connected to hub http://192.168.1.28:4444/wd/hub");
-			driver = new RemoteWebDriver(new URL("http://192.168.0.111:4444/wd/hub"), cap); // pass address of hub as
+			driver = new RemoteWebDriver(new URL(" http://192.168.1.28:4444/wd/hub"), cap); // pass address of hub as
 																							// argument in URL()
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 
 	}
+
 //function for opening website
 	public Home openUrl(String URL) {
-		this.logger = report.createTest("OpenUrl");
-		// driver.manage().window().maximize();
+
+		driver.manage().window().maximize();
 		driver.get(URL);
 		return PageFactory.initElements(driver, Home.class);
 	}
@@ -122,8 +122,6 @@ public class BaseClass {
 		logger.log(Status.PASS, reportString);
 	}
 
-	
-	
 	public void takeScreenShot() {
 		TakesScreenshot ss = (TakesScreenshot) driver;
 		File src = ss.getScreenshotAs(OutputType.FILE);
@@ -137,8 +135,7 @@ public class BaseClass {
 		}
 	}
 
-	
-	//*************************function for reading data from excel
+	// *************************function for reading data from excel
 	public String[][] getExcelData(String fileName, String sheetName, int totalNoOfRows, int totalNoOfCols) {
 		String[][] arrayExcelData = null;
 		try {
@@ -167,17 +164,17 @@ public class BaseClass {
 		return arrayExcelData;
 	}
 
-	//function for printing invalid data error
+	// function for printing invalid data error
 	public void printErrors(ArrayList<WebElement> errors) {
-			for (int i = 0; i < errors.size(); i++) {
-				System.out.println(i + 1 + ". " + errors.get(i).getText());
+		for (int i = 0; i < errors.size(); i++) {
+			System.out.println(i + 1 + ". " + errors.get(i).getText());
 
-			}
 		}
+	}
 
 	public void reportFail(String reportString) {
-//		logger.log(Status.FAIL, reportString);
-//		takeScreenShot();
+		logger.log(Status.FAIL, reportString);
+		takeScreenShot();
 //		Assert.fail();
 	}
 }
