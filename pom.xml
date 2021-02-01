@@ -16,14 +16,12 @@
 	</properties>
 	<dependencies>
 
-
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
 		</dependency>
-
 
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
@@ -32,8 +30,6 @@
 			<version>6.14.3</version>
 			<scope>compile</scope>
 		</dependency>
-
-
 
 		<!-- pom.xml Extent Report -->
 		<dependency>
@@ -69,15 +65,12 @@
 			<version>4.13.1</version>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.8.1</version>
 			<type>maven-plugin</type>
 		</dependency>
-
 
 	</dependencies>
 
@@ -103,7 +96,6 @@
 						<target>1.8</target>
 					</configuration>
 				</plugin>
-
 
 			</plugins>
 		</pluginManagement>

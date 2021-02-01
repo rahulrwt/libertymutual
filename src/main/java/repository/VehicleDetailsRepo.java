@@ -135,4 +135,11 @@ public class VehicleDetailsRepo extends BaseClass {
 				.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li/span"));
 		return errors;
 	}
+
+	public WebElement getHaveOtherVehicle() {
+		WebElement haveOtherVehicle = driver.findElement(By.xpath("//span[text()='I have other vehicles to add']"));
+		return haveOtherVehicle;
+	}
+
+
 }

@@ -18,7 +18,7 @@ public class CurrentInsurances extends BaseClass {
 		currentInsurance = new CurrentInsuranceRepo(driver);
 	}
 
-	//Selects radio button for history of insurance
+	// Selects radio button for history of insurance
 	public void currentlyHaveInsurance(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
 			currentInsurance.getYes().click();
@@ -61,7 +61,7 @@ public class CurrentInsurances extends BaseClass {
 		currentInsurance.getPriorPolicyStart().sendKeys(time);
 	}
 
-	//Sets bodily injury limit of current insurance
+	// Sets bodily injury limit of current insurance
 	public void currentBodilyInjuryLimit(String amount) {
 		int i = 0;
 
@@ -84,10 +84,11 @@ public class CurrentInsurances extends BaseClass {
 			i--;
 		}
 	}
-	//sets policy start date
+
+	// sets policy start date
 	public void policyStartDate(String date) throws Exception {
-			Select policyDateSelect=new Select(currentInsurance.getPriorPolicyStart());
-			policyDateSelect.selectByVisibleText(date);
+		Select policyDateSelect = new Select(currentInsurance.getPriorPolicyStart());
+		policyDateSelect.selectByVisibleText(date);
 	}
 
 	// prints invalid data errors

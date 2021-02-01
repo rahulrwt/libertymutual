@@ -23,7 +23,6 @@ public class Quote extends BaseClass {
 	public Quote(WebDriver driver) {
 		BaseClass.driver = driver;
 		this.quoteRepo = new QuoteRepo(driver);
-
 	}
 
 	// Prints details of quote on console

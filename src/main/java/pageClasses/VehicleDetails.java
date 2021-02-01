@@ -105,4 +105,8 @@ public class VehicleDetails extends BaseClass {
 	public void printErrors() throws Exception {
 		printErrors(vehicleDetailsRepo.getErrorList());
 	}
+
+	public void haveOtherVehicle() {
+		vehicleDetailsRepo.getHaveOtherVehicle().click();
+	}
 }

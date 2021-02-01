@@ -22,11 +22,11 @@ import pageClasses.VehicleDetails;
 
 public class Valid_Test extends BaseClass {
 	Home home;
-	VehicleDetails stepTwo;
-	DriverDetails stepThree;
-	Discount stepFour;
-	CurrentInsurances stepFive;
-	Quote stepSix;
+	VehicleDetails vehicleDetails;
+	DriverDetails driverDetails;
+	Discount discount;
+	CurrentInsurances currentInsurances;
+	Quote quote;
 
 	public static void sleep(int time) {
 		try {
@@ -53,6 +53,7 @@ public class Valid_Test extends BaseClass {
 		return arrayObject;
 	}
 
+
 	@Test(dataProvider = "Test1", priority = 1)
 
 	public void Test1(String zipCode, String firstName, String lastName, String DOB, String address1, String address2,
@@ -72,59 +73,66 @@ public class Valid_Test extends BaseClass {
 		this.home.setZipCode(zipCode);
 		sleep(3);
 
-		UserDetails stepOne = this.home.getPrice();
+		UserDetails userDetails = this.home.getPrice();
 
-		// *******************STEP StepOne*******************
+		sleep(3);
+		try {
+			this.home.printErrors();
+			openUrl("https://buy.libertymutual.com/");
+			return;
+		} catch (Exception E) {
+
+		}
+
+		// *******************STEP userDetails*******************
 
 		try {
-			stepOne.okThanksPopUp();
+			userDetails.okThanksPopUp();
 			reportPass("Closed Pop-Up");
 
 		} catch (Exception e1) {
-			reportFail("Pop-up not Closed");
 
 		}
-		this.logger = report.createTest("User Details Page");
 
 		try {
-			stepOne.setFirstName(firstName);
+			userDetails.setFirstName(firstName);
+
 			reportPass("FirstName set to" + firstName);
+
 		} catch (Exception e) {
 
 			try {
 				this.home.printErrors();
 				openUrl("https://buy.libertymutual.com/");
 			} catch (Exception E) {
-
+				// TODO Auto-generated catch block
+				E.printStackTrace();
 			}
 			reportFail(e.getMessage());
 			return;
 		}
-		stepOne.setLastName(lastName);
-		if (lastName.length() != 0) {
-			reportPass("last name set to" + lastName);
-		}
+		userDetails.setLastName(lastName);
 		try {
 
-			stepOne.setDOB("01/01/1996");
+			userDetails.setDOB("01/01/1996");
 			reportPass("DOB set to" + DOB);
 
 		} catch (Exception e) {
 			reportFail(e.getMessage());
 		}
 
-		stepOne.clickNextPersonalDetails();
+		userDetails.clickNextPersonalDetails();
 
 		sleep(4);
 
 		try {
-			stepOne.setAddress1(address1);
+			userDetails.setAddress1(address1);
 			reportPass("UserDetails Address1 set to" + address1);
 
 		} catch (Exception e) {
 
 			try {
-				stepOne.printErrors();
+				userDetails.printErrors();
 				openUrl("https://buy.libertymutual.com/");
 			} catch (Exception E) {
 				// TODO Auto-generated catch block
@@ -133,63 +141,67 @@ public class Valid_Test extends BaseClass {
 
 			reportFail(e.getMessage());
 			return;
+
 		}
 
-		stepOne.setAddress2(address2);
-		stepOne.clickNextAddressDetails();
+		userDetails.setAddress2(address2);
+		userDetails.clickNextAddressDetails();
 
 		sleep(2);
 		try {
 
-			stepOne.lastThreeMonths(livedHere);
+			userDetails.lastThreeMonths(livedHere);
 		} catch (Exception e) {
 			try {
-				stepOne.printErrors();
+				userDetails.printErrors();
 				openUrl("https://buy.libertymutual.com/");
 			} catch (Exception E) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 			reportFail(e.getMessage());
 			return;
 		}
 		if (livedHere.toLowerCase().equals("no")) {
-			stepOne.whereDidYouLiveBefore(livedBeforeAddress1, livedBeforeAddress2, livedBeforeZipcode);
+			userDetails.whereDidYouLiveBefore(livedBeforeAddress1, livedBeforeAddress2, livedBeforeZipcode);
 			sleep(2);
-			stepOne.next();
+			userDetails.next();
 
 		}
 		// have to create branch for no
 
 		sleep(2);
-		stepOne.setEmail(email);
-		if(email.length()!=0)
-		{
-			reportPass("Email set to"+email);
-		}
-		stepTwo = stepOne.clickContinue();
-		
-		logger=report.createTest("Vehicle Details");
-		
+		userDetails.setEmail(email);
+		vehicleDetails = userDetails.clickContinue();
+
+		sleep(6);
+//	try {
+//		vehicleDetails.haveOtherVehicle();
+//		sleep(3);
+//		vehicleDetails.saveAndContinue();
+//	} catch (Exception e) {
+//		System.out.print("INSIDE CATCH");
+//		System.out.println(e);
+//	}
+
 		try {
 			try {
 
 				sleep(4);
-				stepTwo.setVIN(VIN);
+				vehicleDetails.setVIN(VIN);
 			} catch (Exception e) {
 				sleep(4);
-				stepTwo.useVINInstead();
+				vehicleDetails.useVINInstead();
 				sleep(3);
-				stepTwo.setVIN1(VIN);
+				vehicleDetails.setVIN1(VIN);
 				sleep(2);
-				stepTwo.VINNext();
+				vehicleDetails.VINNext();
 			}
-			reportPass("VIN set to:"+VIN);
 		} catch (Exception e) {
-			System.out.println("EXCEPTION:" + e);
 
 			try {
-				stepOne.printErrors();
+				userDetails.printErrors();
 				openUrl("https://www.libertymutual.com/get-a-quote");
 			} catch (Exception E) {
 				// TODO Auto-generated catch block
@@ -202,71 +214,57 @@ public class Valid_Test extends BaseClass {
 		}
 
 		sleep(3);
-		try {
-			stepTwo.ownerShip(ownerShip);
-			reportPass(ownerShip+" selected");
-		} catch (Exception e) {
-			try {
-				stepOne.printErrors();
-				openUrl("https://www.libertymutual.com/get-a-quote");
-			} catch (Exception E) {
-				e.printStackTrace();
-			}
-			reportFail(e.getMessage());
-			return;
-		}
-		
-		
+		vehicleDetails.ownerShip(ownerShip);
+
 		sleep(4);
-		stepTwo.CarKeptAtGivenAddress(keptAtGivenAddress);
+
+		vehicleDetails.CarKeptAtGivenAddress(keptAtGivenAddress);
 
 		if (keptAtGivenAddress.toLowerCase().equals("no")) {
-			stepTwo.whereDoYouKeepIt(address1, address2, zipcode);
-			reportPass("Car is kept at address1= "+address1+", address2="+address2+", zipcode="+zipCode);
+			vehicleDetails.whereDoYouKeepIt(address1, address2, zipcode);
 		}
 		sleep(4);
 
 		try {
-			stepThree = stepTwo.saveAndContinue();
+			driverDetails = vehicleDetails.saveAndContinue();
 		} catch (Exception e) {
-			System.out.println("this is exception " + e);
-			System.out.println("**********inside Catch 1******");
+
 		}
 
 		sleep(4);
 
 		try {
-			stepThree = stepTwo.saveAndContinue();
+			driverDetails = vehicleDetails.saveAndContinue();
 		} catch (Exception e) {
 
 		}
 
 		sleep(5);
 
-		stepThree.marriedOrCivilUnion("yes");
+		driverDetails.marriedOrCivilUnion("yes");
 
 		sleep(2);
 
-		stepThree.gender(gender);
+		driverDetails.gender(gender);
 
-		// stepThree.licenseIssuedAtAge(age);
+		// driverDetails.licenseIssuedAtAge(age);
 
 		sleep(2);
-		stepThree.fullTimeStudentWithBAverage(fullTimeBGrade);
+		driverDetails.fullTimeStudentWithBAverage(fullTimeBGrade);
 		sleep(2);
-		stepThree.contactNo(phoneNo);
+		driverDetails.contactNo(phoneNo);
 		// sleep(2);
 
-		stepThree.saveAndContinue();
+		driverDetails.saveAndContinue();
 
 		sleep(2);
-		stepFour = stepThree.saveAndContinue();
+		discount = driverDetails.saveAndContinue();
 
 		try {
-			stepFour.haveAnotherPolicyWithLiberty(havingPolicyWithLiberty);
+			discount.haveAnotherPolicyWithLiberty(havingPolicyWithLiberty);
 		} catch (Exception e) {
 			try {
-				stepOne.printErrors();
+				userDetails.printErrors();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -280,91 +278,75 @@ public class Valid_Test extends BaseClass {
 			// splitting policy names and storing into List
 			List<String> policies = Arrays.asList(otherPolicy.split(","));
 			System.out.println(policies);
-			stepFour.policiesYouHave(policies);
+			discount.policiesYouHave(policies);
 			sleep(2);
-			stepFour.next();
+			discount.next();
 		}
 		sleep(2);
 		try {
-			stepFour.employmentStatus(employmentStatus);
+			discount.employmentStatus(employmentStatus);
 		} catch (Exception e) {
 
 		}
 
 		sleep(2);
-		stepFour.highestEducation(education);
+		discount.highestEducation(education);
 		sleep(2);
 
-		stepFour.ownHome(home);
+		discount.ownHome(home);
 
 		sleep(2);
 
-		stepFour.saveAndContinue();
+		discount.saveAndContinue();
 
 		sleep(5);
 
-		// stepFour.wantToSave30percent(wantDiscount);
-//		if (wantDiscount.toLowerCase().equals("yes")) {
-//			if (!stepFour.checkBoxActive()) {
-//				stepFour.selectCheckBox();
-//
-//			} else {
-//				stepFour.continueWithoutOffer();
-//			}
-//			stepFour.next();
-//			stepFour.smartPhoneSelection(smartPhone);
-//			stepFour.wantToRecieveText(wantToRecieveMsg);
-//			if (wantToRecieveMsg.toLowerCase().equals("yes")) {
-//				stepFour.whatNumberShouldWeSendTextTo(phoneNo);
-//			}
-//		}
-
-		stepFour.next();
+		discount.next();
 		sleep(2);
-		stepFour.smartPhoneSelection(smartPhone);
-		stepFour.wantToRecieveText(wantToRecieveMsg);
+		discount.smartPhoneSelection(smartPhone);
+		discount.wantToRecieveText(wantToRecieveMsg);
 		if (wantToRecieveMsg.toLowerCase().equals("yes")) {
-			stepFour.whatNumberShouldWeSendTextTo(phoneNo);
+			discount.whatNumberShouldWeSendTextTo(phoneNo);
 		}
 		sleep(2);
-		stepFive = stepFour.saveAndContinue();
+		currentInsurances = discount.saveAndContinue();
 		if (wantDiscount.toLowerCase().equals("no"))
-			stepFive = stepFour.continueWithoutOffer();
+			currentInsurances = discount.continueWithoutOffer();
 
 		sleep(5);
 
-		stepFive.currentlyHaveInsurance(currentlyHaveInsurance);
+		currentInsurances.currentlyHaveInsurance(currentlyHaveInsurance);
 		sleep(2);
 		if (currentlyHaveInsurance.toLowerCase().equals("yes")) {
-			stepFive.timeWithCurrentInsurer(firstInsurance);
+			currentInsurances.timeWithCurrentInsurer(firstInsurance);
 			sleep(2);
-			stepFive.next();
-			stepFive.currentBodilyInjuryLimit(injuryLimit);
+			currentInsurances.next();
+			currentInsurances.currentBodilyInjuryLimit(injuryLimit);
 
 		} else {
-			stepFive.reasonForNotHavingInsurance(reason);
+			currentInsurances.reasonForNotHavingInsurance(reason);
 			if (reason.toLowerCase().equals("other"))
-				stepFive.shareReason(shareReason);
+				currentInsurances.shareReason(shareReason);
 		}
 		// ****************************logic***************************
 		sleep(2);
 		try {
-			stepFive.policyStartDate(startDate);
+			currentInsurances.policyStartDate(startDate);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
-		stepSix = stepFive.getEstimate();
+		quote = currentInsurances.getEstimate();
 		sleep(10);
 		try {
-			stepSix.printConsole();
+			quote.printConsole();
 		} catch (Exception e) {
-			// stepSix.printConsole1();
+			// quote.printConsole1();
 		}
 
 		try {
-			stepSix.saveToXls();
+			quote.saveToXls();
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -375,6 +357,6 @@ public class Valid_Test extends BaseClass {
 
 	@AfterSuite
 	public void afterSuit() {
-		stepSix.closeAndFlushReport();
+		quote.closeAndFlushReport();
 	}
 }
