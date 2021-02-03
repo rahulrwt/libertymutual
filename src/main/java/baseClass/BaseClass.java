@@ -73,7 +73,7 @@ public class BaseClass {
 		try {
 
 			logger.log(Status.INFO, "node is connected to hub http://192.168.1.28:4444/wd/hub");
-			driver = new RemoteWebDriver(new URL("http://192.168.0.100:4444/wd/hub"), cap); // pass address of hub as
+			driver = new RemoteWebDriver(new URL("http://192.168.0.105:4444/wd/hub"), cap); // pass address of hub as
 																							// argument in URL()
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
