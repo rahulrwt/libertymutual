@@ -82,9 +82,9 @@ public class VehicleDetails extends BaseClass {
 
 	//If car is not kept at given address then user has to set current address
 	public void whereDoYouKeepIt(String address1, String address2, String zipcode) {
-		vehicleDetailsRepo.getAddress11().sendKeys(address1);
-		vehicleDetailsRepo.getAddress22().sendKeys(address2);
-		vehicleDetailsRepo.getZipcode().sendKeys(zipcode);
+		vehicleDetailsRepo.getAddress1_parking().sendKeys(address1);
+		vehicleDetailsRepo.getAddress2_parking().sendKeys(address2);
+		vehicleDetailsRepo.getZipcode_parking().sendKeys(zipcode);
 	}
 
 	// Clicks on next

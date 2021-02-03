@@ -14,12 +14,10 @@ public class DriverDetails extends BaseClass {
 	public DriverDetails(WebDriver driver) {
 		BaseClass.driver = driver;
 		this.driverDetailsRepo = new DriverDetailRepo(driver);
-
 	}
 
 	public String getTitle() {
 		return driver.getTitle();
-
 	}
 
 	// Sets marital status of Driver
@@ -44,15 +42,14 @@ public class DriverDetails extends BaseClass {
 	public void licenseIssuedAtAge(String age) {
 
 		this.driverDetailsRepo.getAge().sendKeys(age);
-
 	}
 
 	// Sets whether student is full time B grade average or not
 	public void fullTimeStudentWithBAverage(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
-			driverDetailsRepo.getYes1().click();
+			driverDetailsRepo.getYesFullTime().click();
 		} else {
-			driverDetailsRepo.getNo1().click();
+			driverDetailsRepo.getNoFullTime().click();
 		}
 	}
 

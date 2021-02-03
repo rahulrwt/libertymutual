@@ -43,7 +43,7 @@ public class Valid_Test extends BaseClass {
 		home = openUrl("https://buy.libertymutual.com/");
 	}
 
-	@DataProvider(name = "Test1")
+	@DataProvider(name = "validTest")
 	public Object[][] testEventData() {
 
 		Object[][] arrayObject = getExcelData(
@@ -53,17 +53,16 @@ public class Valid_Test extends BaseClass {
 		return arrayObject;
 	}
 
+	@Test(dataProvider = "validTest", priority = 1)
 
-	@Test(dataProvider = "Test1", priority = 1)
-
-	public void Test1(String zipCode, String firstName, String lastName, String DOB, String address1, String address2,
-			String livedHere, String livedBeforeAddress1, String livedBeforeAddress2, String livedBeforeZipcode,
-			String email, String VIN, String ownerShip, String keptAtGivenAddress, String address11, String address21,
-			String zipcode, String city, String maritalStatus, String gender, String age, String fullTimeBGrade,
-			String phoneNo, String havingPolicyWithLiberty, String otherPolicy, String employmentStatus,
-			String education, String home, String wantDiscount, String smartPhone, String wantToRecieveMsg,
-			String phoneNo1, String currentlyHaveInsurance, String firstInsurance, String injuryLimit, String reason,
-			String shareReason, String startDate) {
+	public void validTest(String zipCode, String firstName, String lastName, String DOB, String address1,
+			String address2, String livedHere, String livedBeforeAddress1, String livedBeforeAddress2,
+			String livedBeforeZipcode, String email, String VIN, String ownerShip, String keptAtGivenAddress,
+			String address11, String address21, String zipcode, String city, String maritalStatus, String gender,
+			String age, String fullTimeBGrade, String phoneNo, String havingPolicyWithLiberty, String otherPolicy,
+			String employmentStatus, String education, String home, String wantDiscount, String smartPhone,
+			String wantToRecieveMsg, String phoneNo1, String currentlyHaveInsurance, String firstInsurance,
+			String injuryLimit, String reason, String shareReason, String startDate) {
 
 		reportPass("Site opened Successfuly");
 
@@ -176,14 +175,6 @@ public class Valid_Test extends BaseClass {
 		vehicleDetails = userDetails.clickContinue();
 
 		sleep(6);
-//	try {
-//		vehicleDetails.haveOtherVehicle();
-//		sleep(3);
-//		vehicleDetails.saveAndContinue();
-//	} catch (Exception e) {
-//		System.out.print("INSIDE CATCH");
-//		System.out.println(e);
-//	}
 
 		try {
 			try {
@@ -204,7 +195,7 @@ public class Valid_Test extends BaseClass {
 				userDetails.printErrors();
 				openUrl("https://www.libertymutual.com/get-a-quote");
 			} catch (Exception E) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 
@@ -266,7 +257,6 @@ public class Valid_Test extends BaseClass {
 			try {
 				userDetails.printErrors();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			reportFail(e.getMessage());
@@ -339,11 +329,6 @@ public class Valid_Test extends BaseClass {
 
 		quote = currentInsurances.getEstimate();
 		sleep(10);
-		try {
-			quote.printConsole();
-		} catch (Exception e) {
-			// quote.printConsole1();
-		}
 
 		try {
 			quote.saveToXls();

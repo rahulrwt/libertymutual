@@ -54,7 +54,7 @@ public class UserDetails extends BaseClass {
 
 	// Sets Zip code
 	public void setZipCode(String zip) {
-		userDetailsRepo.getZipCode1().sendKeys(zip);
+		userDetailsRepo.getZipCode().sendKeys(zip);
 	}
 
 	// Clicks on next
@@ -75,9 +75,9 @@ public class UserDetails extends BaseClass {
 
 	// Sets address details if user is not staying for 3 months
 	public void whereDidYouLiveBefore(String address1, String address2, String zipcode) {
-		userDetailsRepo.getAddress11().sendKeys(address1);
-		userDetailsRepo.getAddress22().sendKeys(address2);
-		userDetailsRepo.getZipcode2().sendKeys(zipcode);
+		userDetailsRepo.getAddress1_before().sendKeys(address1);
+		userDetailsRepo.getAddress2_before().sendKeys(address2);
+		userDetailsRepo.getZipcode_before().sendKeys(zipcode);
 	}
 
 	// Clicks on next

@@ -13,117 +13,113 @@ public class VehicleDetailsRepo extends BaseClass {
 	WebDriver driver;
 
 	public WebElement getDontHavePlate() {
-		WebElement dontHavePlate = driver.findElement(By.xpath("//*[@id=\"licensePlateLookup\"]/div[4]/button"));
-		return dontHavePlate;
+		return driver.findElement(By.xpath("//*[@id=\"licensePlateLookup\"]/div[4]/button"));
+
 	}
 
 	public WebElement getVIN() {
-		WebElement VIN = driver.findElement(By.xpath("//*[@id=\"licensePlateLookup-input-input\"]"));
-		return VIN;
+		return driver.findElement(By.xpath("//*[@id=\"licensePlateLookup-input-input\"]"));
+
 	}
 
 	public WebElement getVIN1() {
-		WebElement VIN1 = driver.findElement(By.xpath("//input[@id  ='vin-input-input']"));
-		return VIN1;
+		return driver.findElement(By.xpath("//input[@id  ='vin-input-input']"));
+
 	}
 
 	public WebElement getVINInstead() {
-		WebElement VINInstead = driver.findElement(By.xpath("//button[text() = 'Use VIN instead']"));
-		return VINInstead;
+		return driver.findElement(By.xpath("//button[text() = 'Use VIN instead']"));
+
 	}
 
 	public WebElement getVINNext() {
-		WebElement VINNext = driver.findElement(By.xpath("//button[text()='Next']"));
-		return VINNext;
+		return driver.findElement(By.xpath("//button[text()='Next']"));
+
 	}
 
 	public WebElement getVehicleYear() {
-		WebElement vehicleYear = driver.findElement(By.xpath("//*[@id=\"year-select-select\"]"));
-		return vehicleYear;
+		return driver.findElement(By.xpath("//*[@id=\"year-select-select\"]"));
+
 	}
 
 	public WebElement getChevrolet() {
-		WebElement chevrolet = driver
-				.findElement(By.xpath("//*[@id=\"make-visualRadioGroup\"]/div/div/div/div[1]/label"));
-		return chevrolet;
+		return driver.findElement(By.xpath("//*[@id=\"make-visualRadioGroup\"]/div/div/div/div[1]/label"));
 	}
 
 	public WebElement getVehicleModel() {
-		WebElement vehicleModel = driver.findElement(By.xpath("//*[@id=\"vehicleSpecs-model-select\"]"));
-		return vehicleModel;
+		return driver.findElement(By.xpath("//*[@id=\"vehicleSpecs-model-select\"]"));
+
 	}
 
 	public WebElement getVehicleTrim() {
-		WebElement vehicleTrim = driver.findElement(By.xpath("//*[@id=\"vehicleSpecs-trim-select\"]"));
-		return vehicleTrim;
+		return driver.findElement(By.xpath("//*[@id=\"vehicleSpecs-trim-select\"]"));
+
 	}
 
 	public WebElement getVehicleStyle() {
-		WebElement vehicleStyle = driver.findElement(By.xpath("//*[@id=\"vehicleSpecs-bodyStyle-select\"]"));
-		return vehicleStyle;
+		return driver.findElement(By.xpath("//*[@id=\"vehicleSpecs-bodyStyle-select\"]"));
+
 	}
 
 	public WebElement getNext1() {
-		WebElement next1 = driver.findElement(By.xpath("//*[@id=\"vehicleSpecs\"]/button"));
-		return next1;
+		return driver.findElement(By.xpath("//*[@id=\"vehicleSpecs\"]/button"));
+
 	}
 
 	public WebElement getFullPaid() {
-		WebElement fullPaid = driver.findElement(By.xpath("//span[text()='Own (fully paid off)']"));
-		return fullPaid;
+		return driver.findElement(By.xpath("//span[text()='Own (fully paid off)']"));
+
 	}
 
 	public WebElement getFinance() {
-		WebElement finance = driver.findElement(By.xpath("//*[@id=\"ownership-radio\"]/div/div/label[2]/span"));
-		return finance;
+		return driver.findElement(By.xpath("//*[@id=\"ownership-radio\"]/div/div/label[2]/span"));
+
 	}
 
 	public WebElement getLease() {
-		WebElement lease = driver.findElement(By.xpath("//*[@id=\"ownership-radio\"]/div/div/label[3]/span"));
-		return lease;
+		return driver.findElement(By.xpath("//*[@id=\"ownership-radio\"]/div/div/label[3]/span"));
+
 	}
 
 	public WebElement getYes() {
-		WebElement yes = driver.findElement(By.xpath("//span[text() ='Yes']"));
-		return yes;
+		return driver.findElement(By.xpath("//span[text() ='Yes']"));
+
 	}
 
 	public WebElement getNo() {
-		WebElement no = driver.findElement(By.xpath("//span[text() ='No']"));
-		return no;
+		return driver.findElement(By.xpath("//span[text() ='No']"));
+
 	}
 
 	public WebElement getPurchaseYear() {
-		WebElement purchaseYear = driver.findElement(By.xpath("//*[@name='purchase-year']"));
-		return purchaseYear;
+		return driver.findElement(By.xpath("//*[@name='purchase-year']"));
+
 	}
 
-	public WebElement getAddress11() {
-		WebElement address11 = driver.findElement(By.xpath("//*[@id=\"garagingAddress-streetAddress-input\"]"));
-		return address11;
+	public WebElement getAddress1_parking() {
+		return driver.findElement(By.xpath("//*[@id=\"garagingAddress-streetAddress-input\"]"));
+
 	}
 
-	public WebElement getAddress22() {
-		WebElement address22 = driver
-				.findElement(By.xpath("//*[@id=\"garagingAddress-additionalStreetAddress-input\"]"));
-		return address22;
+	public WebElement getAddress2_parking() {
+		return driver.findElement(By.xpath("//*[@id=\"garagingAddress-additionalStreetAddress-input\"]"));
+
 	}
 
-	public WebElement getZipcode() {
-		WebElement zipcode = driver.findElement(By.xpath("//*[@id=\"garagingAddress-zipCode-input\"]"));
-		return zipcode;
+	public WebElement getZipcode_parking() {
+		return driver.findElement(By.xpath("//*[@id=\"garagingAddress-zipCode-input\"]"));
+
 	}
 
 	public WebElement getNext() {
-		WebElement next = driver.findElement(By.xpath("//*[@id=\"garagingAddress\"]/button"));
-		return next;
+		return driver.findElement(By.xpath("//*[@id=\"garagingAddress\"]/button"));
+
 	}
 
 	public WebElement getSaveAndContinue() {
 
-		WebElement saveAndContinue = driver.findElement(By.xpath("//button[text() = 'Save and continue']"));
+		return driver.findElement(By.xpath("//button[text() = 'Save and continue']"));
 
-		return saveAndContinue;
 	}
 
 	public VehicleDetailsRepo(WebDriver driver) {
@@ -131,15 +127,14 @@ public class VehicleDetailsRepo extends BaseClass {
 	}
 
 	public ArrayList<WebElement> getErrorList() throws Exception {
-		ArrayList<WebElement> errors = (ArrayList<WebElement>) driver
+		return (ArrayList<WebElement>) driver
 				.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li/span"));
-		return errors;
+
 	}
 
 	public WebElement getHaveOtherVehicle() {
-		WebElement haveOtherVehicle = driver.findElement(By.xpath("//span[text()='I have other vehicles to add']"));
-		return haveOtherVehicle;
-	}
+		return driver.findElement(By.xpath("//span[text()='I have other vehicles to add']"));
 
+	}
 
 }

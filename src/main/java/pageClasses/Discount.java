@@ -54,7 +54,7 @@ public class Discount extends BaseClass {
 				discountRepo.getMotorcycle().click();
 			}
 			if (policies.get(i).toLowerCase().equals("other")) {
-				discountRepo.getOther11().click();
+				discountRepo.getOther_policy().click();
 
 			}
 
@@ -123,7 +123,7 @@ public class Discount extends BaseClass {
 			discountRepo.getMobile().click();
 
 		} else {
-			discountRepo.getNo1().click();
+			discountRepo.getNo_home().click();
 
 		}
 
@@ -137,20 +137,15 @@ public class Discount extends BaseClass {
 
 	}
 
-	//Checks discount
+	// Checks discount
 	public void wantToSave30percent(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
-			discountRepo.getYes1().click();
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			discountRepo.getYes_Offer().click();
+			sleep(2);
 			discountRepo.getNext().click();
 
 		} else {
-			discountRepo.getNo11().click();
+			discountRepo.getNo_Offer().click();
 
 		}
 
@@ -165,7 +160,7 @@ public class Discount extends BaseClass {
 			discountRepo.getAndroid4().click();
 
 		} else if (phone.toLowerCase().contains("other")) {
-			discountRepo.getOther1().click();
+			discountRepo.getOther_phone().click();
 
 		} else {
 			discountRepo.getNoPhone().click();
@@ -176,10 +171,10 @@ public class Discount extends BaseClass {
 	// Asks whether user wants to receive text
 	public void wantToRecieveText(String ans) {
 		if (ans.toLowerCase().equals("yes")) {
-			discountRepo.getYes11().click();
+			discountRepo.getYes_RecieveText().click();
 
 		} else {
-			discountRepo.getNo111().click();
+			discountRepo.getNo_RecieveText().click();
 
 		}
 	}
@@ -195,7 +190,7 @@ public class Discount extends BaseClass {
 		return discountRepo.getCheckBoxStatus();
 	}
 
-	//Clicks on checkbox of 30% discount
+	// Clicks on checkbox of 30% discount
 	public void selectCheckBox() {
 
 		discountRepo.getCheckBox().click();

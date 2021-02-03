@@ -44,7 +44,6 @@ public class BaseClass {
 	// function for invoking browsers
 	public void invokebrowser() {
 		String browser = prop.getProperty("browser_name");
-		browser = "chrome";
 		this.logger = report.createTest("invokeBrowser");
 		try {
 			logger.log(Status.INFO, "Opening the browser");
@@ -57,7 +56,7 @@ public class BaseClass {
 			}
 
 			else if (browser.equalsIgnoreCase("firefox")) {
-				// System.setProperty("webdriver.gecko.driver",
+				
 				// prop.getProperty("firefox_path"));
 
 				cap = DesiredCapabilities.firefox();
@@ -169,6 +168,15 @@ public class BaseClass {
 		for (int i = 0; i < errors.size(); i++) {
 			System.out.println(i + 1 + ". " + errors.get(i).getText());
 
+		}
+	}
+
+	public static void sleep(int time) {
+		try {
+			Thread.sleep(time * 1000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
 		}
 	}
 

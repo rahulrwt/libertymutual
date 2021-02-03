@@ -2,230 +2,30 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-01-29T00:54:13 IST" name="Default suite" finished-at="2021-01-29T00:56:38 IST" duration-ms="144886">
+  <suite started-at="2021-02-03T13:25:20 IST" name="Default suite" finished-at="2021-02-03T13:25:20 IST" duration-ms="64">
     <groups>
     </groups>
-    <test started-at="2021-01-29T00:54:13 IST" name="Default test" finished-at="2021-01-29T00:56:38 IST" duration-ms="144886">
-      <class name="TestClass.Valid_Test">
-        <test-method is-config="true" signature="Initial()[pri:0, instance:TestClass.Valid_Test@f79e]" started-at="2021-01-29T00:54:01 IST" name="Initial" finished-at="2021-01-29T00:54:13 IST" duration-ms="11508" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Initial -->
-        <test-method signature="Test1(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:TestClass.Valid_Test@f79e]" started-at="2021-01-29T00:54:15 IST" name="Test1" data-provider="Test1" finished-at="2021-01-29T00:56:38 IST" duration-ms="143047" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[03820]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Prashant]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Dhar]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[10/11/1997]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[House No. 14]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Central Park street]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[No]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[h.no 2]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1 Street]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[03820]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[rahul@gmail.com]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[5NPEB4ACXDH537662]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[lease]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[male]]>
-              </value>
-            </param>
-            <param index="20">
-              <value>
-                <![CDATA[18]]>
-              </value>
-            </param>
-            <param index="21">
-              <value>
-                <![CDATA[no]]>
-              </value>
-            </param>
-            <param index="22">
-              <value>
-                <![CDATA[8888876987]]>
-              </value>
-            </param>
-            <param index="23">
-              <value>
-                <![CDATA[Yes]]>
-              </value>
-            </param>
-            <param index="24">
-              <value>
-                <![CDATA[landlord]]>
-              </value>
-            </param>
-            <param index="25">
-              <value>
-                <![CDATA[military]]>
-              </value>
-            </param>
-            <param index="26">
-              <value>
-                <![CDATA[bachelor]]>
-              </value>
-            </param>
-            <param index="27">
-              <value>
-                <![CDATA[condo]]>
-              </value>
-            </param>
-            <param index="28">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="29">
-              <value>
-                <![CDATA[iphone]]>
-              </value>
-            </param>
-            <param index="30">
-              <value>
-                <![CDATA[No]]>
-              </value>
-            </param>
-            <param index="31">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="32">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="33">
-              <value>
-                <![CDATA[01/1997]]>
-              </value>
-            </param>
-            <param index="34">
-              <value>
-                <![CDATA[50000]]>
-              </value>
-            </param>
-            <param index="35">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="36">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="37">
-              <value>
-                <![CDATA[January 31, 2021]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.IndexOutOfBoundsException">
+    <test started-at="2021-02-03T13:25:20 IST" name="Default test" finished-at="2021-02-03T13:25:20 IST" duration-ms="64">
+      <class name="baseClass.BaseClass">
+        <test-method signature="invokebrowser(java.lang.String)[pri:0, instance:baseClass.BaseClass@63475ace]" started-at="2021-02-03T13:25:20 IST" name="invokebrowser" finished-at="2021-02-03T13:25:20 IST" duration-ms="0" status="FAIL">
+          <exception class="org.testng.TestNGException">
             <message>
-              <![CDATA[Index 0 out of bounds for length 0]]>
+              <![CDATA[
+Parameter 'browser' is required by @Test on method invokebrowser but has not been marked @Optional or defined
+in C:\Users\91950\AppData\Local\Temp\testng-eclipse--963391246\testng-customsuite.xml]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-at java.base/java.util.Objects.checkIndex(Objects.java:373)
-at java.base/java.util.ArrayList.get(ArrayList.java:426)
-at pageClasses.Quote.saveToXls(Quote.java:53)
-at TestClass.Valid_Test.Test1(Valid_Test.java:349)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'browser' is required by @Test on method invokebrowser but has not been marked @Optional or defined
+in C:\Users\91950\AppData\Local\Temp\testng-eclipse--963391246\testng-customsuite.xml
+at org.testng.internal.Parameters.createParams(Parameters.java:268)
+at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:356)
+at org.testng.internal.Parameters.createParameters(Parameters.java:700)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:875)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:740)
+at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:59)
+at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:38)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:789)
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -247,15 +47,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test1 -->
-        <test-method is-config="true" signature="afterSuit()[pri:0, instance:TestClass.Valid_Test@f79e]" started-at="2021-01-29T00:56:38 IST" name="afterSuit" finished-at="2021-01-29T00:56:38 IST" duration-ms="663" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterSuit -->
-      </class> <!-- TestClass.Valid_Test -->
+        </test-method> <!-- invokebrowser -->
+      </class> <!-- baseClass.BaseClass -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

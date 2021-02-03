@@ -14,93 +14,73 @@ public class CurrentInsuranceRepo {
 	}
 
 	public WebElement getYes() {
-		WebElement yes = driver.findElement(By.xpath("//span[text()='Yes']"));
-		return yes;
+		return driver.findElement(By.xpath("//span[text()='Yes']"));
+		 
 	}
 
 	public WebElement getNo() {
-		WebElement no = driver.findElement(By.xpath("//span[text()='No']"));
-		return no;
+		return driver.findElement(By.xpath("//span[text()='No']"));
+		
 	}
 
 	public WebElement getExpiredOrCanceled() {
-		WebElement expiredOrCanceled = driver
-				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[1]/span/span[1]"));
-
-		return expiredOrCanceled;
+		return driver.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[1]/span/span[1]"));
 	}
 
 	public WebElement getNewlyLicensed() {
-		WebElement newlyLicensed = driver.findElement(By.xpath("//span[text() = 'I’m newly licensed']"));
-
-		return newlyLicensed;
+		return driver.findElement(By.xpath("//span[text() = 'I’m newly licensed']"));
 	}
 
 	public WebElement getCompanyCar() {
-		WebElement CompanyCar = driver
-				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[3]/span/span[1]"));
+		return driver.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[3]/span/span[1]"));
 
-		return CompanyCar;
 	}
 
 	public WebElement getMilitary() {
-		WebElement military = driver
-				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[4]/span/span[1]"));
+		return driver.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[4]/span/span[1]"));
 
-		return military;
 	}
 
 	public WebElement getOther() {
 
-		WebElement other = driver
-				.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[5]/span/span[1]"));
+		return driver.findElement(By.xpath("//*[@id=\"currentInsuranceStatus-radio\"]/div/div/label[5]/span/span[1]"));
 
-		return other;
 	}
 
 	public WebElement getReason() {
-		WebElement reason = driver.findElement(By.xpath("//*[@id=\"noPriorInsuranceForm-input-input\"]"));
+		return driver.findElement(By.xpath("//*[@id=\"noPriorInsuranceForm-input-input\"]"));
 
-		return reason;
 	}
 
 	public WebElement getNext() {
-		WebElement next = driver.findElement(By.xpath("//button[text()='Next']"));
+		return driver.findElement(By.xpath("//button[text()='Next']"));
 
-		return next;
 	}
 
 	public WebElement getPriorPolicyStart() {
-		WebElement priorPolicyStart = driver
-				.findElement(By.xpath("//*[@id='priorPolicyStart-input-input']"));
+		return driver.findElement(By.xpath("//*[@id='priorPolicyStart-input-input']"));
 
-		return priorPolicyStart;
 	}
 
 	public WebElement getBodilyInjury() {
-		WebElement bodilyInjury = driver.findElement(By.xpath("//*[@id=\"bodilyInjury-select-select\"]"));
+		return driver.findElement(By.xpath("//*[@id=\"bodilyInjury-select-select\"]"));
 
-		return bodilyInjury;
 	}
 
 	public WebElement getDate() {
 
-		WebElement date = driver.findElement(By.xpath("//select[@class='lm-Field-select']"));
+		return driver.findElement(By.xpath("//select[@class='lm-Field-select']"));
 
-		return date;
 	}
 
 	public WebElement getGetEstimate() {
 
-		WebElement getEstimate = driver.findElement(By.xpath("//button[text()='Get my estimate']"));
+		return driver.findElement(By.xpath("//button[text()='Get my estimate']"));
 
-		return getEstimate;
 	}
 
 		public ArrayList<WebElement> getErrorList() throws Exception {
-		ArrayList<WebElement> errors = (ArrayList<WebElement>) driver.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li/span"));
-		return errors;
+			return (ArrayList<WebElement>) driver.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li/span"));
+		
 	}
-
-
 }

@@ -12,8 +12,8 @@ public class HomeRepo {
 
 	String excelSheetName;
 	String excelFileName;
-	
-	// Parameterized constructor 
+
+	// Parameterized constructor
 	public HomeRepo(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -31,20 +31,19 @@ public class HomeRepo {
 	}
 
 	public WebElement getZipcodeElement() {
-		WebElement zipcodeElement = driver.findElement(By.xpath("//input[@name='zipCode']"));
-		return zipcodeElement;
+		return driver.findElement(By.xpath("//input[@name='zipCode']"));
+
 	}
 
 	public WebElement getGetPricElement() {
-		WebElement getPricElement = driver.findElement(
+		return driver.findElement(
 				By.xpath("//*[@id='quoteModuleForm']/div/div/div[1]/div[3]/div/div/div/div/div/div[3]/button"));
 
-		return getPricElement;
 	}
 
-	//function for fetching error elements from webpage
-		public ArrayList<WebElement> getErrorList() throws Exception {
-		ArrayList<WebElement> errors = (ArrayList<WebElement>) driver.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li"));
-		return errors;
+	// function for fetching error elements from webpage
+	public ArrayList<WebElement> getErrorList() throws Exception {
+		return (ArrayList<WebElement>) driver.findElements(By.xpath("//ul[@class='lm-FieldGroupMessage is-error']/li"));
+
 	}
 }

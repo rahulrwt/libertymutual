@@ -25,16 +25,6 @@ public class Quote extends BaseClass {
 		this.quoteRepo = new QuoteRepo(driver);
 	}
 
-	// Prints details of quote on console
-	public void printConsole() {
-		this.pricesElements = quoteRepo.getPricesElements();
-
-		for (int i = 0; i < pricesElements.size(); i++) {
-			System.out.println(i + 1 + ". " + pricesElements.get(i).getText());
-
-		}
-	}
-
 	// Saves details of quote in .XLSX format
 	public void saveToXls() throws IOException {
 
