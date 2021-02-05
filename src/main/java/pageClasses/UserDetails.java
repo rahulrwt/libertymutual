@@ -104,4 +104,15 @@ public class UserDetails extends BaseClass {
 
 	}
 
+	public String returnErrors() {
+		try {
+			System.out.print("inside try");
+			return returnErrors(userDetailsRepo.getErrorList());
+		} catch (Exception e) {
+
+			return "";
+		}
+
+	}
+
 }

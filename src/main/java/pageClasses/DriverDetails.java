@@ -68,5 +68,14 @@ public class DriverDetails extends BaseClass {
 		driverDetailsRepo.getSaveAndContinue().click();
 		return PageFactory.initElements(driver, Discount.class);
 	}
+	public String returnErrors() {
+		try {
+			System.out.print("inside try");
+			return returnErrors(driverDetailsRepo.getErrorList());
+		} catch (Exception e) {
 
+			return "";
+		}
+
+	}
 }

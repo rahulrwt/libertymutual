@@ -106,7 +106,22 @@ public class VehicleDetails extends BaseClass {
 		printErrors(vehicleDetailsRepo.getErrorList());
 	}
 
+	public String returnErrors() {
+		try {
+		
+			return returnErrors(vehicleDetailsRepo.getErrorList());
+		} catch (Exception e) {
+
+			return "";
+		}
+
+	}
 	public void haveOtherVehicle() {
 		vehicleDetailsRepo.getHaveOtherVehicle().click();
 	}
+
+	public String getTitle() {
+		return driver.getTitle();
+	}
+
 }

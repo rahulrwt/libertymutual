@@ -6,7 +6,7 @@
       <class name="TestClass.Valid_Test">
         <methods>
           <include name="Initial"/>
-          <include name="validTest"/>
+          <include name="ValidTest"/>
           <include name="afterSuit"/>
         </methods>
       </class> <!-- TestClass.Valid_Test -->

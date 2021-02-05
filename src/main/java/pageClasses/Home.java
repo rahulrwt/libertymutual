@@ -20,33 +20,36 @@ public class Home extends BaseClass {
 		this.homeRepo = new HomeRepo(driver);
 	}
 
-//	public void setSheetDetails(String excelSheetName, String sheetLocation) {
-//		this.excelSheetName = excelSheetName;
-//		this.sheetLocation = sheetLocation;
-//	}
+	public String returnErrors() {
+		try {
 
-	//Sets zipcode of city where car is purchased
+			return returnErrors(homeRepo.getErrorList());
+		} catch (Exception e) {
+
+			return "";
+		}
+
+	}
+
+	// Sets zipcode of city where car is purchased
 	public void setZipCode(String zipCode) {
-		this.logger = report.createTest("SetZipCode");
 		homeRepo.getZipcodeElement().sendKeys(zipCode);
 	}
 
 	// redirects to UserDetails page and returns UserDetails object
-	
+
 	public UserDetails getPrice() {
 		homeRepo.getGetPricElement().click();
 		return PageFactory.initElements(driver, UserDetails.class);
 
 	}
 
-	//Print errors, if any on page
+	// Print errors, if any on page
 	public void printErrors() throws Exception {
-		if(homeRepo.getErrorList().size()==0)
-		{
+		if (homeRepo.getErrorList().size() == 0) {
 			throw new Exception("Errmessage");
 		}
 		printErrors(homeRepo.getErrorList());
 	}
-
 
 }

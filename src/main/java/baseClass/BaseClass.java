@@ -1,6 +1,5 @@
 package baseClass;
 
-import java.awt.print.Printable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,7 +43,7 @@ public class BaseClass {
 	// function for invoking browsers
 	public void invokebrowser() {
 		String browser = prop.getProperty("browser_name");
-		this.logger = report.createTest("invokeBrowser");
+		this.logger = report.createTest("LiberyMutual");
 		try {
 			logger.log(Status.INFO, "Opening the browser");
 
@@ -56,8 +55,6 @@ public class BaseClass {
 			}
 
 			else if (browser.equalsIgnoreCase("firefox")) {
-				
-				// prop.getProperty("firefox_path"));
 
 				cap = DesiredCapabilities.firefox();
 				logger.log(Status.PASS, "firefox opened");
@@ -72,7 +69,7 @@ public class BaseClass {
 		// grid configuration
 		try {
 
-			logger.log(Status.INFO, "node is connected to hub http://192.168.1.28:4444/wd/hub");
+			logger.log(Status.INFO, "node is connected to hub http://192.168.0.105:4444/wd/hub");
 			driver = new RemoteWebDriver(new URL("http://192.168.0.105:4444/wd/hub"), cap); // pass address of hub as
 																							// argument in URL()
 		} catch (MalformedURLException e) {
@@ -86,6 +83,7 @@ public class BaseClass {
 
 		driver.manage().window().maximize();
 		driver.get(URL);
+		logger.log(Status.INFO, "Opening " + URL);
 		return PageFactory.initElements(driver, Home.class);
 	}
 
@@ -167,8 +165,16 @@ public class BaseClass {
 	public void printErrors(ArrayList<WebElement> errors) {
 		for (int i = 0; i < errors.size(); i++) {
 			System.out.println(i + 1 + ". " + errors.get(i).getText());
-
 		}
+	}
+
+	public String returnErrors(ArrayList<WebElement> errors) {
+		String errorsString = "";
+		for (int i = 0; i < errors.size(); i++) {
+			errorsString = errorsString + i + 1 + ". " + errors.get(i).getText() + " ";
+		}
+
+		return errorsString;
 	}
 
 	public static void sleep(int time) {

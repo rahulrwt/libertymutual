@@ -212,4 +212,14 @@ public class Discount extends BaseClass {
 		discountRepo.getWithoutOffer().click();
 		return PageFactory.initElements(driver, CurrentInsurances.class);
 	}
+	public String returnErrors() {
+		try {
+			System.out.print("inside try");
+			return returnErrors(discountRepo.getErrorList());
+		} catch (Exception e) {
+
+			return "";
+		}
+
+	}
 }
